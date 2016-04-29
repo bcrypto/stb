@@ -6,7 +6,6 @@
 *.thm
 *.toc
 *.dvi
-*.pdf
 
 # Tmp files
 ~*.*
