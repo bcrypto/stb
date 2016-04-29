@@ -1,0 +1,351 @@
+\begin{appendix}{В}{справочное}{Проверочные примеры}
+\label{TEST}
+
+\hiddensection{Выработка имитовставки в режиме HMAC}
+
+В таблице~\ref{Table.HMAC} представлен пример выполнения 
+алгоритма \texttt{hmac-hbelt}. Здесь и далее названия алгоритмов 
+даются в соответствии с приложением~А.
+
+\begin{table}[H]
+\caption{Выработка имитовставки (алгоритм \texttt{hmac-hbelt})}\label{Table.HMAC}
+\begin{tabular}{|l|l|}
+%
+\hline
+$K$ & 
+$\texttt{E9DEE72C~8F0C0FA6~2DDB49F4~6F739647~06075316~ED247A37~39CBA383~03}_{16}$\\
+%
+\hline
+$X$ & 
+$\texttt{BE329713~43FC9A48~A02A885F~194B09A1~7ECDA4D0~1544AF8C~A58450BF~66D2E88A}_{16}$\\
+\hline
+\hline
+$Y$ & 
+$\texttt{D4828E63~12B08BB8~3C9FA653~5A463554~9E411FD1~1C0D8289~359A1130~E930676B}_{16}$\\
+\hline
+\hline
+$K$ & 
+$\texttt{E9DEE72C~8F0C0FA6~2DDB49F4~6F739647~06075316~ED247A37~39CBA383~03A98BF6}_{16}$\\
+%
+\hline
+$X$ & 
+$\texttt{BE329713~43FC9A48~A02A885F~194B09A1~7ECDA4D0~1544AF8C~A58450BF~66D2E88A}_{16}$\\
+\hline
+\hline
+$Y$ & 
+$\texttt{41FFE864~5AEC0612~E952D2CD~F8DD508F~3E4A1D9B~53F6A1DB~293B19FE~76B1879F}_{16}$\\
+\hline
+\hline
+$K$ & 
+$\texttt{E9DEE72C~8F0C0FA6~2DDB49F4~6F739647~06075316~ED247A37~39CBA383~03A98BF6}$\\
+&
+$\texttt{92BD9B1C~E5D14101~5445}_{16}$\\
+%
+\hline
+$X$ & 
+$\texttt{BE329713~43FC9A48~A02A885F~194B09A1~7ECDA4D0~1544AF8C~A58450BF~66D2E88A}_{16}$\\
+\hline
+\hline
+$Y$ & 
+$\texttt{7D01B84D~2315C332~277B3653~D7EC6470~7EBA7CDF~F7FF7007~7B1DECBD~68F2A144}_{16}$\\
+\hline
+\end{tabular}
+\end{table}
+
+\hiddensection{Генерация псевдослучайных чисел в режиме счетчика}
+
+В таблицах~\ref{Table.PRNG-CTR1}, \ref{Table.PRNG-CTR2} 
+представлены примеры генерации псевдослучайных чисел 
+с помощью алгоритмов~\texttt{brng-ctr-hbelt} и \texttt{brng-ctr-stb11761}.
+
+\begin{table}[H]
+\caption{Генерация псевдослучайных чисел (алгоритм \texttt{brng-ctr-hbelt})}
+\label{Table.PRNG-CTR1}
+\begin{tabular}{|l|l|}
+%
+\hline
+$n$ & 
+$3$\\
+%
+\hline
+$K$ & 
+$\texttt{E9DEE72C~8F0C0FA6~2DDB49F4~6F739647~06075316~ED247A37~39CBA383~03A98BF6}_{16}$\\
+%
+\hline
+$S$ & 
+$\texttt{BE329713~43FC9A48~A02A885F~194B09A1~7ECDA4D0~1544AF8C~A58450BF~66D2E88A}_{16}$\\
+%
+\hline
+$X$ & 
+$\texttt{B194BAC8~0A08F53B~366D008E~584A5DE4~8504FA9D~1BB6C7AC~252E72C2~02FDCE0D}$\\
+&
+$\texttt{5BE3D612~17B96181~FE6786AD~716B890B~5CB0C0FF~33C356B8~35C405AE~D8E07F99}$\\
+&
+$\texttt{E12BDC1A~E28257EC~703FCCF0~95EE8DF1~C1AB7638~9FE678CA~F7C6F860~D5BB9C4F}_{16}$\\
+%
+\hline
+\hline
+$Y$ & 
+$\texttt{1F66B5B8~4B733967~4533F032~9C74F218~34281FED~0732429E~0C79235F~C273E269}$\\
+&
+$\texttt{4C0E74B2~CD5811AD~21F23DE7~E0FA742C~3ED6EC48~3C461CE1~5C33A77A~A308B7D2}$\\
+&
+$\texttt{0F51D913~47617C20~BD4AB07A~EF4F26A1~AD1362A8~F9A3D42F~BE1B8E6F~1C88AAD5}_{16}$\\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\begin{table}[H]
+\caption{Генерация псевдослучайных чисел (алгоритм \texttt{brng-ctr-stb11761})}
+\label{Table.PRNG-CTR2}
+\begin{tabular}{|l|l|}
+%
+\hline
+$n$ & 
+$3$\\
+%
+\hline
+$K$ & 
+$\texttt{E9DEE72C~8F0C0FA6~2DDB49F4~6F739647~06075316~ED247A37~39CBA383~03A98BF6}_{16}$\\
+%
+\hline
+$S$ & 
+$\texttt{BE329713~43FC9A48~A02A885F~194B09A1~7ECDA4D0~1544AF8C~A58450BF~66D2E88A}_{16}$\\
+%
+\hline
+$X$ & 
+$\texttt{B194BAC8~0A08F53B~366D008E~584A5DE4~8504FA9D~1BB6C7AC~252E72C2~02FDCE0D}$\\
+&
+$\texttt{5BE3D612~17B96181~FE6786AD~716B890B~5CB0C0FF~33C356B8~35C405AE~D8E07F99}$\\
+&
+$\texttt{E12BDC1A~E28257EC~703FCCF0~95EE8DF1~C1AB7638~9FE678CA~F7C6F860~D5BB9C4F}_{16}$\\
+%
+\hline
+\hline
+$Y$ & 
+$\texttt{F7619A01~893ED14E~CA0FF583~2797086C~FB5B2F90~8CFB4B33~4BC201C9~814D744F}$\\
+&
+$\texttt{3F616631~B040A16E~0D1EC7A7~CC62000C~377869AD~874E473C~58493143~9FC6D41D}$\\
+&
+$\texttt{4DAFA372~72A93832~BA8D405F~1DC58F70~B943CAC3~3A926789~C8A3C819~E6F24F98}_{16}$\\
+\hline
+\end{tabular}
+\end{table}
+
+\hiddensection{Генерация псевдослучайных чисел в режиме HMAC}
+
+В таблице~\ref{Table.PRNG-HMAC} представлен пример 
+генерации псевдослучайных чисел 
+с помощью алгоритма~\texttt{brng-hmac-hbelt}.
+
+\begin{table}[H]
+\caption{Генерация псевдослучайных чисел (алгоритм \texttt{brng-hmac-hbelt})}
+\label{Table.PRNG-HMAC}
+\begin{tabular}{|l|l|}
+%
+\hline
+$n$ & 
+$3$\\
+%
+\hline
+$K$ & 
+$\texttt{E9DEE72C~8F0C0FA6~2DDB49F4~6F739647~06075316~ED247A37~39CBA383~03A98BF6}_{16}$\\
+%
+\hline
+$S$ & 
+$\texttt{BE329713~43FC9A48~A02A885F~194B09A1~7ECDA4D0~1544AF8C~A58450BF~66D2E88A}_{16}$\\
+\hline
+\hline
+$Y$ & 
+$\texttt{AF907A0E~470A3A1B~268ECCCC~C0B90F23~9FE94A2D~C6E01417~9FC789CB~3C3887E4}$\\
+&
+$\texttt{695C6B96~B84948F8~D76924E2~2260859D~B9B5FE75~7BEDA2E1~7103EE44~655A9FEF}$\\
+&
+$\texttt{648077CC~C5002E05~61C6EF51~2C513B8C~24B4F3A1~57221CFB~C1597E96~9778C1E4}_{16}$\\
+\hline
+\end{tabular}
+\end{table}
+
+\hiddensection{Генерация одноразовых паролей в режиме HOTP}
+
+В таблице~\ref{Table.HOTP} представлен пример 
+генерации одноразовых паролей 
+с помощью алгоритма~\texttt{hotp-hbelt}.
+
+\begin{table}[H]
+\caption{Генерация одноразовых паролей (алгоритм \texttt{hotp-hbelt})}
+\label{Table.HOTP}
+\begin{tabular}{|l|l|}
+%
+\hline
+$d$ & 
+$8$\\
+%
+\hline
+$K$ & 
+$\texttt{E9DEE72C~8F0C0FA6~2DDB49F4~6F739647~06075316~ED247A37~39CBA383~03A98BF6}_{16}$\\
+%
+\hline
+\hline
+$C$ & 
+$\texttt{BE329713~43FC9A48}_{16}$\\
+\hline
+$R$ & 
+$21157984$\\
+\hline
+\hline
+$C$ & 
+$\texttt{BE329713~43FC9A49}_{16}$\\
+\hline
+$R$ & 
+$17877985$\\
+\hline
+\hline
+$C$ & 
+$\texttt{BE329713~43FC9A4A}_{16}$\\
+\hline
+$R$ & 
+$26078636$\\
+\hline
+\end{tabular}
+\end{table}
+
+
+\hiddensection{Генерация одноразовых паролей в режиме TOTP}
+
+В таблице~\ref{Table.TOTP} представлен пример 
+генерации одноразовых паролей с помощью алгоритма~\texttt{totp-hbelt}.
+В таблице~$t$~--- отметка текущего времени до округления,
+$T$~--- после округления.
+
+\begin{table}[H]
+\caption{Генерация одноразовых паролей (алгоритм \texttt{totp-hbelt})}
+\label{Table.TOTP}
+\begin{tabular}{|l|l|}
+%
+\hline
+$T_0$ &
+$0$\\
+\hline
+$T_s$ &
+$60$\\
+\hline
+\hline
+$d$ & 
+$8$\\
+%
+\hline
+$K$ & 
+$\texttt{E9DEE72C~8F0C0FA6~2DDB49F4~6F739647~06075316~ED247A37~39CBA383~03A98BF6}_{16}$\\
+%
+\hline
+\hline
+$t$ & 
+$1449165288$\\
+\hline
+$T$ & 
+$24152754$\\
+\hline
+$R$ & 
+$97660664$\\
+\hline
+\hline
+$t$ & 
+$1449165300$\\
+\hline
+$T$ & 
+$24152755$\\
+\hline
+$R$ & 
+$94431522$\\
+\hline
+\hline
+$t$ & 
+$1449165419$\\
+\hline
+$T$ & 
+$24152756$\\
+\hline
+$R$ & 
+$55973851$\\
+\hline
+\end{tabular}
+\end{table}
+
+\hiddensection{Генерация одноразовых паролей в режиме OCRA}
+
+В таблице~\ref{Table.OCRA} представлен пример 
+генерации одноразовых паролей с помощью алгоритма~\texttt{ocra-hbelt}.
+
+\begin{table}[H]
+\caption{Генерация одноразовых паролей (алгоритм \texttt{ocra-hbelt})}
+\label{Table.OCRA}
+\begin{tabular}{|l|l|}
+%
+\hline
+$D$ & 
+\texttt{\textquotedbl OCRA-1:HOTP-HBELT-8:C-QN08-PHBELT-S064-T1M\textquotedbl}\\
+%
+\hline
+$K$ & 
+$\texttt{E9DEE72C~8F0C0FA6~2DDB49F4~6F739647~06075316~ED247A37~39CBA383~03A98BF6}_{16}$\\
+\hline
+$P$ &
+$\texttt{ABEF9725~D4C5A835~97A367D1~4494CC25~42F20F65~9DDFECC9~61A3EC55~0CBA8C75}_{16}$\\
+\hline
+$S$ &
+$\texttt{B194BAC8~0A08F53B~366D008E~584A5DE4~8504FA9D~1BB6C7AC~252E72C2~02FDCE0D}$\\
+&
+$\texttt{5BE3D612~17B96181~FE6786AD~716B890B~5CB0C0FF~33C356B8~35C405AE~D8E07F99}_{16}$\\
+%
+\hline
+\hline
+$Q$ &
+\texttt{\textquotedbl 21157984\textquotedbl}\\
+\hline
+$C$ & 
+$\texttt{BE329713~43FC9A4B}_{16}$\\
+\hline
+$T$ & 
+$24152759$\\
+\hline
+$R$ & 
+$65124978$\\
+\hline
+\hline
+$Q$ &
+\texttt{\textquotedbl 1787798526078636\textquotedbl}\\
+\hline
+$C$ & 
+$\texttt{BE329713~43FC9A4C}_{16}$\\
+\hline
+$T$ & 
+$24152769$\\
+\hline
+$R$ & 
+$76375191$\\
+\hline
+\hline
+$Q$ &
+\texttt{\textquotedbl 2607863617877985\textquotedbl}\\
+\hline
+$C$ & 
+$\texttt{BE329713~43FC9A4D}_{16}$\\
+\hline
+$T$ & 
+$24152770$\\
+\hline
+$R$ & 
+$73541426$\\
+\hline
+\end{tabular}
+\end{table}
+
+\end{appendix}
+
+\mbox{}
+\vfill
+\mbox{}
+\clearpage
