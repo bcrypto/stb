@@ -1,4 +1,4 @@
-# 4 Обозначения и сокращения
+# 4 <a name="Defs"></a>Обозначения и сокращения
 
 В настоящем стандарте применяют следующие сокращения:
 
@@ -25,27 +25,27 @@ CОС – список отозванных сертификатов (СТБ 34.
 CAdES - РЭЦП в формате АСН.1;
 
 Base64 - правила кодирования двоичных данных словами в алфавите из 64 
-символов [BASE64];
+символов [[BASE64]](99Biblio.md#BASE64);
 
 MIME - multipurpose Internet mail extensions (многоцелевые расширения 
-Интернет-почты, [MIME]); 
+Интернет-почты, [[MIME]](99Biblio.md#MIME); 
 
 PAdES - РЭЦП для PDF;
 
-PDF - portable data format (переносимый формат данных, [PDF]);
+PDF - portable data format (переносимый формат данных, [[PDF]](99Biblio.md#PDF);
 
 URI - uniform resource identifier (унифицированный идентификатор ресурса, 
-[URI]); 
+[[URI]](99Biblio.md#URI); 
 
-URN - uniform resource name (унифицированное имя ресурса, [URN]); 
+URN - uniform resource name (унифицированное имя ресурса, [[URN]](99Biblio.md#URN); 
 
 XAdES - РЭЦП для XML;
 
-XML - extensible markup language (расширяемый язык разметки, [XML]);
+XML - extensible markup language (расширяемый язык разметки, [[XML]](99Biblio.md#XML);
 
-XML-DSig - XML digital signature (ЭЦП для XML, [XML-DSig]);
+XML-DSig - XML digital signature (ЭЦП для XML, [[XML-DSIG]](99Biblio.md#XML-DSIG);
 
-XPointer - XML pointer (указатель XML, [XPointer]).
+XPointer - XML pointer (указатель XML, [[XPointer]](99Biblio.md#XPointer).
 
 Ключевое слово «ДОЛЖЕН» означает, что действия, к которым применены
 данные ключевые слова, необходимо в точности выполнять. Ключевое слово

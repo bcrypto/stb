@@ -1,9 +1,9 @@
-# 9 Формат CAdES
+# 9 <a name="Cades"></a>Формат CAdES
 
-## 9.1 Общие положения
+## 9.1 <a name="Cades1"></a>Общие положения
 
 Формат CAdES определяет синтаксис РЭЦП и правила включения атрибутов, 
-описанных в разделе 6. 
+описанных в разделе [6](06Attrs.md). 
 
 Данные формата CAdES - это подписанные данные, синтаксис которых определен 
 в СТБ 34.101.23 (разделы 8 и 15). Данные описываются с помощью языка
@@ -61,10 +61,10 @@
 
 
 
-## 9.2 Синтаксис базовых атрибутов РЭЦП
+## 9.2 <a name="Cades2"></a>Синтаксис базовых атрибутов РЭЦП
 
 
-### 9.2.1 Атрибут `ContentType`
+### 9.2.1 <a name="Cades21"></a>Атрибут `ContentType`
 <!--- 5.7.1; 5.1.1 -->
 
 Синтаксис и правила включения атрибута `ContentType` 
@@ -76,7 +76,7 @@
 типа `EncapsulatedContentInfo`.
 
 
-### 9.2.2 Атрибут `MessageDigest`
+### 9.2.2 <a name="Cades22"></a>Атрибут `MessageDigest`
 <!--- 5.7.2; 5.1.2 -->
 
 Синтаксис и правила включения атрибута `MessageDigest` 
@@ -84,26 +84,34 @@
 <!--- CMS (RFC 3852 [4]). -->
 
 
-### 9.2.3 Атрибут `SigningTime`
+### 9.2.3 <a name="Cades23"></a>Атрибут `SigningTime`
 <!--- 5.9.1; 5.2.1 -->
 
 Синтаксис и правила включения атрибута `SigningTime` 
 определены в СТБ 34.101.23 (подраздел 15.4).
 
 
-### 9.2.4 Атрибут `SigningCertificate`
+### 9.2.4 <a name="Cades24"></a>Атрибут `SigningCertificate`
 <!--- 5.7.3; 5.2.2 -->
 
 Атрибуту назначается следующий идентификатор:
 
-    id-aa-signingCertificateV2 OBJECT IDENTIFIER ::= { 
-        iso(1) member-body(2) us(840) rsadsi(113549) 
-        pkcs(1) pkcs9(9) smime(16) id-aa(2) 47 
+    id-aa-signingCertificateV2 OBJECT IDENTIFIER ::= {
+        iso(1) member-body(2) us(840) rsadsi(113549)
+        pkcs(1) pkcs9(9) smime(16) id-aa(2) 47
     }
 
-Синтаксис атрибута `SigningCertificate` описывается типом
-`SigningCertificateV2`, определенным в [ESSUPD] (раздел 4).
+Синтаксис атрибута описывается типом `SigningCertificateV2`, определенным в 
+[[ESSUPD]](99Biblio.md#ESSUPD) (раздел 4). 
 
+    SigningCertificate ::=  SEQUENCE {
+        certs        SEQUENCE OF ESSCertID,
+        policies     SEQUENCE OF PolicyInformation OPTIONAL
+    }
+    ESSCertID ::= SEQUENCE {
+         certHash                Hash,
+         issuerSerial            IssuerSerial OPTIONAL
+    }
     SigningCertificateV2 ::=  SEQUENCE {
         certs        SEQUENCE OF ESSCertIDv2,
         policies     SEQUENCE OF PolicyInformation OPTIONAL
@@ -127,9 +135,8 @@
 
 Компонент `certs` содержит ссылки на сертификаты, используемые 
 при проверке подписи. Ссылка на сертификат представляется
-типом `ESSCertIDv2`. Первой в списке должна следовать ссылка на 
-сертификат подписанта, при кодировании которой СЛЕДУЕТ указывать 
-компонент `issuerSerial`.
+типом `ESSCertIDv2`. Первой в списке должна следовать ссылка на сертификат 
+подписанта, при кодировании которой СЛЕДУЕТ указывать компонент `issuerSerial`.
 
 Компонент `policies` НЕ ДОЛЖЕН использоваться.
 
@@ -138,14 +145,14 @@
 указывается в компоненте `certHash`.
 
 Значение `issuerAndSerialNumber` в компоненте `SignerIdentifier` типа 
-`SignerInfo` и компоненте `issuerSerial` в `ESSCertIDv2` ДОЛЖНЫ совпадать
-при их наличии.
+`SignerInfo` и компоненте `issuerSerial` типа `ESSCertIDv2`
+ДОЛЖНЫ совпадать при их наличии.
 
->Примечание - Атрибут `SigningCertificate` не следует путать
-с атрибутом `SigningCertificate`, определенным в [ESS] и разрешающим 
-использование только алгоритма хэширования SHA-1. 
+>Примечание - Атрибут SigningCertificate не следует путать с атрибутом 
+SigningCertificate, определенным в [[ESS]](99Biblio.md#ESS) 
+и разрешающим использование только алгоритма хэширования SHA-1. 
 
-### 9.2.5 Атрибут `CommitmentTypeIndication`
+### 9.2.5 <a name="Cades25"></a>Атрибут `CommitmentTypeIndication`
 <!--- 5.11.1; 5.2.3 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -190,7 +197,7 @@
 Этот компонент может содержать только распознаваемые типы обязательств.
 
 
-### 9.2.6 Атрибут `ContentHints`
+### 9.2.6 <a name="Cades26"></a>Атрибут `ContentHints`
 <!--- 5.10.3; 5.2.4.1 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -198,7 +205,7 @@
     id-aa-contentHint OBJECT IDENTIFIER ::= { iso(1) member-body(2) us(840)
         rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) id-aa(2) 4}
 
-Синтаксис атрибута описывается типом `ContentHints`, определенным в [ESS].
+Синтаксис атрибута описывается типом `ContentHints`, определенным в [[ESS]](99Biblio.md#ESS).
 
     ContentHints ::= SEQUENCE {
         contentDescription UTF8String (SIZE (1..MAX)) OPTIONAL,
@@ -212,7 +219,7 @@
 это идентификатор объекта (т. е. уникальная строка целых чисел),
 назначенная службой, определяющей тип содержимого;
 - если значением компонента `contentType` является 
-объектный идентификатор `id-data`, определенный в СТБ 34.101.23, то 
+идентификатор `id-data`, определенный в СТБ 34.101.23, то 
 компонент `contentDescription` должен определять формат 
 представления данных, который может быть задан типами MIME.
 
@@ -221,11 +228,11 @@
 
 - компонент `contentType` должен иметь значение `id-data`;
 - компонент `contentDescription` должен использоваться для указания кодировки
-данных в соответствии с правилами, определенными в [MIME].
+данных в соответствии с правилами, определенными в [[MIME]](99Biblio.md#MIME).
 <!--- Пример структурированного содержимого и типов MIME см. в приложении Е. -->
 
 
-### 9.2.7 Атрибут `MimeType`
+### 9.2.7 <a name="Cades27"></a>Атрибут `MimeType`
 <!--- ; 5.2.4.2 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -239,14 +246,14 @@
 
 Атрибут содержит MIME-тип подписанных данных.
 Значение атрибута должно формироваться по правилам, 
-определеным в [MIME].
+определеным в [[MIME]](99Biblio.md#MIME).
 
 >Примечание - Этот атрибут схож с компонентом `contentDescription` 
 атрибута `ContentHints`, но МОЖЕТ быть использован не только 
 в многоуровневом документе.
 
 
-### 9.2.8 Атрибут `SignerLocation`
+### 9.2.8 <a name="Cades28"></a>Атрибут `SignerLocation`
 <!--- 5.11.2; 5.2.5 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -269,7 +276,7 @@
     PostalAddress ::= SEQUENCE SIZE(1..6) OF DirectoryString
 
 
-### 9.2.9 Атрибут `SignerAttributes`
+### 9.2.9 <a name="Cades29"></a>Атрибут `SignerAttributes`
 <!--- 5.11.3; 5.2.6.1 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -292,29 +299,16 @@
         otherAttributeCertificate [1] OtherAttributeCertificate
     }
     OtherAttributeCertificate ::= SEQUENCE {
-        otherAttributeCertID OTHER-ATTRIBUTE-CERT.&id,
-        otherAttributeCert OTHER-ATTRIBUTE-CERT.&OtherAttributeCert OPTIONAL
+        otherAttributeCertID OBJECT IDENTIFIER,
+        otherAttributeCert ANY DEFINED BY otherAttributeCertID OPTIONAL
     }
-    OTHER-ATTRIBUTE-CERT ::= CLASS {
-        &id OBJECT IDENTIFIER UNIQUE,
-        &OtherAttributeCert OPTIONAL }
-      WITH SYNTAX {
-        OTHER-ATTRIBUTE-CERT-ID &id
-        [OTHER-ATTRIBUTE-CERT-TYPE &OtherAttributeCert] }
     SignedAssertions ::= SEQUENCE OF SignedAssertion
     SignedAssertion ::= SEQUENCE {
-        signedAssertionID SIGNED-ASSERTION.&id,
-        signedAssertion SIGNED-ASSERTION.&Assertion OPTIONAL
+        signedAssertionID OBJECT IDENTIFIER,
+        signedAssertion ANY DEFINED BY signedAssertionID OPTIONAL
     }
-    SIGNED-ASSERTION::= CLASS {
-        &id OBJECT IDENTIFIER UNIQUE,
-        &Assertion OPTIONAL }
-      WITH SYNTAX {
-        SIGNED-ASSERTION-ID &id
-        [SIGNED-ASSERTION-TYPE &Assertion] }
 
 Тип `AttributeCertificate` определен в СТБ 34.101.67.
-<!--- AttributeCertificateV2 ??? -->
 
 Неудостоверенные атрибуты указываются в компоненте `claimedAttributes`.
 Заявляемые SAML-утверждения могут указываться в компоненте `claimedAttributes`.
@@ -329,20 +323,24 @@
 
     ClaimedSAMLAssertion ::= OCTET STRING
 
-Удостоверенные атрибуты указываются в компоненте `certifiedAttributesV2` и
-могут быть представлены:
-
-- как атрибутный сертификат в компоненте `attributeCertificate` согласно
-СТБ 34.101.67;
-- как атрибутный сертификат в компоненте `otherAttributeCertificate` в ином
-синтаксисе. Не рекомендуется использовать компонент `otherAttributeCertificate`.
+Удостоверенные атрибуты указываются в компоненте `certifiedAttributesV2`. 
+Удостоверенные атрибуты представляют собой атрибутные сертификаты.
+Атрибутный сертификат согласно СТБ 34.101.67 указывается в компоненте
+`attributeCertificate`. Атрибутный сертификат в ином синтаксисе 
+указывается в компоненте `otherAttributeCertificate`, при этом тип 
+представления указывается в компоненте `otherAttributeCertID`, а значение 
+атрибутного сертификата - в компоненте `otherAttributeCert`. 
+Не рекомендуется использовать компонент `otherAttributeCertificate`.
+<!--- TODO: Не рекомендуется использовать атрибутные сертификаты в ином синтаксисе. -->
 
 Подписанные третьей стороной утверждения указываются в компоненте
-`signedAssertions`. Определения подписанных утверждений выходят
-за рамками настоящего стандарта.
+`signedAssertions`. Тип представления утверждения указывается в компоненте 
+`signedAssertionID`, а значение утверждения - в компоненте `signedAssertion`. 
+Определения подписанных утверждений выходят за рамками настоящего
+стандарта.
 
 
-### 9.2.10 Атрибут `Countersignature`
+### 9.2.10 <a name="Cades210"></a>Атрибут `Countersignature`
 <!--- 5.9.2; 5.2.7 -->
 
 Синтаксис и правила включения атрибута `Countersignature` 
@@ -350,7 +348,7 @@
 <!--- CMS (RFC 3852 [4]). -->
 
 
-### 9.2.11 Атрибут `ContentTimeStamp`
+### 9.2.11 <a name="Cades211"></a>Атрибут `ContentTimeStamp`
 <!--- 5.11.4; 5.2.8 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -381,7 +379,7 @@
 При этом в набор `SignerInfo.signedAttrs` ДОЛЖЕН быть добавлен 
 новый элемент, соответствующий значению данного атрибута.
 
-### 9.2.12 Атрибут `SignaturePolicyIdentifier`
+### 9.2.12 <a name="Cades212"></a>Атрибут `SignaturePolicyIdentifier`
 <!--- 5.8.1; 5.2.9 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -444,15 +442,13 @@
 
 В настоящем стандарте определены следующие квалификаторы:
 
-- веб URI или URL документа, содержащего политику подписи.
+- URI или URL документа, содержащего политику подписи.
 Определяется идентификатором `id-spq-ets-uri`;
 - примечание, отображаемое пользователю при каждой проверке подписи.
 Определяется идентификатором `id-spq-ets-unotice`;
 - идентификатор технической спецификации, определяющей синтаксис,
 используемый для создания документа, содержащего политику подписи.
 Определяется идентификатором `id-spq-ets-docspec`.
-
-<!-- todo: веб URI? -->
 
 Квалификаторы имеют следующий синтаксис:
 
@@ -492,7 +488,7 @@
     }
 
 
-### 9.2.13 Атрибут `SignaturePolicyStore`
+### 9.2.13 <a name="Cades213"></a>Атрибут `SignaturePolicyStore`
 <!--- ; 5.2.10 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -543,7 +539,7 @@
 Иначе данный атрибут включаться НЕ ДОЛЖЕН.
 
 
-### 9.2.14 Атрибут `ContentReference`
+### 9.2.14 <a name="Cades214"></a>Атрибут `ContentReference`
 <!--- 5.10.1; 5.2.11 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -554,7 +550,7 @@
     }
 
 Синтаксис атрибута описывается типом `ContentReference`, 
-определенным в [ESS] (подразделы 1.3.4, 2.11):
+определенным в [[ESS]](99Biblio.md#ESS) (подразделы 1.3.4, 2.11):
 
     ContentReference ::= SEQUENCE {
         contentType ContentType,
@@ -570,7 +566,7 @@
 ссылается атрибут.
 
 
-### 9.2.15 Атрибут `ContentIdentifier`
+### 9.2.15 <a name="Cades215"></a>Атрибут `ContentIdentifier`
 <!--- 5.10.2; 5.2.12 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -581,7 +577,7 @@
     }
 
 Синтаксис атрибута описывается типом `ContentIdentifier`, 
-определенным в [ESS] (подразделы 1.3.4, 2.7):
+определенным в [[ESS]](ESS) (подразделы 1.3.4, 2.7):
 
     ContentIdentifier ::= OCTET STRING
 
@@ -593,10 +589,10 @@
 строки типа `GeneralizedTime` и случайного числа.
 
 
-## 9.3 Синтаксис атрибута штампа времени подписи
+## 9.3 <a name="Cades3"></a>Синтаксис атрибута штампа времени подписи
 
 
-### 9.3.1 Атрибут `SignatureTimeStamp`
+### 9.3.1 <a name="Cades31"></a>Атрибут `SignatureTimeStamp`
 <!--- 6.1.1; 5.3 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -630,9 +626,9 @@
 или отзыва сертификата подписанта.
 
 
-## 9.4 Синтаксис атрибутов проверочных данных
+## 9.4 <a name="Cades4"></a>Синтаксис атрибутов проверочных данных
 
-### 9.4.1 Атрибут `CompleteCertificateReferences`
+### 9.4.1 <a name="Cades41"></a>Атрибут `CompleteCertificateReferences`
 <!--- 6.2.1; A.1.1.1 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -675,7 +671,7 @@
 соответствующих штампов времени.
 
 
-### 9.4.2 Атрибут `CertificateValues`
+### 9.4.2 <a name="Cades42"></a>Атрибут `CertificateValues`
 <!--- 6.3.3; A.1.1.2 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -705,7 +701,7 @@
 <!--- Требований нет -->
 
 
-### 9.4.3 Атрибут `CompleteRevocationReferences`
+### 9.4.3 <a name="Cades43"></a>Атрибут `CompleteRevocationReferences`
 <!--- 6.2.2; A.1.2.1 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -809,7 +805,7 @@
 <!--- Требований нет -->
 
 
-### 9.4.4 Атрибут `RevocationValues`
+### 9.4.4 <a name="Cades44"></a>Атрибут `RevocationValues`
 <!--- 6.3.4; A.1.2.1 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -859,7 +855,7 @@
 для обеспечения обратной совместимости.
 
 
-### 9.4.5 Атрибут `AttributeCertificateReferences`
+### 9.4.5 <a name="Cades45"></a>Атрибут `AttributeCertificateReferences`
 <!--- 6.2.3; A.1.3 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -887,7 +883,7 @@
 подписанные утверждения подписанта.
 
 
-### 9.4.6 Атрибут `AttributeCertificateValues`
+### 9.4.6 <a name="Cades46"></a>Атрибут `AttributeCertificateValues`
 <!--- ; XAdES 5.4.3 -->
 
 Атрибут `AttributeCertificateValues` в формате CAdES не используется,
@@ -895,7 +891,7 @@
 `CertificateValues`.
 
 
-### 9.4.7 Атрибут `AttributeRevocationReferences`
+### 9.4.7 <a name="Cades47"></a>Атрибут `AttributeRevocationReferences`
 <!--- 6.2.4; A.1.4 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -923,7 +919,7 @@
 подписанные утверждения подписанта.
 
 
-### 9.4.8 Атрибут `AttributeRevocationValues`
+### 9.4.8 <a name="Cades48"></a>Атрибут `AttributeRevocationValues`
 <!--- ; XAdES 5.4.3 -->
 
 Атрибут `AttributeRevocationValues` в формате CAdES не используется,
@@ -931,7 +927,7 @@
 `RevocationValues`.
 
 
-### 9.4.9 Атрибут `RefsOnlyTimeStamp`
+### 9.4.9 <a name="Cades49"></a>Атрибут `RefsOnlyTimeStamp`
 <!--- 6.3.6; A.1.5.1 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -965,7 +961,7 @@
 новый элемент, соответствующий значению данного атрибута.
 
 
-### 9.4.10 Атрибут `SigAndRefsTimeStamp`
+### 9.4.10 <a name="Cades410"></a>Атрибут `SigAndRefsTimeStamp`
 <!--- 6.3.5; A.1.5.2 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -1001,10 +997,10 @@
 
 
 
-## 9.5 Синтаксис атрибутов архивных проверочных данных
+## 9.5 <a name="Cades5"></a>Синтаксис атрибутов архивных проверочных данных
 
 
-### 9.5.1 Атрибут `TimeStampValidationData`
+### 9.5.1 <a name="Cades51"></a>Атрибут `TimeStampValidationData`
 <!--- ; 5.5.2 -->
 
 Атрибуту назначается следующий идентификатор:
@@ -1064,7 +1060,7 @@
 искать соответствующий элемент, а не наоборот.
 
 
-### 9.5.2 Атрибут `ArchiveTimeStamp`
+### 9.5.2 <a name="Cades52"></a>Атрибут `ArchiveTimeStamp`
 <!--- ; 5.5.3 -->
 
 Атрибуту назначается следующий идентификатор:
