@@ -15,6 +15,11 @@ DeRose S., Maler E., Daniel R.
 The XML Pointer Language (XPointer). 
 World Wide Web Consortium (W3C) Recommendation, 2001 
 
+[SHA1] <a name="SHA1"></a>
+Eastlake 3rd~D., Jones~P.
+US Secure Hash Algorithm 1 (SHA1). 
+Request for Comments: 3174, 2001 
+
 [XML-DSIG] <a name="XML-DSIG"></a>
 Eastlake D., Reagle J., Solo D., Hirsch F., Nyström M., Roessler T., Yiu K. 
 XML Signature Syntax and Processing Version 1.1. 
