@@ -12,7 +12,11 @@ Currently, the scope of the repo is cryptography formats based upon ASN.1:
 - [STB 34.101.23](34.101.23): CMS 
   ([Cryptography Message Syntax](https://en.wikipedia.org/wiki/Cryptographic_Message_Syntax));
 - [STB 34.101.80](34.101.80): AdES 
-  ([Advanced Electronic Signatures](https://en.wikipedia.org/wiki/Advanced_electronic_signature)).
+  ([Advanced Electronic Signatures](https://en.wikipedia.org/wiki/Advanced_electronic_signature));
+- [STB 34.101.81](34.101.81): DVCS 
+  ([Data Validation and Certification Server](https://tools.ietf.org/html/rfc3029)).
+- [STB 34.101.82](34.101.82): TSP 
+  ([Time Stamp Protocol](https://en.wikipedia.org/wiki/Time_stamp_protocol)).
 
 
 Objectives of Stb
