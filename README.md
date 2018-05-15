@@ -9,7 +9,7 @@ cryptography standards.
 
 Currently, the scope of the repo is cryptography formats based upon ASN.1:
 
-- [STB 34.101.23](34.101.17): CSR 
+- [STB 34.101.17](34.101.17): CSR 
   ([Certificate Signing Request](https://en.wikipedia.org/wiki/Certificate_signing_request));
 - [STB 34.101.23](34.101.23): CMS 
   ([Cryptography Message Syntax](https://en.wikipedia.org/wiki/Cryptographic_Message_Syntax));
