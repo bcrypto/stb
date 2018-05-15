@@ -66,7 +66,7 @@ Information technology and security
 соответствующими определениями: 
 
 3.1 **отметка времени (time-stamp)**: Последовательность символов, с 
-некоторой точностью опи-сывающая определенный момент времени. 
+некоторой точностью описывающая определенный момент времени. 
 
 3.2 **поставщик услуг доверия (trust service provider)**: Сторона, которая 
 помогает установить доверенные отношения между другими сторонами, 
@@ -105,7 +105,7 @@ Information technology and security
 Ключевое лово «ДОЛЖЕН» означает, что действия, к которым применены данные 
 ключевые слова, необходимо в точности выполнять. Ключевое слово «НЕЛЬЗЯ» 
 выражает абсолютный запрет на выполнение соответствующих действий. 
-Ключевые слова «СЛЕДУЕТ» и «РЕКОМЕНДУЕТСЯ» не-обходимо понимать так, что в 
+Ключевые слова «СЛЕДУЕТ» и «РЕКОМЕНДУЕТСЯ» необходимо понимать так, что в 
 некоторых случаях существует реальная причина их игнорировать, но 
 последствия таких действий должны быть очевидными и хорошо взвешенными. 
 Ключевое слово «НЕ СЛЕДУЕТ» применяется в тех случаях, когда действие, к 
@@ -114,7 +114,7 @@ Information technology and security
 очевидными и хорошо взвешенными. Ключевое слово «МОЖЕТ» применяется к 
 действиям (предметам), выполнение или не выполнение (наличие или 
 отсутствие) которых не влияет на ситуацию в целом. Это означает, что 
-программы, работающие с чем-то, помеченным данными ключе-выми словами, 
+программы, работающие с чем-то, помеченным данными ключевыми словами, 
 должны учитывать обе ситуации и корректно их обрабатывать. 
 
 # 5 <a name="Common"></a>Общие положения
@@ -146,7 +146,7 @@ Information technology and security
 использовать СШВ только для своих внутренних целей. 
 
 Штамп времени подписывается СШВ с помощью личного ключа, который 
-предназначен исключи-тельно для этой цели и в СОК которого указана 
+предназначен исключительно для этой цели и в СОК которого указана 
 соответствующая информация о его назначении. При использовании штампа 
 времени СЛЕДУЕТ проверять действительность СОК СШВ (например, путем 
 проверки соответствующего СОС). Штамп времени ДОЛЖЕН быть отклонен, если 
@@ -253,7 +253,7 @@ Information technology and security
 политику, соответствующую указанному в данном компоненте идентификатору; 
 - `nonce` является необязательным компонентом, который определяет 
 значение, используемое для проверки своевременности ответа в случае 
-отсутствия у отправителя запроса локального источ-ника времени. 
+отсутствия у отправителя запроса локального источника времени. 
 Вероятность повторения используемых для данного компонента значений должны 
 быть пренебрежительно мала. В качестве значений компонента nonce 
 РЕКОМЕНДУЕТСЯ использовать случайные значения, содержащие не менее 64 бит 
@@ -902,55 +902,80 @@ IP-порт (обычно с номером 318). Сторона, инициир
 
 # <a name="Biblio"></a>Библиография
 
-[1]  <a name="Biblio1"></a>Adams C., Cain P., Pinkas D., Zuccherato R. 
+[1] <a name="Biblio1"></a>
+Adams C., Cain P., Pinkas D., Zuccherato R. 
 Internet X.509 Public Key Infrastructure. Time-Stamp Protocol (TSP). 
 Request for Comments: 3161, 2001 
 (Интернет-инфраструктура открытых ключей X.509. Протокол постановки штампа 
 времени) 
 
-[2]  <a name="Biblio2"></a>Santesson S., Pope N. ESSCertIDv2 Update for 
-RFC 3161. Request for Comments: 5816, 2010 (Обновление ESSCertIDv2 для RFC 
-3161) 
+[2] <a name="Biblio2"></a>
+Santesson S., Pope N. 
+ESSCertIDv2 Update for RFC 3161. 
+Request for Comments: 5816, 2010 
+(Обновление ESSCertIDv2 для RFC 3161) 
 
-[3]  <a name="Biblio3"></a>Adams C., Farrell S. Internet X.509 Public Key 
-Infrastructure. Certificate Management Pro-tocols. Request for Comments: 
-2510, 1999 
-(Интернет-инфраструктура открытых ключей X.509. Протоколы управления сертификатом)
+[3] <a name="Biblio3"></a>
+Adams C., Farrell S. 
+Internet X.509 Public Key Infrastructure. Certificate Management Protocols. 
+Request for Comments: 2510, 1999 
+(Интернет-инфраструктура открытых ключей X.509. Протоколы управления 
+сертификатом)
 
-[4]  <a name="Biblio4"></a>Hoffman P. Enhanced Security Services for 
-S/MIME. Request for Comments: 2634, 1999 (Расширенные сервисы безопасности 
-для S/MIME) 
+[4] <a name="Biblio4"></a>
+Hoffman P. 
+Enhanced Security Services for S/MIME. 
+Request for Comments: 2634, 1999 
+(Расширенные сервисы безопасности для S/MIME) 
 
-[5] <a name="Biblio5"></a> Eastlake D., Jones P. US Secure Hash Algorithm 
-1 (SHA1). Request for Comments: 3174, 2001 (Алгоритм хэширования SHA1) 
+[5] <a name="Biblio5"></a>
+Eastlake D., Jones P. 
+US Secure Hash Algorithm 1 (SHA1). 
+Request for Comments: 3174, 2001 
+(Алгоритм хэширования SHA1) 
 
-[6]  <a name="Biblio6"></a>Freed N., Borenstein N. Multipurpose Internet 
-Mail Extensions (MIME). Part One:  Format of Internet Message Bodies. 
-Request for Comments: 2045, 1996 (Универсальные расширения Интернет-почты 
-(MIME). Часть 1: Формат содержимого Интернет-сообщений) 
+[6] <a name="Biblio6"></a>
+Freed N., Borenstein N. 
+Multipurpose Internet Mail Extensions (MIME). 
+Part One: Format of Internet Message Bodies. 
+Request for Comments: 2045, 1996 
+(Универсальные расширения Интернет-почты (MIME). Часть 1: Формат 
+содержимого Интернет-сообщений)
 
-[7]  <a name="Biblio7"></a>Josefsson S. The Base16, Base32, and Base64 
-Data Encodings. Request for Comments: 4648, 2006 (Системы кодирования 
-Base16, Base32 и Base64) 
+[7] <a name="Biblio7"></a>
+Josefsson S. 
+The Base16, Base32, and Base64 Data Encodings. 
+Request for Comments: 4648, 2006 
+(Системы кодирования Base16, Base32 и Base64) 
 
-[8]  <a name="Biblio8"></a>Masinter L. Returning Values from Forms: 
-multipart/form-data. Request for Comments: 7578, 2015 (Возвращаемые из 
-форм значения: multipart/form-data) 
+[8] <a name="Biblio8"></a>
+Masinter L. 
+Returning Values from Forms: multipart/form-data. 
+Request for Comments: 7578, 2015 
+(Возвращаемые из форм значения: multipart/form-data) 
 
-[9]  <a name="Biblio9"></a>Troost R., Dorner S., Moore K. Communicating 
-Presentation Information in Internet Mes-sages: The Content-Disposition 
-Header Field. Request for Comments: 2183, 1997 (Передача информации о 
-представлении данных в Интернет-сообщениях: заголовок Content-Disposition) 
+[9] <a name="Biblio9"></a>
+Troost R., Dorner S., Moore K. 
+Communicating Presentation Information in Internet Messages: 
+The Content-Disposition Header Field. 
+Request for Comments: 2183, 1997 
+(Передача информации о представлении данных в Интернет-сообщениях: 
+заголовок Content-Disposition)
 
+[10] <a name="Biblio10"></a> 
+Postel J., Reynolds J. File transfer protocol (FTP). 
+Request for Comments: 959, 1985 
+(Протокол передачи файла (FTP)) 
 
-[10] <a name="Biblio10"></a> Postel J., Reynolds J. File transfer protocol 
-(FTP). Request for Comments: 959, 1985 (Протокол передачи файла (FTP)) 
+[11] <a name="Biblio11"></a>
+Transmission control protocol. 
+Request for Comments: 793, 1981 
+(Протокол TCP) 
 
-[11]  <a name="Biblio11"></a>Transmission control protocol. Request for 
-Comments: 793, 1981 (Протокол TCP) 
-
-[12] <a name="Biblio12"></a> Fielding R., Gettys J., Mogul J., Frystyk H., 
-Masinter L., Leach P., Berners-Lee T.  Hypertext Transfer Protocol –  
-HTTP/1.1. Request for Comments: 2616, 1999 (Протокол передачи гипертекста 
-–  HTTP/1.1) 
+[12] <a name="Biblio12"></a> 
+Fielding R., Gettys J., Mogul J., Frystyk H., Masinter L., Leach P., 
+Berners-Lee T. 
+Hypertext Transfer Protocol – HTTP/1.1. 
+Request for Comments: 2616, 1999 
+(Протокол передачи гипертекста – HTTP/1.1) 
 
