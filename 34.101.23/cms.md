@@ -1,4 +1,6 @@
--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+**СТБ 34.101.23-2012**
+
 **Информационные технологии и безопасность**
 
 **СИНТАКСИС КРИПТОГРАФИЧЕСКИХ СООБЩЕНИЙ**
@@ -10,7 +12,6 @@
 **Information technology and security**
 
 **Cryptographic message syntax**
-
 -------------------------------------------------------------------------
 
 # Содержание
@@ -123,8 +124,7 @@
 
 [Приложение А (обязательное) Модули АСН.1](#AppendixA)
 
-[Приложение Б (рекомендуемое) Использование криптографических алгоритмов в 
-CMS](#AppendixB)
+[Приложение Б (рекомендуемое) Использование криптографических алгоритмов в CMS](#AppendixB)
 
 [Библиография](#Biblio)
 
@@ -2541,26 +2541,33 @@ other).
 
 # <a name="Biblio"></a>Библиография
 
-[1] <a name="ISO/IEC9594-8:2008"></a>ISO/IEC 9594-8:2008 Information 
-technology – Open System Interconnection – The Directory: Public-key and 
-attribute certificate frameworks (Информационные технологии. Взаимосвязь 
-открытых систем. Директория. Структура сертификатов открытого ключа и 
-атрибутов) 
+[1] <a name="ISO/IEC9594-8:2008"></a>
+ISO/IEC 9594-8:2008 Information technology – Open System Interconnection – 
+The Directory: Public-key and attribute certificate frameworks 
+(Информационные технологии. Взаимосвязь открытых систем. Директория. 
+Структура сертификатов открытого ключа и атрибутов) 
 
-[2] <a name="Message_Syntax"></a>Housley R. Cryptographic Message Syntax 
-(CMS). Request for Comments: 5652, 2009 (Синтаксис криптографических 
-сообщений) 
+[2] <a name="Message_Syntax"></a>
+Housley R. 
+Cryptographic Message Syntax (CMS). 
+Request for Comments: 5652, 2009 
+(Синтаксис криптографических сообщений) 
 
-[3] <a name="Message_Syntax1"></a>Housley R. Cryptographic Message 
-Syntax (CMS) Authenticated-Enveloped-Data Content Type. Request for 
-Comments: 5083, 2007 (Аутентифицируемые конвертованные данные синтаксиса 
-криптографических сообщений) 
+[3] <a name="Message_Syntax1"></a>
+Housley R. 
+Cryptographic Message Syntax (CMS) Authenticated-Enveloped-Data Content 
+Type. Request for Comments: 5083, 2007 
+(Аутентифицируемые конвертованные данные синтаксиса криптографических 
+сообщений)
 
-[4] <a name="Message_Syntax3"></a>Turner S., Housley R. Cryptographic 
-Message Syntax (CMS) Revocation Information Choices. Request for Comments: 
-5940, 2010 (Дополнительные способы задания информации об отзыве в 
-синтаксисе криптографических сообщений) 
+[4] <a name="Message_Syntax3"></a>
+Turner S., Housley R. 
+Cryptographic Message Syntax (CMS) Revocation Information Choices. 
+Request for Comments: 5940, 2010 
+(Дополнительные способы задания информации об отзыве в синтаксисе 
+криптографических сообщений)
 
-[5] <a name="PFOK"></a>Проект руководящего документа Республики Беларусь 
+[5] <a name="PFOK"></a>
+Проект руководящего документа Республики Беларусь 
 "Банковские технологии. Протоколы формирования общего ключа" 
 Мн.: Национальный банк Республики Беларусь, 1997
