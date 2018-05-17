@@ -12,6 +12,7 @@
 **Information technology and security**
 
 **Cryptographic message syntax**
+
 -------------------------------------------------------------------------
 
 # Содержание
