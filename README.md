@@ -11,6 +11,8 @@ Currently, the scope of the repo is cryptography formats based upon ASN.1:
 
 - [STB 34.101.17](34.101.17): CSR 
   ([Certificate Signing Request](https://en.wikipedia.org/wiki/Certificate_signing_request));
+- [STB 34.101.19](34.101.19): X509
+  ([X.509 Certificates and Certificate Revocation Lists](https://en.wikipedia.org/wiki/X.509));
 - [STB 34.101.23](34.101.23): CMS 
   ([Cryptography Message Syntax](https://en.wikipedia.org/wiki/Cryptographic_Message_Syntax));
 - [STB 34.101.26](34.101.26): OCSP 
@@ -29,6 +31,8 @@ Objectives of Stb
 * Develop standards
 
 * Discuss standards
+
+* Track bugs and typos
 
 * Plan new standards and extensions 
 
