@@ -195,9 +195,8 @@ XML-атрибута `Target`, которая не является фрагме
     	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>
     </xsd:complexType> 
 
-Вложенные элементы-атрибуты описываются в [10.5](#Xades5). Элементы `SignerRole` и
-`SigningCertificate` являются устаревшими и НЕ ДОЛЖНЫ включаться в
-контейнер.
+Вложенные элементы-атрибуты описываются в [10.5](#Xades5). Элемент `SignerRole` является 
+устаревшим и НЕ ДОЛЖЕН включаться в контейнер.
 
 РЭЦП НЕ ДОЛЖНА содержать пустой контейнер `SignedSignatureProperties`.
 
@@ -649,9 +648,42 @@ XML-элементов, которые покрывает штамп.
 
 ### 10.5.2 <a name="Хades52"></a>Атрибут `SigningCertificate`
 
-Атрибут `SigningCertificate` задается элементом `SigningCertificateV2`. 
+В зависимости от используемого алгоритма хэширования 
+атрибут `SigningCertificate` задается одним из элементов: 
+`SigningCertificate` или `SigningCertificateV2`. 
 
-Синтаксис `SigningCertificateV2` определяется следующей XML-схемой: 
+При использовании алгоритма хэширования SHA-1, ДОЛЖЕН 
+использоваться элемент `SigningCertificate`, 
+синтаксис которого определяется следующей XML-схемой:
+
+ <!-- targetNamespace="http://uri.etsi.org/01903/v1.3.2#" -->
+  
+    <xsd:element name="SigningCertificate" type="CertIDListType"/>
+  
+    <xsd:complexType name="CertIDListType">  
+    	<xsd:sequence>
+    		<xsd:element name="Cert" type="CertIDType" maxOccurs="unbounded"/>  
+    	</xsd:sequence>  
+    </xsd:complexType>
+  
+    <xsd:complexType name="CertIDType">  
+    	<xsd:sequence>  
+    		<xsd:element name="CertDigest" type="DigestAlgAndValueType"/>  
+    		<xsd:element name="IssuerSerial" type="ds:X509IssuerSerialType"/>  
+    	</xsd:sequence>  
+    	<xsd:attribute name="URI" type="xsd:anyURI" use="optional"/>  
+    </xsd:complexType>
+  
+    <xsd:complexType name="DigestAlgAndValueType">  
+    	<xsd:sequence>  
+    		<xsd:element ref="ds:DigestMethod"/>  
+    		<xsd:element ref="ds:DigestValue"/>  
+    	</xsd:sequence>  
+    </xsd:complexType>  
+
+При использовании алгоритмов хэширования, отличных от SHA-1, 
+ДОЛЖЕН использоваться элемент `SigningCertificateV2`, 
+синтаксис которого определяется следующей XML-схемой: 
 
     <!-- targetNamespace="http://uri.etsi.org/01903/v1.3.2#" -->
   
@@ -695,6 +727,13 @@ XML-атрибут `URI` содержит ссылку, по которой ра
 элемента `Cert`.
 
 Ссылки на сертификаты НЕ ДОЛЖНЫ содержать элемент `IssuerSerialV2`.
+
+>Примечание - Введение двух элементов для описания атрибута `SigningCertificate`
+позволяет устранить недостатки при изначальном проектировании и
+поддержать совместимость с устаревшими реализациями.  
+В тех случаях когда совместимость не нужна, следует избегать 
+использования в атрибуте алгоритма хэширования SHA-1, признанного 
+криптографически нестойким.
 
 ### 10.5.3 <a name="Хades53"></a>Атрибут `CommitmentTypeIndication`
 
