@@ -3,7 +3,7 @@
 ## 9.1 <a name="Cades1"></a>Общие положения
 
 Формат CAdES определяет синтаксис РЭЦП и правила включения атрибутов, 
-описанных в разделе [6](06Attrs.md). 
+описанных в [6](06Attrs.md). 
 
 Данные формата CAdES - это подписанные данные, синтаксис которых определен 
 в СТБ 34.101.23 (разделы 8 и 15). Данные описываются с помощью языка
@@ -60,7 +60,6 @@
 в РЭЦП формата CAdES.
 
 
-
 ## 9.2 <a name="Cades2"></a>Синтаксис базовых атрибутов РЭЦП
 
 
@@ -99,7 +98,7 @@
 `SigningCertificateV2`. 
 
 При использовании алгоритма хэширования SHA-1, определенного в 
-[[SHA1]](99Biblio.md#SHA1)], ДОЛЖЕН применяться тип `SigningCertificate`,
+[[4]](99Biblio.md#SHA1)], ДОЛЖЕН применяться тип `SigningCertificate`,
 а атрибуту назначается следующий идентификатор:
 
     id-aa-signingCertificate OBJECT IDENTIFIER ::= {
@@ -116,8 +115,8 @@
         pkcs(1) pkcs9(9) smime(16) id-aa(2) 47
     }
 
-Тип `SigningCertificate` определен в [[ESS]](99Biblio.md#ESS) (раздел 5.4).
-Тип `SigningCertificateV2` определен в [[ESSUPD]](99Biblio.md#ESSUPD) (раздел 4).
+Тип `SigningCertificate` определен в [[17]](99Biblio.md#ESS).
+Тип `SigningCertificateV2` определен в [[21]](99Biblio.md#ESSUPD).
 
     SigningCertificate ::=  SEQUENCE {
         certs        SEQUENCE OF ESSCertID,
@@ -224,7 +223,8 @@
     id-aa-contentHint OBJECT IDENTIFIER ::= { iso(1) member-body(2) us(840)
         rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) id-aa(2) 4}
 
-Синтаксис атрибута описывается типом `ContentHints`, определенным в [[ESS]](99Biblio.md#ESS).
+Синтаксис атрибута описывается типом `ContentHints`, определенным в 
+[[ESS]](99Biblio.md#ESS). 
 
     ContentHints ::= SEQUENCE {
         contentDescription UTF8String (SIZE (1..MAX)) OPTIONAL,
@@ -247,7 +247,7 @@
 
 - компонент `contentType` должен иметь значение `id-data`;
 - компонент `contentDescription` должен использоваться для указания кодировки
-данных в соответствии с правилами, определенными в [[MIME]](99Biblio.md#MIME).
+данных в соответствии с правилами, определенными в [[16]](99Biblio.md#MIME).
 <!--- Пример структурированного содержимого и типов MIME см. в приложении Е. -->
 
 
@@ -350,7 +350,10 @@
 представления указывается в компоненте `otherAttributeCertID`, а значение 
 атрибутного сертификата - в компоненте `otherAttributeCert`. 
 Не рекомендуется использовать компонент `otherAttributeCertificate`.
-<!--- TODO: Не рекомендуется использовать атрибутные сертификаты в ином синтаксисе. -->
+
+<!--- 
+todo: Не рекомендуется использовать атрибутные сертификаты в ином синтаксисе.  
+-->
 
 Подписанные третьей стороной утверждения указываются в компоненте
 `signedAssertions`. Тип представления утверждения указывается в компоненте 
@@ -359,13 +362,13 @@
 стандарта.
 
 
-### 9.2.10 <a name="Cades210"></a>Атрибут `Countersignature`
+### 9.2.10 <a name="Cades210"></a>Атрибут `CounterSignature`
 <!--- 5.9.2; 5.2.7 -->
 
-Синтаксис и правила включения атрибута `Countersignature` 
-определены в СТБ 34.101.23 (подраздел 15.5).
+Синтаксис атрибута описывается типом `Countersignature`, 
+который определен (вместе с правилами включения) 
+в СТБ 34.101.23 (подраздел 15.5).
 <!--- CMS (RFC 3852 [4]). -->
-
 
 ### 9.2.11 <a name="Cades211"></a>Атрибут `ContentTimeStamp`
 <!--- 5.11.4; 5.2.8 -->
@@ -378,7 +381,7 @@
     }
 
 Синтаксис атрибута описывается типом `ContentTimestamp`, 
-определенным в СТБ 34.101.ts:
+определенным в СТБ 34.101.82:
 
     ContentTimestamp::= TimeStampToken
     TimeStampToken ::= ContentInfo
@@ -569,7 +572,7 @@
     }
 
 Синтаксис атрибута описывается типом `ContentReference`, 
-определенным в [[ESS]](99Biblio.md#ESS) (подразделы 1.3.4, 2.11):
+определенным в [[ESS]](99Biblio.md#ESS):
 
     ContentReference ::= SEQUENCE {
         contentType ContentType,
@@ -596,7 +599,7 @@
     }
 
 Синтаксис атрибута описывается типом `ContentIdentifier`, 
-определенным в [[ESS]](ESS) (подразделы 1.3.4, 2.7):
+определенным в [[ESS]](ESS):
 
     ContentIdentifier ::= OCTET STRING
 
@@ -607,9 +610,7 @@
 пользователя (такой как имя пользователя или открытый ключ),
 строки типа `GeneralizedTime` и случайного числа.
 
-
 ## 9.3 <a name="Cades3"></a>Синтаксис атрибута штампа времени подписи
-
 
 ### 9.3.1 <a name="Cades31"></a>Атрибут `SignatureTimeStamp`
 <!--- 6.1.1; 5.3 -->
@@ -625,7 +626,7 @@
 
     SignatureTimeStampToken ::= TimeStampToken
 
-Тип `TimeStampToken` определен в СТБ 34.101.ts.
+Тип `TimeStampToken` определен в СТБ 34.101.82.
 
 Штамп времени вырабатывается от значения подписи, указываемого
 в компоненте `SignerInfo.signature`, без учета тега и длины.
@@ -893,14 +894,10 @@
 Атрибутный сертификат ДОЛЖЕН содержаться в атрибуте 
 `SignerAttributes`.
 
-<!--- Требование j -->
-<!--- TODO: SHA-1 signing-certificate vs signing-certificate-v2 -->
-
 <!--- Требование n -->
 Данный атрибут НЕ ДОЛЖЕН использоваться, если атрибут 
 `SignerAttributes` не содержит удостоверенные атрибуты или 
 подписанные утверждения подписанта.
-
 
 ### 9.4.6 <a name="Cades46"></a>Атрибут `AttributeCertificateValues`
 <!--- ; XAdES 5.4.3 -->
