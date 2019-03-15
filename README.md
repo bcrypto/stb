@@ -17,6 +17,8 @@ Currently, the scope of the repo is cryptography formats based upon ASN.1:
   ([Cryptography Message Syntax](https://en.wikipedia.org/wiki/Cryptographic_Message_Syntax));
 - [STB 34.101.26](34.101.26): OCSP 
   ([Online Certificate Status Protocol](https://en.wikipedia.org/wiki/Online_Certificate_Status_Protocol));
+- [STB 34.101.50](34.101.50): OIDS
+  (Procedures for registering information technology objects);
 - [STB 34.101.80](34.101.80): AdES 
   ([Advanced Electronic Signatures](https://en.wikipedia.org/wiki/Advanced_electronic_signature));
 - [STB 34.101.81](34.101.81): DVCS 
