@@ -11,6 +11,6 @@
 ~*.*
 *.bak
 
-# Concrete files
-clear.bat
+# Specific files
+clear.cmd
 

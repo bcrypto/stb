@@ -19,6 +19,8 @@ Currently, the scope of the repo is cryptography formats based upon ASN.1:
   ([Online Certificate Status Protocol](https://en.wikipedia.org/wiki/Online_Certificate_Status_Protocol));
 - [STB 34.101.50](34.101.50): OIDS
   (Procedures for registering information technology objects);
+- [STB 34.101.67](34.101.67): ATTR
+  ([Attribute Certificate Framework](https://en.wikipedia.org/wiki/Privilege_Management_Infrastructure));
 - [STB 34.101.80](34.101.80): AdES 
   ([Advanced Electronic Signatures](https://en.wikipedia.org/wiki/Advanced_electronic_signature));
 - [STB 34.101.81](34.101.81): DVCS 
