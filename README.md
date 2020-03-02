@@ -4,10 +4,10 @@ Stb: cryptography standards of Belarus
 What is Stb?
 ------------
 
-Stb is a repo which contains some current and future Belarusian 
-cryptography standards. 
+Stb is a repo which contains some Belarusian cryptography standards focused 
+mainy on data formats and cryptographic services.
 
-Currently, the scope of the repo is cryptography formats based upon ASN.1:
+The list of standards:
 
 - [STB 34.101.17](34.101.17): CSR 
   ([Certificate Signing Request](https://en.wikipedia.org/wiki/Certificate_signing_request));

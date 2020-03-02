@@ -35,32 +35,32 @@ ETSI EN 319 132-1 V1.1.1.
 Electronic Signatures and Infrastructures (ESI); XAdES digital signatures; 
 Part 1: Building blocks and XAdES baseline signatures.
 European Telecommunications Standards Institute, 2016
-(Электронные подписи и инфраструктуры (ESI). Цифровые подписи XAdES. Часть 
-1. Базовые блоки и базовые подписи XAdES)
+(Электронные подписи и инфраструктуры (ESI). Цифровые подписи XAdES. 
+Часть 1. Базовые блоки и базовые подписи XAdES)
 
 [7] <a name="XADES2"></a> 
 ETSI EN 319 132-2 V1.1.1.
 Electronic Signatures and Infrastructures (ESI);
 XAdES digital signatures; Part 2: Extended XAdES signatures.
 European Telecommunications Standards Institute, 2016
-(Электронные подписи и инфраструктуры (ESI). Цифровые подписи XAdES. Часть 
-2. Расширенные подписи XAdES)
+(Электронные подписи и инфраструктуры (ESI). Цифровые подписи XAdES. 
+Часть 2. Расширенные подписи XAdES)
 
 [8] <a name="CADES1"></a> 
 ETSI TS 319 122-1 V1.1.1.
 Electronic Signatures and Infrastructures (ESI); CAdES digital signatures;
 Part 1: Building blocks and CAdES baseline signatures.
 European Telecommunications Standards Institute, 2016
-(Электронные подписи и инфраструктуры (ESI). Цифровые подписи CAdES. Часть 
-1. Базовые блоки и базовые подписи CAdES)
+(Электронные подписи и инфраструктуры (ESI). Цифровые подписи CAdES. 
+Часть 1. Базовые блоки и базовые подписи CAdES)
 
 [9] <a name="CADES2"></a> 
 ETSI TS 319 122-2 V1.1.1.
 Electronic Signatures and Infrastructures (ESI); CAdES digital signatures;
 Part 2: Extended CAdES signatures.
 European Telecommunications Standards Institute, 2016
-(Электронные подписи и инфраструктуры (ESI). CAdES цифровые подписи. Часть 
-2. Расширенные подписи CAdES)
+(Электронные подписи и инфраструктуры (ESI). CAdES цифровые подписи. 
+Часть 2. Расширенные подписи CAdES)
 
 [10] <a name="PADES1"></a> 
 ETSI TS 102 778-1 V1.1.1.
@@ -69,8 +69,8 @@ PDF Advanced Electronic Signature Profiles;
 Part 1: PAdES Overview - a framework document for PAdES.
 European Telecommunications Standards Institute, 2009
 (Электронные подписи и инфраструктуры (ESI). Профили расширенных 
-электронных подписей PDF. Часть 1. Обзор PAdES – базовый документ для 
-PAdES)
+электронных подписей PDF. 
+Часть 1. Обзор PAdES – базовый документ для PAdES)
 
 [11] <a name="PADES2"></a> 
 ETSI TS 102 778-2 V1.2.1.
