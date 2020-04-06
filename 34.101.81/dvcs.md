@@ -425,14 +425,14 @@ CMS (см. СТБ 34.101.23) или передаваться по TLS-соеди
       pkistatus               [2] IMPLICIT PKIStatusInfo,
       assertion               [3] ContentInfo,
       crl                     [4] IMPLICIT CertificateList,
-      certstatus              [5] IMPLICIT CertStatus,
-      certid                  [6] IMPLICIT CertId,
-      oscpresponse            [7] IMPLICIT OCSPResponse,
+      ocspcertstatus          [5] IMPLICIT CertStatus,
+      ocspcertid              [6] IMPLICIT CertId,
+      ocspresponse            [7] IMPLICIT OCSPResponse,
       capabilities            [8] SMIMECapabilities,
       extension               Extension }
 
 Компонент `certificate` задает сертификат, а компоненты `esscertid`, 
-`certid` – ссылки на него. Типы `Certificate`, `ESSCertIDv2` и `CertId` 
+`ocspcertid` – ссылки на него. Типы `Certificate`, `ESSCertIDv2` и `CertId` 
 определены в СТБ 34.101.19, СТБ 34.101.80 и СТБ 34.101.26 
 соответственно. 
 
@@ -445,7 +445,7 @@ CMS (см. СТБ 34.101.23) или передаваться по TLS-соеди
 Компонент `crl` задает список отозванных сертификатов. Тип 
 `CertificateList` определен в СТБ 34.101.19. 
 
-Компоненты `pkistatus` и `certstatus` задают результат проверки. Тип 
+Компоненты `pkistatus` и `ocspcertstatus` задают результат проверки. Тип 
 `CertStatus` определен в СТБ 34.101.26. 
 
 Компоненты `capabilities` и `extension` НЕ ДОЛЖНЫ использоваться. Они 
@@ -850,9 +850,9 @@ requester с этими данными. Или СЗД переадресует �
       pkistatus                    [2] IMPLICIT PKIStatusInfo,
       assertion                    [3] ContentInfo,
       crl                          [4] IMPLICIT CertificateList,
-      certstatus                   [5] IMPLICIT CertStatus,
-      certid                       [6] IMPLICIT CertId,
-      oscpresponse                 [7] IMPLICIT OCSPResponse,
+      ocspcertstatus               [5] IMPLICIT CertStatus,
+      ocspcertid                   [6] IMPLICIT CertId,
+      ocspresponse                 [7] IMPLICIT OCSPResponse,
       capabilities                 [8] SMIMECapabilities,
       extension                    Extension
     }
