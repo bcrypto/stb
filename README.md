@@ -4,8 +4,8 @@ Stb: cryptography standards of Belarus
 What is Stb?
 ------------
 
-Stb is a repo which contains some Belarusian cryptography standards focused 
-mainy on data formats and cryptographic services.
+Stb is a repo that contains Belarusian cryptography standards focused 
+on data formats and cryptographic services.
 
 The list of standards:
 
@@ -28,6 +28,8 @@ The list of standards:
 - [STB 34.101.82](34.101.82): TSP 
   ([Time Stamp Protocol](https://en.wikipedia.org/wiki/Time_stamp_protocol)).
 
+Unofficial versions of the standards are presented. The official versions 
+can be found at [tnpa.by](http://tnpa.by/#!/en/index).
 
 Objectives of Stb
 -----------------
@@ -43,8 +45,10 @@ Objectives of Stb
 Related projects
 ----------------
 
-- [BPKI](http://github.com/bcrypto/bpki);
-- [BTOK](http://github.com/bcrypto/btok);
-- [SKZI](http://github.com/bcrypto/skzi).
+[belt](http://github.com/bcrypto/belt),
+[bash](http://github.com/bcrypto/bash),
+[bpki](http://github.com/bcrypto/bpki),
+[btok](http://github.com/bcrypto/btok),
+[skzi](http://github.com/bcrypto/skzi)
 
 
