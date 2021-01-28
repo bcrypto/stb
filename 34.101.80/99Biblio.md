@@ -19,7 +19,7 @@ World Wide Web Consortium (W3C) Recommendation, 2001
 (Язык указателей XML (XPointer))
 
 [4] <a name="SHA1"></a>
-Eastlake 3rd D., Jones~P.
+Eastlake 3rd D., Jones P.
 US Secure Hash Algorithm 1 (SHA1). 
 Request for Comments: 3174, 2001 
 (Алгоритм хэширования США версии 1 (SHA1))
