@@ -38,9 +38,9 @@ E-BES и E-EPES.
 
 ### A.2.1 <a name="ProfilesEx21"></a>Профили E-BES и E-EPES
 
-Профили E-BES и E-PES уточняют профиль B-B в следующих аспектах.
+Профили E-BES и E-EPES уточняют профиль B-B в следующих аспектах.
 
-В РЭЦП профиля E-BES или E-PES МОЖЕТ содержаться атрибут `SigningTime`.
+В РЭЦП профиля E-BES или E-EPES МОЖЕТ содержаться атрибут `SigningTime`.
 
 В РЭЦП профиля E-BES НЕ РЕКОМЕНДУЕТСЯ включение атрибутов 
 `SignaturePolicyStore` и `SignaturePolicyIdentifier`.
