@@ -1534,7 +1534,7 @@ Base64.
 `ArchiveTimeStamp`, то атрибут `URI` НЕ ДОЛЖЕН присутствовать.
 
 Если аттестаты относятся к штампам `IndividualDataObjectsTimeStamp` или 
-`AllDataObjectTimeStamp`, то XML-атрибут `URI` ДОЛЖЕН присутствовать и 
+`AllDataObjectsTimeStamp`, то XML-атрибут `URI` ДОЛЖЕН присутствовать и 
 ссылаться на элемент, содержащий штамп.
 
 ### 10.8.2 <a name="Хades82"></a>Атрибут `ArchiveTimeStamp`
