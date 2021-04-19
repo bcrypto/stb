@@ -131,5 +131,7 @@ revocation-values = RevocationValues
 complete-revocationreferences = CompleteRevocationReferences
 attribute-certificatereferences = AttributeCertificateRefs
 attribute-revocationreferences  = AttributeRevocationReferences 
-time-stamped-certs-crlsreferences = RefsOnlyTimeStamp(здесь можно еще включать ссылки на атрибутные сертификаты и иноформацию об отзыве атрибутного сертификата)???
+time-stamped-certs-crlsreferences = RefsOnlyTimeStamp 
+(здесь можно еще включать ссылки на атрибутные сертификаты 
+и информацию об отзыве атрибутного сертификата)???
 -------->
