@@ -1007,14 +1007,14 @@ todo: Не рекомендуется использовать атрибутн�
 
 Атрибуту назначается следующий идентификатор:
 
-    id-aa-ATSHashIndex-v3 OBJECT IDENTIFIER ::= {
+    id-aa-ATSHashIndex-v2 OBJECT IDENTIFIER ::= {
         itu-t(0) identified-organization(4)
-        etsi(0) cades(19122) attributes(1) 5
+        etsi(0) cades(19122) attributes(1) 4
     }
 
-Синтаксис атрибута описывается типом `ATSHashIndexV3`:
+Синтаксис атрибута описывается типом `ATSHashIndexV2`:
 
-    ATSHashIndexV3 ::= SEQUENCE {
+    ATSHashIndexV2 ::= SEQUENCE {
         hashIndAlgorithm AlgorithmIdentifier,
         certificatesHashIndex SEQUENCE OF OCTET STRING,
         crlsHashIndex SEQUENCE OF OCTET STRING,
