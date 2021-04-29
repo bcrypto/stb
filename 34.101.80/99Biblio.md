@@ -66,7 +66,7 @@ European Telecommunications Standards Institute, 2016
 ETSI TS 102 778-1 V1.1.1.
 Electronic Signatures and Infrastructures (ESI);
 PDF Advanced Electronic Signature Profiles;
-Part 1: PAdES Overview - a framework document for PAdES.
+Part 1: PAdES Overview — a framework document for PAdES.
 European Telecommunications Standards Institute, 2009
 (Электронные подписи и инфраструктуры (ESI). Профили расширенных 
 электронных подписей PDF. 
@@ -76,7 +76,7 @@ European Telecommunications Standards Institute, 2009
 ETSI TS 102 778-2 V1.2.1.
 Electronic Signatures and Infrastructures (ESI);
 PDF Advanced Electronic Signature Profiles;
-Part 2: PAdES Basic - Profile based on ISO 32000-1.
+Part 2: PAdES Basic — Profile based on ISO 32000-1.
 European Telecommunications Standards Institute, 2009
 (Электронные подписи и инфраструктуры (ESI). Профили расширенных 
 электронных подписей PDF. Часть 2. PAdES Basic – профиль на основе ISO 
@@ -86,7 +86,7 @@ European Telecommunications Standards Institute, 2009
 ETSI TS 102 778-3 V1.1.2.
 Electronic Signatures and Infrastructures (ESI);
 PDF Advanced Electronic Signature Profiles;
-Part 3: PAdES Enhanced - PAdES-BES and PAdES-EPES Profiles.
+Part 3: PAdES Enhanced — PAdES-BES and PAdES-EPES Profiles.
 European Telecommunications Standards Institute, 2009
 (Электронные подписи и инфраструктуры (ESI). Профили расширенных 
 электронных подписей PDF. Часть 3. Усовершенствованные PAdES – профили 
@@ -96,7 +96,7 @@ PAdES-BES и PAdES-EPES)
 ETSI TS 102 778-4 V1.1.1.
 Electronic Signatures and Infrastructures (ESI);
 PDF Advanced Electronic Signature Profiles;
-Part 4: PAdES Long Term - PAdES-LTV Profile.
+Part 4: PAdES Long Term — PAdES-LTV Profile.
 European Telecommunications Standards Institute, 2009
 (Электронные подписи и инфраструктуры (ESI). Профили расширенных 
 электронных подписей PDF. Часть 4. Долгосрочный PAdES – профиль 
@@ -106,7 +106,7 @@ PAdES-LTV)
 ETSI TS 102 778-5 V1.1.1.
 Electronic Signatures and Infrastructures (ESI);
 PDF Advanced Electronic Signature Profiles;
-Part 5: PAdES for XML Content - Profiles for XAdES signatures.
+Part 5: PAdES for XML Content — Profiles for XAdES signatures.
 European Telecommunications Standards Institute, 2009
 (Электронные подписи и инфраструктуры (ESI). Профили расширенных 
 электронных подписей PDF. Часть 5. PAdES для XML-контента – профили для 
