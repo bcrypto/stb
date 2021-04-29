@@ -1066,7 +1066,7 @@ todo: Не рекомендуется использовать атрибутн�
 
 Атрибуту назначается следующий идентификатор:
 
-    id-aa-ets-archiveTimestampV3 OBJECT IDENTIFIER ::= {
+    id-aa-ets-archiveTimestampV2 OBJECT IDENTIFIER ::= {
         itu-t(0) identified-organization(4)
         etsi(0) electronic-signature-standard(1733) attributes(2) 4
     }
