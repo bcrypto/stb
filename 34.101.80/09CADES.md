@@ -727,9 +727,9 @@ todo: Не рекомендуется использовать атрибутн�
 
     CompleteRevocationRefs ::=  SEQUENCE OF CrlOcspRef
     CrlOcspRef ::= SEQUENCE {
-        crlids	[0] CRLListID   OPTIONAL,
-        ocspids	[1] OcspListID  OPTIONAL,
-        otherRev	[2] OtherRevRefs OPTIONAL 
+        crlids   [0] CRLListID   OPTIONAL,
+        ocspids  [1] OcspListID  OPTIONAL,
+        otherRev [2] OtherRevRefs OPTIONAL 
     }
 
 Атрибут содержит элементы типа `CrlOcspRef`, соответствующие
@@ -829,8 +829,8 @@ todo: Не рекомендуется использовать атрибутн�
 Синтаксис атрибута описывается типом `RevocationValues`:
 
     RevocationValues ::=  SEQUENCE {
-        crlVals	[0] SEQUENCE OF CertificateList OPTIONAL,
-        ocspVals	[1] SEQUENCE OF BasicOCSPResponse OPTIONAL,
+        crlVals      [0] SEQUENCE OF CertificateList OPTIONAL,
+        ocspVals     [1] SEQUENCE OF BasicOCSPResponse OPTIONAL,
         otherRevVals [2] OtherRevVals OPTIONAL
     }
     OtherRevVals ::= SEQUENCE {

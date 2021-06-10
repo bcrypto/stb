@@ -66,7 +66,6 @@ http://uri.etsi.org/01903/v1.4.1#, СЛЕДУЕТ вводить в XML-доку
     xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xades="http://uri.etsi.org/01903/v1.3.2#"
     elementFormDefault="qualified">
 
-
 Данные подписываются в два этапа. На первом этапе данные преобразуются в 
 строку октетов с помощью так называемых трансформаций. Трансформации 
 состоят в приведении данных к каноническому виду (канонизация), 
@@ -95,12 +94,12 @@ XML-документам: два логически эквивалентных �
     <xsd:element name="QualifyingProperties" type="QualifyingPropertiesType"/>
 
     <xsd:complexType name="QualifyingPropertiesType">
-    	<xsd:sequence>
-    		<xsd:element ref="SignedProperties" minOccurs="0"/>
-    		<xsd:element ref="UnsignedProperties" minOccurs="0"/>
-    	</xsd:sequence>
-    	<xsd:attribute name="Target" type="xsd:anyURI" use="required"/>
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>
+        <xsd:sequence>
+            <xsd:element ref="SignedProperties" minOccurs="0"/>
+            <xsd:element ref="UnsignedProperties" minOccurs="0"/>
+        </xsd:sequence>
+        <xsd:attribute name="Target" type="xsd:anyURI" use="required"/>
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>
     </xsd:complexType>  
 
 Вложенные контейнеры `SignedProperties`, `UnsignedProperties` описываются 
@@ -132,11 +131,11 @@ XML-атрибута `Target`, которая не является фрагме
     <xsd:element name="SignedProperties" type="SignedPropertiesType" />
 
     <xsd:complexType name="SignedPropertiesType">
-    	<xsd:sequence>
-    		<xsd:element ref="SignedSignatureProperties" minOccurs="0"/>
-    		<xsd:element ref="SignedDataObjectProperties" minOccurs="0"/>
-    	</xsd:sequence>
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>
+        <xsd:sequence>
+            <xsd:element ref="SignedSignatureProperties" minOccurs="0"/>
+            <xsd:element ref="SignedDataObjectProperties" minOccurs="0"/>
+        </xsd:sequence>
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>
     </xsd:complexType> 
 
 Вложенные контейнеры `SignedSignatureProperties`, 
@@ -157,11 +156,11 @@ XML-атрибута `Target`, которая не является фрагме
     <xsd:element name="UnsignedProperties" type="UnsignedPropertiesType" />
 
     <xsd:complexType name="UnsignedPropertiesType">
-    	<xsd:sequence>
-    		<xsd:element ref="UnsignedSignatureProperties" minOccurs="0"/>
-    		<xsd:element ref="UnsignedDataObjectProperties" minOccurs="0"/>
-    	</xsd:sequence>
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>
+        <xsd:sequence>
+            <xsd:element ref="UnsignedSignatureProperties" minOccurs="0"/>
+            <xsd:element ref="UnsignedDataObjectProperties" minOccurs="0"/>
+        </xsd:sequence>
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>
     </xsd:complexType> 
 
 Вложенные контейнеры `UnsignedSignatureProperties`, 
@@ -183,18 +182,18 @@ XML-атрибута `Target`, которая не является фрагме
     type="SignedSignaturePropertiesType" />
 
     <xsd:complexType name="SignedSignaturePropertiesType">
-    	<xsd:sequence>
-    		<xsd:element ref="SigningTime" minOccurs="0"/>
-    		<xsd:element ref="SigningCertificate" minOccurs="0"/>
-    		<xsd:element ref="SigningCertificateV2" minOccurs="0"/>
-    		<xsd:element ref="SignaturePolicyIdentifier" minOccurs="0"/>
-    		<xsd:element ref="SignatureProductionPlace" minOccurs="0"/>
-    		<xsd:element ref="SignatureProductionPlaceV2" minOccurs="0"/>
-    		<xsd:element ref="SignerRole" minOccurs="0"/>
-    		<xsd:element ref="SignerRoleV2" minOccurs="0"/>
-    		<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
-    	</xsd:sequence>
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>
+        <xsd:sequence>
+            <xsd:element ref="SigningTime" minOccurs="0"/>
+            <xsd:element ref="SigningCertificate" minOccurs="0"/>
+            <xsd:element ref="SigningCertificateV2" minOccurs="0"/>
+            <xsd:element ref="SignaturePolicyIdentifier" minOccurs="0"/>
+            <xsd:element ref="SignatureProductionPlace" minOccurs="0"/>
+            <xsd:element ref="SignatureProductionPlaceV2" minOccurs="0"/>
+            <xsd:element ref="SignerRole" minOccurs="0"/>
+            <xsd:element ref="SignerRoleV2" minOccurs="0"/>
+            <xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>
     </xsd:complexType> 
 
 Вложенные элементы-атрибуты описываются в [10.5](#Xades5). 
@@ -213,14 +212,14 @@ XML-атрибута `Target`, которая не является фрагме
     <!-- targetNamespace="http://uri.etsi.org/01903/v1.3.2#" -->
 
     <xsd:complexType name="SignedDataObjectPropertiesType">
-    	<xsd:sequence>
-    		<xsd:element ref="DataObjectFormat" minOccurs="0" maxOccurs="unbounded"/>
-    		<xsd:element ref="CommitmentTypeIndication" minOccurs="0" maxOccurs="unbounded"/>
-    		<xsd:element ref="AllDataObjectsTimeStamp" minOccurs="0" maxOccurs="unbounded"/>
-    		<xsd:element ref="IndividualDataObjectsTimeStamp" minOccurs="0" maxOccurs="unbounded"/>
-    		<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
-    	</xsd:sequence>
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>
+        <xsd:sequence>
+            <xsd:element ref="DataObjectFormat" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element ref="CommitmentTypeIndication" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element ref="AllDataObjectsTimeStamp" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element ref="IndividualDataObjectsTimeStamp" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>
     </xsd:complexType>  
 
 Вложенные элементы-атрибуты описываются в [10.5](#Xades5).
@@ -240,23 +239,23 @@ XML-атрибута `Target`, которая не является фрагме
     type="UnsignedSignaturePropertiesType"/>
 
     <xsd:complexType name="UnsignedSignaturePropertiesType">
-    	<xsd:choice maxOccurs="unbounded">
-    		<xsd:element ref="CounterSignature" />
-    		<xsd:element ref="SignatureTimeStamp" />
-    		<xsd:element ref="CompleteCertificateRefs"/>
-    		<xsd:element ref="CompleteRevocationRefs"/>
-    		<xsd:element ref="AttributeCertificateRefs"/>
-    		<xsd:element ref="AttributeRevocationRefs" />
-    		<xsd:element ref="SigAndRefsTimeStamp" />
-    		<xsd:element ref="RefsOnlyTimeStamp" />
-    		<xsd:element ref="CertificateValues" />
-    		<xsd:element ref="RevocationValues"/>
-    		<xsd:element ref="AttrAuthoritiesCertValues" />
-    		<xsd:element ref="AttributeRevocationValues"/>
-    		<xsd:element ref="ArchiveTimeStamp" />
-    		<xsd:any namespace="##other"/>
-    	</xsd:choice>
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>
+        <xsd:choice maxOccurs="unbounded">
+            <xsd:element ref="CounterSignature" />
+            <xsd:element ref="SignatureTimeStamp" />
+            <xsd:element ref="CompleteCertificateRefs"/>
+            <xsd:element ref="CompleteRevocationRefs"/>
+            <xsd:element ref="AttributeCertificateRefs"/>
+            <xsd:element ref="AttributeRevocationRefs" />
+            <xsd:element ref="SigAndRefsTimeStamp" />
+            <xsd:element ref="RefsOnlyTimeStamp" />
+            <xsd:element ref="CertificateValues" />
+            <xsd:element ref="RevocationValues"/>
+            <xsd:element ref="AttrAuthoritiesCertValues" />
+            <xsd:element ref="AttributeRevocationValues"/>
+            <xsd:element ref="ArchiveTimeStamp" />
+            <xsd:any namespace="##other"/>
+        </xsd:choice>
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>
     </xsd:complexType>  
 
 Вложенные элементы-атрибуты описываются в [10.5](#Xades5) – [10.8](#Xades8).
@@ -280,10 +279,10 @@ XML-атрибута `Target`, которая не является фрагме
     <xsd:element name="UnsignedDataObjectProperties" type="UnsignedDataObjectPropertiesType"/>
 
     <xsd:complexType name="UnsignedDataObjectPropertiesType">
-    	<xsd:sequence>
-    		<xsd:element name="UnsignedDataObjectProperty" type="AnyType" maxOccurs="unbounded"/>
-    	</xsd:sequence>
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>
+        <xsd:sequence>
+            <xsd:element name="UnsignedDataObjectProperty" type="AnyType" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>
     </xsd:complexType>  
 
 Вложенные элементы-атрибуты имеют тип `AnyType`, описанный в [10.4.1](#Xades41).
@@ -304,8 +303,8 @@ XML-атрибута `Target`, которая не является фрагме
     type="QualifyingPropertiesReferenceType"/>
 
     <xsd:complexType name="QualifyingPropertiesReferenceType">
-    	<xsd:attribute name="URI" type="xsd:anyURI" use="required"/>
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>
+        <xsd:attribute name="URI" type="xsd:anyURI" use="required"/>
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>
     </xsd:complexType>  
 
 XML-атрибут `URI` содержит простое имя фрагмента XPointer и 
@@ -380,10 +379,10 @@ XML-атрибут `URI` содержит простое имя фрагмент
     <xsd:element name="Any" type="AnyType"/>
    
     <xsd:complexType name="AnyType" mixed="true">  
-    	<xsd:sequence minOccurs="0" maxOccurs="unbounded">  
-    		<xsd:any namespace="##any" processContents="lax"/>  
-    	</xsd:sequence>  
-    	<xsd:anyAttribute namespace="##any"/>  
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">  
+            <xsd:any namespace="##any" processContents="lax"/>  
+        </xsd:sequence>  
+        <xsd:anyAttribute namespace="##any"/>  
     </xsd:complexType>  
 
 ### 10.4.2 <a name="Хades42"></a>Тип `ObjectIdentifierType`
@@ -399,34 +398,34 @@ XML-атрибут `URI` содержит простое имя фрагмент
     <xsd:element name="ObjectIdentifier" type="ObjectIdentifierType"/>
   
     <xsd:complexType name="ObjectIdentifierType">  
-    	<xsd:sequence>  
-    		<xsd:element name="Identifier" type="IdentifierType"/>  
-    		<xsd:element name="Description" type="xsd:string" minOccurs="0"/>  
-    		<xsd:element name="DocumentationReferences"  
-    		type="DocumentationReferencesType" minOccurs="0"/>  
-    	</xsd:sequence>  
+        <xsd:sequence>  
+            <xsd:element name="Identifier" type="IdentifierType"/>  
+            <xsd:element name="Description" type="xsd:string" minOccurs="0"/>  
+            <xsd:element name="DocumentationReferences"  
+            type="DocumentationReferencesType" minOccurs="0"/>  
+        </xsd:sequence>  
     </xsd:complexType>
   
     <xsd:complexType name="IdentifierType">  
-    	<xsd:simpleContent>  
-    		<xsd:extension base="xsd:anyURI">  
-    			<xsd:attribute name="Qualifier" type="QualifierType"  
-    			use="optional"/>  
-    		</xsd:extension>  
-    	</xsd:simpleContent>  
+        <xsd:simpleContent>  
+            <xsd:extension base="xsd:anyURI">  
+                <xsd:attribute name="Qualifier" type="QualifierType"  
+                use="optional"/>  
+            </xsd:extension>  
+        </xsd:simpleContent>  
     </xsd:complexType>
   
     <xsd:simpleType name="QualifierType">  
-    	<xsd:restriction base="xsd:string">  
-    		<xsd:enumeration value="OIDAsURI"/>  
-    		<xsd:enumeration value="OIDAsURN"/>  
-    	</xsd:restriction>  
+        <xsd:restriction base="xsd:string">  
+            <xsd:enumeration value="OIDAsURI"/>  
+            <xsd:enumeration value="OIDAsURN"/>  
+        </xsd:restriction>  
     </xsd:simpleType>
   
     <xsd:complexType name="DocumentationReferencesType">  
-    	<xsd:sequence maxOccurs="unbounded">  
-    		<xsd:element name="DocumentationReference" type="xsd:anyURI"/>  
-    	</xsd:sequence>  
+        <xsd:sequence maxOccurs="unbounded">  
+            <xsd:element name="DocumentationReference" type="xsd:anyURI"/>  
+        </xsd:sequence>  
     </xsd:complexType>  
 
 Элемент `Identifier` cодержит постоянный (неизменяемый)
@@ -509,35 +508,35 @@ URI-идентификатору.
     <xsd:element name="Include" type="IncludeType"/>
   
     <xsd:complexType name="IncludeType">  
-    	<xsd:attribute name="URI" type="xsd:anyURI" use="required"/>  
-    	<xsd:attribute name="referencedData" type="xsd:boolean" use="optional"/>  
+        <xsd:attribute name="URI" type="xsd:anyURI" use="required"/>  
+        <xsd:attribute name="referencedData" type="xsd:boolean" use="optional"/>  
     </xsd:complexType>
   
     <xsd:element name="ReferenceInfo" type="ReferenceInfoType"/>
   
     <xsd:complexType name="ReferenceInfoType">  
-    	<xsd:sequence>  
-    		<xsd:element ref="ds:DigestMethod"/>  
-    		<xsd:element ref="ds:DigestValue"/>  
-    	</xsd:sequence>  
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>  
-    	<xsd:attribute name="URI" type="xsd:anyURI" use="optional"/>  
+        <xsd:sequence>  
+            <xsd:element ref="ds:DigestMethod"/>  
+            <xsd:element ref="ds:DigestValue"/>  
+        </xsd:sequence>  
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>  
+        <xsd:attribute name="URI" type="xsd:anyURI" use="optional"/>  
     </xsd:complexType>
   
     <xsd:complexType name="GenericTimeStampType" abstract="true">  
-    	<xsd:sequence>  
-    		<xsd:choice minOccurs="0">  
-    			<xsd:element ref="Include" minOccurs="0" maxOccurs="unbounded"/>  
-    			<xsd:element ref="ReferenceInfo" maxOccurs="unbounded"/>  
-    		</xsd:choice>  
-    		<xsd:element ref="ds:CanonicalizationMethod" minOccurs="0"/>  
-    		<xsd:choice maxOccurs="unbounded">  
-    			<xsd:element name="EncapsulatedTimeStamp" 
-    			type="EncapsulatedPKIDataType"/>  
-    			<xsd:element name="XMLTimeStamp" type="AnyType"/>  
-    		</xsd:choice>  
-    	</xsd:sequence>  
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>  
+        <xsd:sequence>  
+            <xsd:choice minOccurs="0">  
+                <xsd:element ref="Include" minOccurs="0" maxOccurs="unbounded"/>  
+                <xsd:element ref="ReferenceInfo" maxOccurs="unbounded"/>  
+            </xsd:choice>  
+            <xsd:element ref="ds:CanonicalizationMethod" minOccurs="0"/>  
+            <xsd:choice maxOccurs="unbounded">  
+                <xsd:element name="EncapsulatedTimeStamp" 
+                type="EncapsulatedPKIDataType"/>  
+                <xsd:element name="XMLTimeStamp" type="AnyType"/>  
+            </xsd:choice>  
+        </xsd:sequence>  
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>  
     </xsd:complexType>  
 
 Элемент `ds:CanonicalizationMethod` определяет алгоритм канонизации 
@@ -560,19 +559,19 @@ XML-элементов, которые покрывает штамп.
     <xsd:element name="XAdESTimeStamp" type="XAdESTimeStampType"/>
   
     <xsd:complexType name="XAdESTimeStampType">  
-    	<xsd:complexContent>  
-    		<xsd:restriction base="GenericTimeStampType">  
-    			<xsd:sequence>  
-    				<xsd:element ref="Include" minOccurs="0" maxOccurs="unbounded"/>  
-    				<xsd:element ref="ds:CanonicalizationMethod" minOccurs="0"/>  
-    				<xsd:choice maxOccurs="unbounded">  
-    					<xsd:element name="EncapsulatedTimeStamp" type="EncapsulatedPKIDataType"/>  
-    					<xsd:element name="XMLTimeStamp" type="AnyType"/>  
-    				</xsd:choice>  
-    			</xsd:sequence>  
-    			<xsd:attribute name="Id" type="xsd:ID" use="optional"/>  
-    		</xsd:restriction>  
-    	</xsd:complexContent>  
+        <xsd:complexContent>  
+            <xsd:restriction base="GenericTimeStampType">  
+                <xsd:sequence>  
+                    <xsd:element ref="Include" minOccurs="0" maxOccurs="unbounded"/>  
+                    <xsd:element ref="ds:CanonicalizationMethod" minOccurs="0"/>  
+                    <xsd:choice maxOccurs="unbounded">  
+                        <xsd:element name="EncapsulatedTimeStamp" type="EncapsulatedPKIDataType"/>  
+                        <xsd:element name="XMLTimeStamp" type="AnyType"/>  
+                    </xsd:choice>  
+                </xsd:sequence>  
+                <xsd:attribute name="Id" type="xsd:ID" use="optional"/>  
+            </xsd:restriction>  
+        </xsd:complexContent>  
     </xsd:complexType> 
 
 Штампы времени, определенные в [10.5.8.1](#Xades581), 
@@ -619,20 +618,20 @@ XML-элементов, которые покрывает штамп.
     <xsd:element name="OtherTimeStamp" type="OtherTimeStampType"/>
   
     <xsd:complexType name="OtherTimeStampType">  
-    	<xsd:complexContent>  
-    		<xsd:restriction base="GenericTimeStampType">  
-    			<xsd:sequence>  
-    				<xsd:element ref="ReferenceInfo" maxOccurs="unbounded"/>  
-    				<xsd:element ref="ds:CanonicalizationMethod" minOccurs="0"/>  
-    				<xsd:choice>  
-    					<xsd:element name="EncapsulatedTimeStamp"  
-    					type="EncapsulatedPKIDataType"/>  
-    					<xsd:element name="XMLTimeStamp" type="AnyType"/>  
-    				</xsd:choice>  
-    			</xsd:sequence>  
-    			<xsd:attribute name="Id" type="xsd:ID" use="optional"/>
-    		</xsd:restriction>
-    	</xsd:complexContent 
+        <xsd:complexContent>  
+            <xsd:restriction base="GenericTimeStampType">  
+                <xsd:sequence>  
+                    <xsd:element ref="ReferenceInfo" maxOccurs="unbounded"/>  
+                    <xsd:element ref="ds:CanonicalizationMethod" minOccurs="0"/>  
+                    <xsd:choice>  
+                        <xsd:element name="EncapsulatedTimeStamp"  
+                        type="EncapsulatedPKIDataType"/>  
+                        <xsd:element name="XMLTimeStamp" type="AnyType"/>  
+                    </xsd:choice>  
+                </xsd:sequence>  
+                <xsd:attribute name="Id" type="xsd:ID" use="optional"/>
+            </xsd:restriction>
+        </xsd:complexContent 
     </xsd:complexType>  
 
 Каждый элемент `ReferenceInfo` содержит хэш-значение одного внешнего 
@@ -667,24 +666,24 @@ XML-элементов, которые покрывает штамп.
     <xsd:element name="SigningCertificate" type="CertIDListType"/>
   
     <xsd:complexType name="CertIDListType">  
-    	<xsd:sequence>
-    		<xsd:element name="Cert" type="CertIDType" maxOccurs="unbounded"/>  
-    	</xsd:sequence>  
+        <xsd:sequence>
+            <xsd:element name="Cert" type="CertIDType" maxOccurs="unbounded"/>  
+        </xsd:sequence>  
     </xsd:complexType>
   
     <xsd:complexType name="CertIDType">  
-    	<xsd:sequence>  
-    		<xsd:element name="CertDigest" type="DigestAlgAndValueType"/>  
-    		<xsd:element name="IssuerSerial" type="ds:X509IssuerSerialType"/>  
-    	</xsd:sequence>  
-    	<xsd:attribute name="URI" type="xsd:anyURI" use="optional"/>  
+        <xsd:sequence>  
+            <xsd:element name="CertDigest" type="DigestAlgAndValueType"/>  
+            <xsd:element name="IssuerSerial" type="ds:X509IssuerSerialType"/>  
+        </xsd:sequence>  
+        <xsd:attribute name="URI" type="xsd:anyURI" use="optional"/>  
     </xsd:complexType>
   
     <xsd:complexType name="DigestAlgAndValueType">  
-    	<xsd:sequence>  
-    		<xsd:element ref="ds:DigestMethod"/>  
-    		<xsd:element ref="ds:DigestValue"/>  
-    	</xsd:sequence>  
+        <xsd:sequence>  
+            <xsd:element ref="ds:DigestMethod"/>  
+            <xsd:element ref="ds:DigestValue"/>  
+        </xsd:sequence>  
     </xsd:complexType>  
 
 При использовании алгоритмов хэширования, отличных от SHA-1, 
@@ -696,24 +695,24 @@ XML-элементов, которые покрывает штамп.
     <xsd:element name="SigningCertificateV2" type="CertIDListV2Type"/>
   
     <xsd:complexType name="CertIDListV2Type">  
-    	<xsd:sequence>
-    		<xsd:element name="Cert" type="CertIDTypeV2" maxOccurs="unbounded"/>  
-    	</xsd:sequence>  
+        <xsd:sequence>
+            <xsd:element name="Cert" type="CertIDTypeV2" maxOccurs="unbounded"/>  
+        </xsd:sequence>  
     </xsd:complexType>
   
     <xsd:complexType name="CertIDTypeV2">  
-    	<xsd:sequence>  
-    		<xsd:element name="CertDigest" type="DigestAlgAndValueType"/>  
-    		<xsd:element name="IssuerSerialV2" type="xsd:base64Binary" minOccurs="0"/>  
-    	</xsd:sequence>  
-    	<xsd:attribute name="URI" type="xsd:anyURI" use="optional"/>  
+        <xsd:sequence>  
+            <xsd:element name="CertDigest" type="DigestAlgAndValueType"/>  
+            <xsd:element name="IssuerSerialV2" type="xsd:base64Binary" minOccurs="0"/>  
+        </xsd:sequence>  
+        <xsd:attribute name="URI" type="xsd:anyURI" use="optional"/>  
     </xsd:complexType>
   
     <xsd:complexType name="DigestAlgAndValueType">  
-    	<xsd:sequence>  
-    		<xsd:element ref="ds:DigestMethod"/>  
-    		<xsd:element ref="ds:DigestValue"/>  
-    	</xsd:sequence>  
+        <xsd:sequence>  
+            <xsd:element ref="ds:DigestMethod"/>  
+            <xsd:element ref="ds:DigestValue"/>  
+        </xsd:sequence>  
     </xsd:complexType>  
 
 Элемент `CertDigest` содержит хэш-значение целевого сертификата. При этом
@@ -751,24 +750,24 @@ XML-атрибут `URI` содержит ссылку, по которой ра
     <xsd:element name="CommitmentTypeIndication" type="CommitmentTypeIndicationType"/>
   
     <xsd:complexType name="CommitmentTypeIndicationType">  
-    	<xsd:sequence>  
-    		<xsd:element name="CommitmentTypeId"  
-    		type="ObjectIdentifierType"/>  
-    		<xsd:choice>  
-    			<xsd:element name="ObjectReference" type="xsd:anyURI"  
-    			maxOccurs="unbounded"/>  
-    			<xsd:element name="AllSignedDataObjects"/>  
-    		</xsd:choice>  
-    		<xsd:element name="CommitmentTypeQualifiers"  
-    		type="CommitmentTypeQualifiersListType" minOccurs="0"/>  
-    	</xsd:sequence>  
+        <xsd:sequence>  
+            <xsd:element name="CommitmentTypeId"  
+            type="ObjectIdentifierType"/>  
+            <xsd:choice>  
+                <xsd:element name="ObjectReference" type="xsd:anyURI"  
+                maxOccurs="unbounded"/>  
+                <xsd:element name="AllSignedDataObjects"/>  
+            </xsd:choice>  
+            <xsd:element name="CommitmentTypeQualifiers"  
+            type="CommitmentTypeQualifiersListType" minOccurs="0"/>  
+        </xsd:sequence>  
     </xsd:complexType>
   
     <xsd:complexType name="CommitmentTypeQualifiersListType">  
-    	<xsd:sequence>  
-    		<xsd:element name="CommitmentTypeQualifier"  
-    		type="AnyType" minOccurs="0" maxOccurs="unbounded"/>  
-    	</xsd:sequence>  
+        <xsd:sequence>  
+            <xsd:element name="CommitmentTypeQualifier"  
+            type="AnyType" minOccurs="0" maxOccurs="unbounded"/>  
+        </xsd:sequence>  
     </xsd:complexType>  
 
 Элемент `CommitmentTypeId` описывает обязательство подписанта. Вложенный
@@ -801,15 +800,15 @@ URI-идентификатор НЕ ДОЛЖЕН представлять иде
     <xsd:element name="DataObjectFormat" type="DataObjectFormatType"/>
 
     <xsd:complexType name="DataObjectFormatType">
-    	<xsd:sequence>
-    		<xsd:element name="Description" type="xsd:string" minOccurs="0"/>
-    		<xsd:element name="ObjectIdentifier" type="ObjectIdentifierType"
-    		minOccurs="0"/>
-    		<xsd:element name="MimeType" type="xsd:string" minOccurs="0"/>
-    		<xsd:element name="Encoding" type="xsd:anyURI" minOccurs="0"/>
-    	</xsd:sequence>
-    	<xsd:attribute name="ObjectReference" type="xsd:anyURI"
-    	use="required"/>
+        <xsd:sequence>
+            <xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="ObjectIdentifier" type="ObjectIdentifierType"
+            minOccurs="0"/>
+            <xsd:element name="MimeType" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="Encoding" type="xsd:anyURI" minOccurs="0"/>
+        </xsd:sequence>
+        <xsd:attribute name="ObjectReference" type="xsd:anyURI"
+        use="required"/>
     </xsd:complexType>
 
 Элемент `Description` содержит текстовую информацию, связанную с 
@@ -856,13 +855,13 @@ XML-атрибут `ObjectReference` ссылается на элемент `ds:
     <xsd:element name="SignatureProductionPlaceV2"   type="SignatureProductionPlaceV2Type"/>
   
     <xsd:complexType name="SignatureProductionPlaceV2Type">  
-    	<xsd:sequence>  
-    		<xsd:element name="City" type="xsd:string" minOccurs="0"/>  
-    		<xsd:element name="StreetAddress" type="xsd:string" minOccurs="0"/>  
-    		<xsd:element name="StateOrProvince" type="xsd:string" minOccurs="0"/>  
-    		<xsd:element name="PostalCode" type="xsd:string" minOccurs="0"/>  
-    		<xsd:element name="CountryName" type="xsd:string" minOccurs="0"/>  
-    	</xsd:sequence>  
+        <xsd:sequence>  
+            <xsd:element name="City" type="xsd:string" minOccurs="0"/>  
+            <xsd:element name="StreetAddress" type="xsd:string" minOccurs="0"/>  
+            <xsd:element name="StateOrProvince" type="xsd:string" minOccurs="0"/>  
+            <xsd:element name="PostalCode" type="xsd:string" minOccurs="0"/>  
+            <xsd:element name="CountryName" type="xsd:string" minOccurs="0"/>  
+        </xsd:sequence>  
     </xsd:complexType>  
 
 Пустой элемент `SignatureProductionPlaceV2` НЕ ДОЛЖЕН включаться в РЭЦП.
@@ -878,11 +877,11 @@ XML-атрибут `ObjectReference` ссылается на элемент `ds:
     <xsd:element name="SignerRoleV2" type="SignerRoleV2Type"/>
   
     <xsd:complexType name="SignerRoleV2Type">  
-    	<xsd:sequence>  
-    		<xsd:element ref="ClaimedRoles" minOccurs="0"/>  
-    		<xsd:element ref="CertifiedRolesV2" minOccurs="0"/>  
-    		<xsd:element ref="SignedAssertions" minOccurs="0"/>  
-    	</xsd:sequence>  
+        <xsd:sequence>  
+            <xsd:element ref="ClaimedRoles" minOccurs="0"/>  
+            <xsd:element ref="CertifiedRolesV2" minOccurs="0"/>  
+            <xsd:element ref="SignedAssertions" minOccurs="0"/>  
+        </xsd:sequence>  
     </xsd:complexType>
   
     <xsd:element name="ClaimedRoles" type="ClaimedRolesListType"/>  
@@ -890,31 +889,31 @@ XML-атрибут `ObjectReference` ссылается на элемент `ds:
     <xsd:element name="SignedAssertions" type="SignedAssertionsListType"/>
   
     <xsd:complexType name="ClaimedRolesListType">  
-    	<xsd:sequence>  
-    		<xsd:element name="ClaimedRole" type="AnyType" maxOccurs="unbounded"/>  
-    	</xsd:sequence>  
+        <xsd:sequence>  
+            <xsd:element name="ClaimedRole" type="AnyType" maxOccurs="unbounded"/>  
+        </xsd:sequence>  
     </xsd:complexType>
   
     <xsd:complexType name="CertifiedRolesListTypeV2">  
-    	<xsd:sequence>  
-    		<xsd:element name="CertifiedRole" type="CertifiedRoleTypeV2"   maxOccurs="unbounded"/>  
-    	</xsd:sequence>  
+        <xsd:sequence>  
+            <xsd:element name="CertifiedRole" type="CertifiedRoleTypeV2"   maxOccurs="unbounded"/>  
+        </xsd:sequence>  
     </xsd:complexType>
   
     <xsd:complexType name="CertifiedRoleTypeV2">  
-    	<xsd:choice>  
-    		<xsd:element ref="X509AttributeCertificate"/>  
-    		<xsd:element ref="OtherAttributeCertificate"/>  
-    	</xsd:choice>  
+        <xsd:choice>  
+            <xsd:element ref="X509AttributeCertificate"/>  
+            <xsd:element ref="OtherAttributeCertificate"/>  
+        </xsd:choice>  
     </xsd:complexType>
   
     <xsd:element name="X509AttributeCertificate" type="EncapsulatedPKIDataType"/>  
     <xsd:element name="OtherAttributeCertificate" type="AnyType"/>
   
     <xsd:complexType name="SignedAssertionsListType">  
-    	<xsd:sequence>  
-    		<xsd:element ref="SignedAssertion" maxOccurs="unbounded"/>  
-    	</xsd:sequence>  
+        <xsd:sequence>  
+            <xsd:element ref="SignedAssertion" maxOccurs="unbounded"/>  
+        </xsd:sequence>  
     </xsd:complexType>
   
     <xsd:element name="SignedAssertion" type="AnyType"/>  
@@ -963,9 +962,9 @@ XML-атрибут `ObjectReference` ссылается на элемент `ds:
     <xsd:element name="CounterSignature" type="CounterSignatureType" />
 
     <xsd:complexType name="CounterSignatureType">
-    	<xsd:sequence>
-    		<xsd:element ref="ds:Signature"/>
-    	</xsd:sequence>
+        <xsd:sequence>
+            <xsd:element ref="ds:Signature"/>
+        </xsd:sequence>
     </xsd:complexType>
 
 Элемент `CounterSignature` содержит подпись в формате XML-DSig или 
@@ -1032,31 +1031,33 @@ XAdES. В этой подписи элемент `ds:SignedInfo` ДОЛЖЕН с
     <xsd:element name="SignaturePolicyIdentifier" type="SignaturePolicyIdentifierType"/>
 
     <xsd:complexType name="SignaturePolicyIdentifierType">
-    	<xsd:choice>
-    		<xsd:element name="SignaturePolicyId" type="SignaturePolicyIdType"/>
-    		<xsd:element name="SignaturePolicyImplied"/>
-    	</xsd:choice>
+        <xsd:choice>
+            <xsd:element name="SignaturePolicyId" type="SignaturePolicyIdType"/>
+            <xsd:element name="SignaturePolicyImplied"/>
+        </xsd:choice>
     </xsd:complexType>
 
     <xsd:complexType name="SignaturePolicyIdType">
-    	<xsd:sequence>
-    		<xsd:element name="SigPolicyId" type="ObjectIdentifierType"/>
-    		<xsd:element ref="ds:Transforms" minOccurs="0"/>
-    		<xsd:element name="SigPolicyHash" type="DigestAlgAndValueType"/>
-    		<xsd:element name="SigPolicyQualifiers"
-    		type="SigPolicyQualifiersListType" minOccurs="0"/>
-    	</xsd:sequence>
+        <xsd:sequence>
+            <xsd:element name="SigPolicyId" type="ObjectIdentifierType"/>
+            <xsd:element ref="ds:Transforms" minOccurs="0"/>
+            <xsd:element name="SigPolicyHash" type="DigestAlgAndValueType"/>
+            <xsd:element name="SigPolicyQualifiers"
+            type="SigPolicyQualifiersListType" minOccurs="0"/>
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="SigPolicyQualifiersListType">
-    	<xsd:sequence>
-    		<xsd:element name="SigPolicyQualifier" type="AnyType"
-    		maxOccurs="unbounded"/>
-    	</xsd:sequence>
+        <xsd:sequence>
+            <xsd:element name="SigPolicyQualifier" type="AnyType"
+            maxOccurs="unbounded"/>
+        </xsd:sequence>
     </xsd:complexType>
 
 Элемент `SignaturePolicyId` используется для ссылки на политику подписи в 
-явном виде. 
+явном виде. Пустой элемент `SignaturePolicyImplied` используется для неявной 
+ссылки на политику подписи. Элемент указывает на то, что подписанные данные и 
+другие внешние объекты подразумевают определенную политику подписи.
 
 Элемент `SigPolicyId` идентифицирует конкретную версию политики подписи.
 
@@ -1090,26 +1091,26 @@ XML-схемой:
     <xsd:element name="SPUserNotice" type="SPUserNoticeType"/>
 
     <xsd:complexType name="SPUserNoticeType">
-    	<xsd:sequence>
-    		<xsd:element name="NoticeRef" type="NoticeReferenceType"
-    		minOccurs="0"/>
-    		<xsd:element name="ExplicitText" type="xsd:string"
-    		minOccurs="0"/>
-    	</xsd:sequence>
+        <xsd:sequence>
+            <xsd:element name="NoticeRef" type="NoticeReferenceType"
+            minOccurs="0"/>
+            <xsd:element name="ExplicitText" type="xsd:string"
+            minOccurs="0"/>
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="NoticeReferenceType">
-    	<xsd:sequence>
-    		<xsd:element name="Organization" type="xsd:string"/>
-    		<xsd:element name="NoticeNumbers" type="IntegerListType"/>
-    	</xsd:sequence>
+        <xsd:sequence>
+            <xsd:element name="Organization" type="xsd:string"/>
+            <xsd:element name="NoticeNumbers" type="IntegerListType"/>
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="IntegerListType">
-    	<xsd:sequence>
-    		<xsd:element name="int" type="xsd:integer" minOccurs="0"
-    		maxOccurs="unbounded"/>
-    	</xsd:sequence>
+        <xsd:sequence>
+            <xsd:element name="int" type="xsd:integer" minOccurs="0"
+            maxOccurs="unbounded"/>
+        </xsd:sequence>
     </xsd:complexType>
 
 Элемент `ExplicitText` содержит текст отображаемого уведомления.
@@ -1136,13 +1137,13 @@ XML-схемой:
     <xsd:element name="SignaturePolicyStore" type="SignaturePolicyStoreType"/>
   
     <xsd:complexType name="SignaturePolicyStoreType">  
-    	<xsd:sequence>  
-    		<xsd:element ref="SPDocSpecification"/>  
-    		<xsd:choice>  
-    			<xsd:element name="SignaturePolicyDocument" type="xsd:base64Binary"/>  
-    			<xsd:element name="SigPolDocLocalURI" type="xsd:anyURI"/>  
-    		</xsd:choice>  
-    	</xsd:sequence>  
+        <xsd:sequence>  
+            <xsd:element ref="SPDocSpecification"/>  
+            <xsd:choice>  
+                <xsd:element name="SignaturePolicyDocument" type="xsd:base64Binary"/>  
+                <xsd:element name="SigPolDocLocalURI" type="xsd:anyURI"/>  
+            </xsd:choice>  
+        </xsd:sequence>  
     </xsd:complexType>  
 
 Элемент `SignaturePolicyDocument` содержит описание политики подписи,
@@ -1201,76 +1202,76 @@ XML-схемой:
     type="CompleteRevocationRefsType"/>
 
     <xsd:complexType name="CompleteRevocationRefsType">
-    	<xsd:sequence>
-    		<xsd:element name="CRLRefs" type="CRLRefsType" minOccurs="0"/>
-    		<xsd:element name="OCSPRefs" type="OCSPRefsType" minOccurs="0"/>
-    		<xsd:element name="OtherRefs" type="OtherCertStatusRefsType"
-    		minOccurs="0"/>
-    	</xsd:sequence>
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>
+        <xsd:sequence>
+            <xsd:element name="CRLRefs" type="CRLRefsType" minOccurs="0"/>
+            <xsd:element name="OCSPRefs" type="OCSPRefsType" minOccurs="0"/>
+            <xsd:element name="OtherRefs" type="OtherCertStatusRefsType"
+            minOccurs="0"/>
+        </xsd:sequence>
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>
     </xsd:complexType>
 
     <xsd:complexType name="CRLRefsType">
-    	<xsd:sequence>
-    		<xsd:element name="CRLRef" type="CRLRefType"
-    		maxOccurs="unbounded"/>
-    	</xsd:sequence>
+        <xsd:sequence>
+            <xsd:element name="CRLRef" type="CRLRefType"
+            maxOccurs="unbounded"/>
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="CRLRefType">
-    	<xsd:sequence>
-    		<xsd:element name="DigestAlgAndValue"
-    		type="DigestAlgAndValueType"/>
-    		<xsd:element name="CRLIdentifier" type="CRLIdentifierType"
-    		minOccurs="0"/>
-    	</xsd:sequence>
+        <xsd:sequence>
+            <xsd:element name="DigestAlgAndValue"
+            type="DigestAlgAndValueType"/>
+            <xsd:element name="CRLIdentifier" type="CRLIdentifierType"
+            minOccurs="0"/>
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="CRLIdentifierType">
-    	<xsd:sequence>
-    		<xsd:element name="Issuer" type="xsd:string"/>
-    		<xsd:element name="IssueTime" type="xsd:dateTime" />
-    		<xsd:element name="Number" type="xsd:integer" minOccurs="0"/>
-    	</xsd:sequence>
-    	<xsd:attribute name="URI" type="xsd:anyURI" use="optional"/>
+        <xsd:sequence>
+            <xsd:element name="Issuer" type="xsd:string"/>
+            <xsd:element name="IssueTime" type="xsd:dateTime" />
+            <xsd:element name="Number" type="xsd:integer" minOccurs="0"/>
+        </xsd:sequence>
+        <xsd:attribute name="URI" type="xsd:anyURI" use="optional"/>
     </xsd:complexType>
 
     <xsd:complexType name="OCSPRefsType">
-    	<xsd:sequence>
-    		<xsd:element name="OCSPRef" type="OCSPRefType"
-    		maxOccurs="unbounded"/>
-    	</xsd:sequence>
+        <xsd:sequence>
+            <xsd:element name="OCSPRef" type="OCSPRefType"
+            maxOccurs="unbounded"/>
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="OCSPRefType">
-    	<xsd:sequence>
-    		<xsd:element name="OCSPIdentifier" type="OCSPIdentifierType"/>
-    		<xsd:element name="DigestAlgAndValue"
-    		type="DigestAlgAndValueType"
-    		minOccurs="0"/>
-    	</xsd:sequence>
+        <xsd:sequence>
+            <xsd:element name="OCSPIdentifier" type="OCSPIdentifierType"/>
+            <xsd:element name="DigestAlgAndValue"
+            type="DigestAlgAndValueType"
+            minOccurs="0"/>
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="ResponderIDType">
-    	<xsd:choice>
-    		<xsd:element name="ByName" type="xsd:string"/>
-    		<xsd:element name="ByKey" type="xsd:base64Binary"/>
-    	</xsd:choice>
+        <xsd:choice>
+            <xsd:element name="ByName" type="xsd:string"/>
+            <xsd:element name="ByKey" type="xsd:base64Binary"/>
+        </xsd:choice>
     </xsd:complexType>
 
     <xsd:complexType name="OCSPIdentifierType">
-    	<xsd:sequence>
-    		<xsd:element name="ResponderID" type="ResponderIDType"/>
-    		<xsd:element name="ProducedAt" type="xsd:dateTime"/>
-    	</xsd:sequence>
-    	<xsd:attribute name="URI" type="xsd:anyURI" use="optional"/>
+        <xsd:sequence>
+            <xsd:element name="ResponderID" type="ResponderIDType"/>
+            <xsd:element name="ProducedAt" type="xsd:dateTime"/>
+        </xsd:sequence>
+        <xsd:attribute name="URI" type="xsd:anyURI" use="optional"/>
     </xsd:complexType>
 
     <xsd:complexType name="OtherCertStatusRefsType">
-    	<xsd:sequence>
-    		<xsd:element name="OtherRef" type="AnyType"
-    		maxOccurs="unbounded"/>
-    	</xsd:sequence>
+        <xsd:sequence>
+            <xsd:element name="OtherRef" type="AnyType"
+            maxOccurs="unbounded"/>
+        </xsd:sequence>
     </xsd:complexType>
 
 Пустой атрибут `CompleteRevocationRefs` НЕ ДОЛЖЕН включаться в подпись.
@@ -1405,12 +1406,12 @@ XML-атрибут `URI` элемента `CRLRef` является адресо
     <xsd:element name="CertificateValues" type="CertificateValuesType"/>
   
     <xsd:complexType name="CertificateValuesType">  
-    	<xsd:choice minOccurs="0" maxOccurs="unbounded">  
-    		<xsd:element name="EncapsulatedX509Certificate"  
-    		type="EncapsulatedPKIDataType"/>  
-    		<xsd:element name="OtherCertificate" type="AnyType"/>  
-    	</xsd:choice>  
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>  
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">  
+            <xsd:element name="EncapsulatedX509Certificate"  
+            type="EncapsulatedPKIDataType"/>  
+            <xsd:element name="OtherCertificate" type="AnyType"/>  
+        </xsd:choice>  
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>  
     </xsd:complexType>
 
 Элемент `EncapsulatedX509Certificate` содержит СОК в формате, 
@@ -1431,37 +1432,37 @@ Base64.
     <xsd:element name="RevocationValues" type="RevocationValuesType"/>
   
     <xsd:complexType name="RevocationValuesType">  
-    	<xsd:sequence>  
-    		<xsd:element name="CRLValues" type="CRLValuesType"  
-    		minOccurs="0"/>
-    		<xsd:element name="OCSPValues" type="OCSPValuesType"  
-    		minOccurs="0"/>  
-    		<xsd:element name="OtherValues" type="OtherCertStatusValuesType"
-    		minOccurs="0"/>  
-    	</xsd:sequence>  
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>  
+        <xsd:sequence>  
+            <xsd:element name="CRLValues" type="CRLValuesType"  
+            minOccurs="0"/>
+            <xsd:element name="OCSPValues" type="OCSPValuesType"  
+            minOccurs="0"/>  
+            <xsd:element name="OtherValues" type="OtherCertStatusValuesType"
+            minOccurs="0"/>  
+        </xsd:sequence>  
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>  
     </xsd:complexType>
   
     <xsd:complexType name="CRLValuesType">  
-    	<xsd:sequence>  
-    		<xsd:element name="EncapsulatedCRLValue"
-    		type="EncapsulatedPKIDataType"
-    		maxOccurs="unbounded"/>  
-    	</xsd:sequence>  
+        <xsd:sequence>  
+            <xsd:element name="EncapsulatedCRLValue"
+            type="EncapsulatedPKIDataType"
+            maxOccurs="unbounded"/>  
+        </xsd:sequence>  
     </xsd:complexType>
   
     <xsd:complexType name="OCSPValuesType">  
-    	<xsd:sequence>  
-    		<xsd:element name="EncapsulatedOCSPValue"
-    		type="EncapsulatedPKIDataType" maxOccurs="unbounded"/>  
-    	</xsd:sequence>  
+        <xsd:sequence>  
+            <xsd:element name="EncapsulatedOCSPValue"
+            type="EncapsulatedPKIDataType" maxOccurs="unbounded"/>  
+        </xsd:sequence>  
     </xsd:complexType>
   
     <xsd:complexType name="OtherCertStatusValuesType">  
-    	<xsd:sequence>
-    		<xsd:element name="OtherValue" type="AnyType"
-    		maxOccurs="unbounded"/>
-    	</xsd:sequence>  
+        <xsd:sequence>
+            <xsd:element name="OtherValue" type="AnyType"
+            maxOccurs="unbounded"/>
+        </xsd:sequence>  
     </xsd:complexType>
 
 Элемент `CRLValues` содержит последовательность СОС в 
@@ -1517,12 +1518,12 @@ Base64.
     <xsd:element name="TimeStampValidationData" type="ValidationDataType"/>
   
     <xsd:complexType name="ValidationDataType">  
-    	<xsd:sequence>  
-    		<xsd:element ref="xades:CertificateValues" minOccurs="0"/>  
-    		<xsd:element ref="xades:RevocationValues" minOccurs="0"/>  
-    	</xsd:sequence>  
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>  
-    	<xsd:attribute name="URI" type="xsd:anyURI" use="optional"/>  
+        <xsd:sequence>  
+            <xsd:element ref="xades:CertificateValues" minOccurs="0"/>  
+            <xsd:element ref="xades:RevocationValues" minOccurs="0"/>  
+        </xsd:sequence>  
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>  
+        <xsd:attribute name="URI" type="xsd:anyURI" use="optional"/>  
     </xsd:complexType>
 
 Элемент `CertificateValues` содержит сертификаты, 
@@ -1634,21 +1635,21 @@ Base64.
     <xsd:element name="RenewedDigests" type="RenewedDigestsType"/>
   
     <xsd:complexType name="RenewedDigestsType">  
-    	<xsd:sequence>  
-    		<xsd:element ref="ds:DigestMethod"/>  
-    		<xsd:element ref="RecomputedDigestValue" maxOccurs="unbounded"/>  
-    	</xsd:sequence>  
-    	<xsd:attribute name="Id" type="xsd:ID" use="optional"/>  
+        <xsd:sequence>  
+            <xsd:element ref="ds:DigestMethod"/>  
+            <xsd:element ref="RecomputedDigestValue" maxOccurs="unbounded"/>  
+        </xsd:sequence>  
+        <xsd:attribute name="Id" type="xsd:ID" use="optional"/>  
     </xsd:complexType>
   
     <xsd:element name="RecomputedDigestValue" type="RecomputedDigestValueType"/>
   
     <xsd:complexType name="RecomputedDigestValueType">  
-    	<xsd:simpleContent>  
-    		<xsd:extension base="ds:DigestValueType">  
-    			<xsd:attribute name="Order" type="xsd:integer" use="required"/>  
-    		</xsd:extension>  
-    	</xsd:simpleContent>  
+        <xsd:simpleContent>  
+            <xsd:extension base="ds:DigestValueType">  
+                <xsd:attribute name="Order" type="xsd:integer" use="required"/>  
+            </xsd:extension>  
+        </xsd:simpleContent>  
     </xsd:complexType>  
 
 Элемент `ds:DigestMethod` задает алгоритм хэширования.
