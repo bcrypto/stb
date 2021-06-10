@@ -481,17 +481,17 @@ todo: Не рекомендуется использовать атрибутн�
         pkcs(1) pkcs9(9) smime(16) id-spq(5) 2
     }
     SPUserNotice ::= SEQUENCE {
-        noticeRefNoticeReference OPTIONAL, 
+        noticeRef NoticeReference OPTIONAL, 
         explicitText DisplayText OPTIONAL
     }
     NoticeReference ::= SEQUENCE {
         organization DisplayText, 
-        noticeNumbersSEQUENCE OF INTEGER
+        noticeNumbers SEQUENCE OF INTEGER
     }
     DisplayText ::= CHOICE {
-        visibleStringVisibleString      (SIZE (1..200)),
-        bmpStringBMPString      (SIZE (1..200)),
-        utf8String   UTF8String      (SIZE (1..200))
+        visibleString VisibleString  (SIZE (1..200)),
+        bmpString BMPString          (SIZE (1..200)),
+        utf8String UTF8String        (SIZE (1..200))
     }
 
     id-spq-ets-docspec OBJECT IDENTIFIER ::= { 
