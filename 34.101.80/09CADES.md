@@ -285,7 +285,7 @@
         -- As used to name a Country in X.500 
         localityName [1] DirectoryString OPTIONAL,
         -- As used to name a locality in X.500 
-        postalAdddress [2] PostalAddress OPTIONAL
+        postalAddress [2] PostalAddress OPTIONAL
     }
     PostalAddress ::= SEQUENCE SIZE(1..6) OF DirectoryString
 
