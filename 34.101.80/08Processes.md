@@ -253,7 +253,7 @@ days ago, and the involved certificate expired yesterday.
   подписи;
 - `TIMESTAMP_ORDER_FAILURE` — нарушены соглашения об очередности штампов 
   времени; 
-Образно- `NO_SIGNING_CERTIFICATE_FOUND` — не найден сертификат подписанта; 
+- `NO_SIGNING_CERTIFICATE_FOUND` — не найден сертификат подписанта; 
 - `NO_CERTIFICATE_CHAIN_FOUND` — не найдена цепочка сертификатов; 
 - `REVOKED_NO_POE` — сертификат подписанта отозван, но возможно он 
   действовал в момент выработки подписи; 
