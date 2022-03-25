@@ -101,7 +101,7 @@
 
     id-aa-signingCertificate OBJECT IDENTIFIER ::= {
         iso(1) member-body(2) us(840) rsadsi(113549)
-        pkcs(1) pkcs9(9) smime(16) id-aa(2) 12
+            pkcs(1) pkcs9(9) smime(16) id-aa(2) 12
     }
 
 При использовании алгоритмов хэширования, отличных от SHA-1, 
@@ -110,7 +110,7 @@
 
     id-aa-signingCertificateV2 OBJECT IDENTIFIER ::= {
         iso(1) member-body(2) us(840) rsadsi(113549)
-        pkcs(1) pkcs9(9) smime(16) id-aa(2) 47
+            pkcs(1) pkcs9(9) smime(16) id-aa(2) 47
     }
 
 Тип `SigningCertificate` определен в [[17]](99Biblio.md#ESS).
@@ -121,28 +121,26 @@
         policies     SEQUENCE OF PolicyInformation OPTIONAL
     }
     ESSCertID ::= SEQUENCE {
-         certHash                Hash,
-         issuerSerial            IssuerSerial OPTIONAL
+         certHash       Hash,
+         issuerSerial   IssuerSerial OPTIONAL
     }
     SigningCertificateV2 ::=  SEQUENCE {
-        certs        SEQUENCE OF ESSCertIDv2,
-        policies     SEQUENCE OF PolicyInformation OPTIONAL
+        certs       SEQUENCE OF ESSCertIDv2,
+        policies    SEQUENCE OF PolicyInformation OPTIONAL
     }
     id-sha256  OBJECT IDENTIFIER  ::=  { 
-        joint-iso-itu-t(2)
-        country(16) us(840) organization(1) gov(101)
-        csor(3) nistalgorithm(4) hashalgs(2) 1
+        joint-iso-itu-t(2) country(16) us(840) organization(1) gov(101)
+            csor(3) nistalgorithm(4) hashalgs(2) 1
     }
     ESSCertIDv2 ::= SEQUENCE {
-         hashAlgorithm           AlgorithmIdentifier
-                DEFAULT {algorithm id-sha256},
-         certHash                Hash,
-         issuerSerial            IssuerSerial OPTIONAL
+         hashAlgorithm  AlgorithmIdentifier DEFAULT {algorithm id-sha256},
+         certHash       Hash,
+         issuerSerial   IssuerSerial OPTIONAL
     }
     Hash ::= OCTET STRING
     IssuerSerial ::= SEQUENCE {
-         issuer                   GeneralNames,
-         serialNumber             CertificateSerialNumber
+         issuer         GeneralNames,
+         serialNumber   CertificateSerialNumber
     }
 
 Компонент `certs` содержит ссылки на сертификаты, используемые 
