@@ -45,11 +45,10 @@ E-BES и E-EPES.
 В РЭЦП профиля E-BES НЕ РЕКОМЕНДУЕТСЯ включение атрибутов 
 `SignaturePolicyStore` и `SignaturePolicyIdentifier`.
 
-В РЭЦП профиля E-EPES, наоборот, ДОЛЖЕН быть включен атрибут 
-`SignaturePolicyIdentifier`. Включение атрибута 
-`SignaturePolicyIdentifier`, возможно только при условии, что атрибут 
-`SignaturePolicyIdentifier` содержит хэш-значение от документа регламента 
-подписи.
+В РЭЦП профиля E-EPES, наоборот, ДОЛЖЕН быть включен атрибут
+`SignaturePolicyIdentifier`. Включение атрибута `SignaturePolicyStore` возможно
+только при условии, что атрибут `SignaturePolicyIdentifier` содержит
+хэш-значение от документа регламента подписи.
 
 Остальные требования остаются прежними.
 
