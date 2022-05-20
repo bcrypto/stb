@@ -214,7 +214,7 @@ XML-атрибута `Target`, которая не является фрагме
     <xsd:complexType name="SignedDataObjectPropertiesType">
         <xsd:sequence>
             <xsd:element ref="DataObjectFormat" minOccurs="0" maxOccurs="unbounded"/>
-            <xsd:element ref="CommitmentTypeIndication" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element ref="CommitmentTypeIndication" minOccurs="0"/>
             <xsd:element ref="AllDataObjectsTimeStamp" minOccurs="0" maxOccurs="unbounded"/>
             <xsd:element ref="IndividualDataObjectsTimeStamp" minOccurs="0" maxOccurs="unbounded"/>
             <xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
