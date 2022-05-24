@@ -138,7 +138,7 @@ Request for Comments: 2634, 1999
 [18] <a name="PDF"></a> 
 ISO 32000-1:2008 
 Document management – Portable document format – Part 1: PDF 1.7. 
-International Organization for Standartization, 2008
+International Organization for Standardization, 2008
 (Управление документами. Переносимый формат документов. Часть 1. PDF 1.7)
 
 [19] <a name="BASE64"></a>
