@@ -1012,7 +1012,7 @@ todo: Не рекомендуется использовать атрибутн�
 
     id-aa-ets-archiveTimestampV3 OBJECT IDENTIFIER ::= {
         itu-t(0) identified-organization(4)
-        etsi(0) electronic-signature-standard(1733) attributes(2) 5
+        etsi(0) electronic-signature-standard(1733) attributes(2) 4
     }
 
 Синтаксис атрибута описывается типом `ArchiveTimeStampToken`:
