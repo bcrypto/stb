@@ -265,9 +265,13 @@ CAdES.
 ### 6.4.2 <a name="Attr42"></a>Атрибут `CertificateValues`
 <!--- 6.3.3; A.1.1.2 -->
 
-Неподписанный атрибут `CertificateValues` содержит сертификаты, ссылки на
-которые указаны в атрибутах `CompleteCertificateReferences` и
-`SigningCertificate`. Другие сертификаты НЕ ДОЛЖНЫ быть указаны в этом атрибуте.
+Неподписанный атрибут `CertificateValues` содержит сертификаты из перечня,
+определенного при описании атрибута `CompleteCertificateReferences`. В список
+`CertificateValues` включаются сертификаты, не входящие в стандартные списки
+CAdES (компонент `SignedData.certificates`)  или XAdES (внутри элемента
+`ds:KeyInfo`). В РЭЦП формата CAdES атрибут `CertificateValues` может также
+содержать сертификаты, ссылки на которые указаны в атрибутах
+`AttributeCertificateReferences` и `SigningCertificate`.
 
 <!--- Атрибуты проверки отзыва сертификатов-->
 
@@ -297,9 +301,12 @@ CAdES.
 ### 6.4.4 <a name="Attr44"></a>Атрибут `RevocationValues`
 <!--- 6.3.4; A.1.2.2 -->
 
-Неподписанный атрибут `RevocationValues` содержит аттестаты отзыва, ссылки на
-которые перечислены в атрибуте `CompleteRevocationReferences`. Другие аттестаты
-отзыва НЕ ДОЛЖНЫ включаться в этот атрибут.
+Неподписанный атрибут `RevocationValues` содержит аттестаты отзыва из перечня,
+определенного при описании атрибута `CompleteRevocationReferences`. В список
+`RevocationValues` включаются аттестаты отзыва, не входящие в стандартные списки
+CAdES (компонент `SignedData.crls`) или XAdES (внутри элемента `ds:KeyInfo`). В
+РЭЦП формата CAdES атрибут `RevocationValues` может также содержать аттестаты,
+ссылки на которые указаны в атрибуте `AttributeRevocationReferences`.
 
 ### 6.4.5 <a name="Attr45"></a>Атрибут `AttributeCertificateReferences`
 <!--- 6.2.3; A.1.3 -->
@@ -322,9 +329,8 @@ CAdES.
 ### 6.4.6 <a name="Attr46"></a>Атрибут `AttributeCertificateValues`
 <!--- ; XAdES 5.4.3 -->
 
-Неподписанный атрибут `AttributeCertificateValues` содержит сертификаты, ссылки
-на которые указаны в атрибуте `AttributeCertificateReferences`. Другие
-сертификаты НЕ ДОЛЖНЫ указываться в этом атрибуте.
+Неподписанный атрибут `AttributeCertificateValues` содержит сертификаты из
+перечня, определенного при описании атрибута `AttributeCertificateReferences`.
 
 ### 6.4.7 <a name="Attr47"></a>Атрибут `AttributeRevocationReferences`
 <!--- 6.2.4; A.1.4 -->
@@ -339,9 +345,8 @@ CAdES.
 ### 6.4.8 <a name="Attr48"></a>Атрибут `AttributeRevocationValues`
 <!--- ; XAdES 5.4.4 -->
 
-Неподписанный атрибут `AttributeRevocationValues` содержит аттестаты отзыва,
-ссылки на которые перечислены в атрибуте `AttributeRevocationReferences`. Другие
-элементы НЕ ДОЛЖНЫ включаться в этот атрибут.
+Неподписанный атрибут `AttributeRevocationValues` содержит аттестаты отзыва из
+перечня, определенного при описании атрибута `AttributeRevocationReferences`.
 
 ### 6.4.9 <a name="Attr49"></a>Атрибут `RefsOnlyTimeStamp`
 <!--- 6.3.6; A.1.5.1 -->
