@@ -29,8 +29,6 @@
 ### [Приложение А (обязательное) Модуль АСН.1](#Appendix)
 ### [Библиография](#Biblio)
 
-
-
 # 1 <a name="Logo"></a>Область применения
 
 Настоящий стандарт устанавливает протокол постановки штампа времени, 
@@ -57,7 +55,7 @@
 СТБ 34.101.65-2014 Информационные технологии и безопасность. Протокол 
 защиты транспортного уровня (TLS) 
 
-СТБ 34.101.80-ХХXX Информационные технологии и безопасность. Расширенные 
+СТБ 34.101.80-2019 Информационные технологии и безопасность. Расширенные 
 электронные цифровые подписи 
 
 ГОСТ 34.973-91 (ИСО 8824-87) Информационная технология. Взаимосвязь 
@@ -224,20 +222,18 @@
 протокола. В разделе [8](#Methods) приведены некоторые из возможных 
 способов. 
 
-Для информирования о поддерживаемом СШВ способе обмена сообщениями ее СОК 
-МОЖЕТ содержать расширение `SubjectInfoAccessSyntax` (см. СТБ 
-34.101.19 пункт 6.2.2). В этом случае компонент accessMethod данного расширения ДОЛЖЕН 
-содержать идентификатор. 
+Для информирования о поддерживаемом СШВ способе обмена сообщениями ее СОК МОЖЕТ
+содержать расширение `SubjectInfoAccessSyntax` (см. СТБ 34.101.19 пункт 6.2.2).
+В этом случае компонент accessMethod данного расширения ДОЛЖЕН содержать
+идентификатор.
 
     id-ad-timeStamping OBJECT IDENTIFIER ::= {iso(1) identified-organization(3)
       dod(6) internet(1) security(5) mechanisms(5) pkix(7) ad (48) 
       timestamping (3)}
       
-При этом поддерживаемый СШВ способ обмена сообщениями указывается как 
-значение компонента `accessLocation `данного расширения. Возможные 
-значения компонента `accessLocation` не рассматриваются в настоящем 
-стандарте. 
-
+При этом поддерживаемый СШВ способ обмена сообщениями указывается как значение
+компонента `accessLocation `данного расширения. Возможные значения компонента
+`accessLocation` не рассматриваются в настоящем стандарте.
 
 # 7 <a name="Formats"></a> Форматы запроса и ответа
 
@@ -246,15 +242,15 @@
 Запрос получения штампа времени определяется следующими типами АСН.1:
 
     TimeStampReq ::= SEQUENCE {
-        version INTEGER { v1(1) },
-        messageImprint MessageImprint,
-        reqPolicy TSAPolicyId  OPTIONAL,
-        nonce INTEGER OPTIONAL,
-        certReq BOOLEAN DEFAULT FALSE,
-        extensions [0] IMPLICIT Extensions OPTIONAL }
+      version         INTEGER { v1(1) },
+      messageImprint  MessageImprint,
+      reqPolicy       TSAPolicyId  OPTIONAL,
+      nonce           INTEGER OPTIONAL,
+      certReq         BOOLEAN DEFAULT FALSE,
+      extensions [0]  IMPLICIT Extensions OPTIONAL }
     MessageImprint ::= SEQUENCE {
-        hashAlgorithm  AlgorithmIdentifier,
-        hashedMessage  OCTET STRING }
+      hashAlgorithm  AlgorithmIdentifier,
+      hashedMessage  OCTET STRING }
     TSAPolicyId ::= OBJECT IDENTIFIER
     
 Компоненты типа `TimeStampReq` имеют следующее значение:
@@ -298,9 +294,8 @@
   Если идентификатор не может быть распознан СШВ или соответствует алгоритму 
   хэширования, который не определен в действующем ТНПА, то СШВ НЕ СЛЕДУЕТ 
   выпускать штамп времени, при этом СШВ СЛЕДУЕТ вернуть ответ с ошибкой 
-  `badAlg` (см. [7.2](#Formats2)). Тип 
-
-`AlgorithmIdentifier` данного компонента определен в СТБ 34.101.19;
+  `badAlg` (см. [7.2](#Formats2)). Тип `AlgorithmIdentifier` данного компонента 
+  определен в СТБ 34.101.19; 
 
 - `hashedMessage` определяет хэш-значение данных. Длина указанного в 
   компоненте `hashedMessage` хэш-значения ДОЛЖНА соответствовать алгоритму 
@@ -313,12 +308,12 @@
 Ответ на запрос получения штампа времени определяется следующими типами АСН.1:
 
     TimeStampResp ::= SEQUENCE {
-        status PKIStatusInfo,
-        timeStampToken TimeStampToken OPTIONAL }
+      status          PKIStatusInfo,
+      timeStampToken  TimeStampToken OPTIONAL }
     PKIStatusInfo ::= SEQUENCE {
-        status PKIStatus,
-        statusString PKIFreeText OPTIONAL,
-        failInfo PKIFailureInfo OPTIONAL }
+        status        PKIStatus,
+        statusString  PKIFreeText OPTIONAL,
+        failInfo      PKIFailureInfo OPTIONAL }
     PKIStatus ::= INTEGER {
         granted (0),
         grantedWithMods (1),
@@ -397,7 +392,7 @@
 значение `id-ct-TSTInfo`, которое определяется следующим образом:
 
     id-ct-TSTInfo OBJECT IDENTIFIER ::= { iso(1) member-body(2) us(840)
-        rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) ct(1) 4 }
+      rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) ct(1) 4 }
 
 В свою очередь компонент `eContent` типа `EncapsulatedContentInfo`, 
 вложенного в `SignedData`, ДОЛЖЕН содержать закодированное по 
@@ -405,20 +400,20 @@
 следующими типами АСН.1: 
 
     TSTInfo ::= SEQUENCE {
-        version INTEGER { v1(1) },
-        policy TSAPolicyId,
-        messageImprint MessageImprint,
-        serialNumber INTEGER,
-        genTime GeneralizedTime,
-        accuracy Accuracy OPTIONAL,
-        ordering BOOLEAN DEFAULT FALSE,
-        nonce INTEGER OPTIONAL,
-        tsa [0] GeneralName OPTIONAL,
-        extensions [1] IMPLICIT Extensions OPTIONAL }
+      version         INTEGER { v1(1) },
+      policy          TSAPolicyId,
+      messageImprint  MessageImprint,
+      serialNumber    INTEGER,
+      genTime         GeneralizedTime,
+      accuracy        Accuracy OPTIONAL,
+      ordering        BOOLEAN DEFAULT FALSE,
+      nonce INTEGER OPTIONAL,
+      tsa         [0] GeneralName OPTIONAL,
+      extensions  [1] IMPLICIT Extensions OPTIONAL }
     Accuracy ::= SEQUENCE {
-        seconds INTEGER OPTIONAL,
-        millis [0] INTEGER (1..999) OPTIONAL,
-        micros [1] INTEGER (1..999) OPTIONAL }
+      seconds  INTEGER OPTIONAL,
+      millis   [0] INTEGER (1..999) OPTIONAL,
+      micros   [1] INTEGER (1..999) OPTIONAL }
         
 Компоненты типа `TSTInfo` имеют следующее значение:
 
@@ -777,112 +772,97 @@ IP-порт (обычно с номером 318). Сторона, инициир
 ## Модуль АСН.1
 
     PKIXTSP {iso(1) identified-organization(3) dod(6) internet(1)
-        security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-tsp(13)}
+      security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-tsp(13)}
     DEFINITIONS IMPLICIT TAGS ::=
     BEGIN
-    -- EXPORTS ALL --
-    IMPORTS
-        Extensions, AlgorithmIdentifier
-        FROM PKIX1Explicit88 { iso(1) identified-organization(3)
-        dod(6) internet(1) security(5) mechanisms(5) pkix(7)
-        id-mod(0) id-pkix1-explicit-88(1) }
-        GeneralName FROM PKIX1Implicit88 { iso(1)
-        identified-organization(3) dod(6) internet(1) security(5)
-        mechanisms(5) pkix(7) id-mod(0) id-pkix1-implicit-88(2) }
-        ContentInfo FROM CryptographicMessageSyntax { iso(1)
-        member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs-9(9)
-        smime(16) modules(0) cms(1) }
-        PKIFreeText FROM PKIXCMP { iso(1) identified-organization(3)
-        dod(6) internet(1) security(5) mechanisms(5) pkix(7) id-mod(0)
-        id-mod-cmp(9) } ;
-    id-ct-TSTInfo OBJECT IDENTIFIER ::= { iso(1) member-body(2)
+      -- EXPORTS ALL --
+      IMPORTS
+        Extensions, AlgorithmIdentifier 
+          FROM PKIX1Explicit88 {iso(1) identified-organization(3) dod(6) 
+            internet(1) security(5) mechanisms(5) pkix(7) id-mod(0) 
+            id-pkix1-explicit-88(1)}
+        GeneralName 
+          FROM PKIX1Implicit88 {iso(1) identified-organization(3) dod(6) 
+            internet(1) security(5) mechanisms(5) pkix(7) id-mod(0) 
+            id-pkix1-implicit-88(2)}
+        ContentInfo 
+          FROM CryptographicMessageSyntax {iso(1) member-body(2) us(840) 
+            rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) modules(0) cms(1)}
+        PKIFreeText 
+          FROM PKIXCMP {iso(1) identified-organization(3) dod(6) internet(1) 
+           security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-cmp(9)};
+  
+      id-ct-TSTInfo OBJECT IDENTIFIER ::= {iso(1) member-body(2)
         us(840) rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) ct(1) 4}
-    TimeStampReq ::= SEQUENCE {
-        version INTEGER { v1(1) },
-        messageImprint MessageImprint,
-            -- a hash algorithm OID and the hash value of the data to be
-            -- time-stamped
-        reqPolicy TSAPolicyId OPTIONAL,
-        nonce INTEGER OPTIONAL,
-        certReq BOOLEAN DEFAULT FALSE,
-        extensions [0] IMPLICIT Extensions OPTIONAL }
-    MessageImprint ::= SEQUENCE {
-        hashAlgorithm AlgorithmIdentifier,
-        hashedMessage OCTET STRING }
-    TSAPolicyId ::= OBJECT IDENTIFIER
-    TimeStampResp ::= SEQUENCE {
-        status PKIStatusInfo,
-        timeStampToken TimeStampToken OPTIONAL }
-    -- The status is based on the definition of status
-    -- in section 3.2.3 of [RFC2510]
-    PKIStatusInfo ::= SEQUENCE {
-        status PKIStatus,
-        statusString PKIFreeText OPTIONAL,
-        failInfo PKIFailureInfo OPTIONAL }
-    PKIStatus ::= INTEGER {
+  
+      TimeStampReq ::= SEQUENCE {
+        version         INTEGER { v1(1) },
+        messageImprint  MessageImprint,
+        reqPolicy       TSAPolicyId OPTIONAL,
+        nonce           INTEGER OPTIONAL,
+        certReq         BOOLEAN DEFAULT FALSE,
+        extensions      [0] IMPLICIT Extensions OPTIONAL
+      }
+  
+      MessageImprint ::= SEQUENCE {
+        hashAlgorithm  AlgorithmIdentifier,
+        hashedMessage  OCTET STRING
+      }
+  
+      TSAPolicyId ::= OBJECT IDENTIFIER
+  
+      TimeStampResp ::= SEQUENCE {
+        status          PKIStatusInfo,
+        timeStampToken  TimeStampToken OPTIONAL
+      }
+  
+      PKIStatusInfo ::= SEQUENCE {
+        status        PKIStatus,
+        statusString  PKIFreeText OPTIONAL,
+        failInfo      PKIFailureInfo OPTIONAL
+      }
+  
+      PKIStatus ::= INTEGER {
         granted (0),
-        -- when the PKIStatus contains the value zero a TimeStampToken, as
-        -- requested, is present.
         grantedWithMods (1),
-        -- when the PKIStatus contains the value one a TimeStampToken,
-        -- with modifications, is present.
         rejection (2),
         waiting (3),
         revocationWarning (4),
-        -- this message contains a warning that a revocation is
-        -- imminent
         revocationNotification (5)
-        -- notification that a revocation has occurred -- }
-        -- When the TimeStampToken is not present
-        -- failInfo indicates the reason why the
-        -- time-stamp request was rejected and
-        -- may be one of the following values.
-    PKIFailureInfo ::= BIT STRING {
+      }
+  
+      PKIFailureInfo ::= BIT STRING {
         badAlg (0),
-          -- unrecognized or unsupported Algorithm Identifier
         badRequest (2),
-          -- transaction not permitted or supported
         badDataFormat (5),
-          -- the data submitted has the wrong format
         timeNotAvailable (14),
-          -- the TSA's time source is not available
         unacceptedPolicy (15),
-          -- the requested TSA policy is not supported by the TSA.
         unacceptedExtension (16),
-          -- the requested extension is not supported by the TSA.
         addInfoNotAvailable (17),
-          -- the additional information requested could not be understood
-          -- or is not available
         systemFailure (25)
-          -- the request cannot be handled due to system failure -- }
-    TimeStampToken ::= ContentInfo
-        -- contentType is id-signedData as defined in CMS
-        -- content is SignedData as defined in CMS
-        -- eContentType within SignedData is id-ct-TSTInfo
-        -- eContent within SignedData is TSTInfo
-    TSTInfo ::= SEQUENCE {
-        version INTEGER { v1(1) },
-        policy TSAPolicyId,
-        messageImprint MessageImprint,
-          -- MUST have the same value as the similar field in
-          -- TimeStampReq
-        serialNumber INTEGER,
-        -- Time-Stamping users MUST be ready to accommodate integers
-        -- up to 160 bits.
-        genTime GeneralizedTime,
-        accuracy Accuracy OPTIONAL,
-        ordering BOOLEAN DEFAULT FALSE,
-        nonce INTEGER OPTIONAL,
-          -- MUST be present if the similar field was present
-          -- in TimeStampReq.  In that case it MUST have the same value.
-        tsa [0] GeneralName OPTIONAL,
-        extensions [1] IMPLICIT Extensions OPTIONAL }
-    Accuracy ::= SEQUENCE {
-        seconds INTEGER OPTIONAL,
-        millis [0] INTEGER (1..999) OPTIONAL,
-        micros [1] INTEGER (1..999) OPTIONAL }
+      }
+  
+      TimeStampToken ::= ContentInfo
+  
+      TSTInfo ::= SEQUENCE {
+        version         INTEGER {v1(1)},
+        policy          TSAPolicyId,
+        messageImprint  MessageImprint,
+        serialNumber    INTEGER,
+        genTime         GeneralizedTime,
+        accuracy        Accuracy OPTIONAL,
+        ordering        BOOLEAN DEFAULT FALSE,
+        nonce           INTEGER OPTIONAL,
+        tsa             [0] GeneralName OPTIONAL,
+        extensions      [1] IMPLICIT Extensions OPTIONAL
+      }
+  
+      Accuracy ::= SEQUENCE {
+        seconds  INTEGER OPTIONAL,
+        millis   [0] INTEGER (1..999) OPTIONAL,
+        micros   [1] INTEGER (1..999) OPTIONAL
+      }
     END
-
 
 # <a name="Biblio"></a>Библиография
 
@@ -951,4 +931,3 @@ Berners-Lee T.
 Hypertext Transfer Protocol – HTTP/1.1. 
 Request for Comments: 2616, 1999 
 (Протокол передачи гипертекста – HTTP/1.1) 
-

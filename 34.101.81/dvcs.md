@@ -253,7 +253,7 @@ OCSP – онлайновый протокол проверки статуса �
 CMS (см. СТБ 34.101.23) или передаваться по TLS-соединению (см. СТБ 34.101.65). 
 
 Транспорт данных между клиентом и СЗД может осуществляться различными 
-способами.  Более того, запрос может передаваться одним способом 
+способами. Более того, запрос может передаваться одним способом 
 (например, через браузер), а ответ – другим (например, по электронной 
 почте). 
 
@@ -374,7 +374,7 @@ CMS (см. СТБ 34.101.23) или передаваться по TLS-соеди
 обычным, определенным в СТБ 34.101.82, или в форме аттестата заверения. 
 Тип `ContentInfo` определен в СТБ 34.101.23. Идентификатор contentType, 
 вложенный в `ContentInfo`, должен принимать значение `id-signedData`, 
-определенное в СТБ 34.101.23, а компонент content – непосредственно штамп 
+определенное в СТБ 34.101.23, а компонент `content` – непосредственно штамп 
 или аттестат. 
 
 >Примечание – Отметки времени в последовательных аттестатах, выдаваемых 
@@ -420,16 +420,16 @@ CMS (см. СТБ 34.101.23) или передаваться по TLS-соеди
 образом: 
 
     CertEtcToken ::= CHOICE {
-      certificate             [0] IMPLICIT Certificate,
-      esscertid               [1] ESSCertIDv2,
-      pkistatus               [2] IMPLICIT PKIStatusInfo,
-      assertion               [3] ContentInfo,
-      crl                     [4] IMPLICIT CertificateList,
-      ocspcertstatus          [5] IMPLICIT CertStatus,
-      ocspcertid              [6] IMPLICIT CertId,
-      ocspresponse            [7] IMPLICIT OCSPResponse,
-      capabilities            [8] SMIMECapabilities,
-      extension               Extension }
+      certificate     [0] IMPLICIT Certificate,
+      esscertid       [1] ESSCertIDv2,
+      pkistatus       [2] IMPLICIT PKIStatusInfo,
+      assertion       [3] ContentInfo,
+      crl             [4] IMPLICIT CertificateList,
+      ocspcertstatus  [5] IMPLICIT CertStatus,
+      ocspcertid      [6] IMPLICIT CertId,
+      ocspresponse    [7] IMPLICIT OCSPResponse,
+      capabilities    [8] SMIMECapabilities,
+      extension       Extension }
 
 Компонент `certificate` задает сертификат, а компоненты `esscertid`, 
 `ocspcertid` – ссылки на него. Типы `Certificate`, `ESSCertIDv2` и `CertId` 
@@ -459,9 +459,9 @@ CMS (см. СТБ 34.101.23) или передаваться по TLS-соеди
 политики проверки. Тип определяется следующим образом: 
 
     TargetEtcChain ::= SEQUENCE {
-      target          CertEtcToken,
-      chain           SEQUENCE SIZE (1..MAX) OF CertEtcToken OPTIONAL,
-      pathProcInput   [0] PathProcInput OPTIONAL }
+      target         CertEtcToken,
+      chain          SEQUENCE SIZE (1..MAX) OF CertEtcToken OPTIONAL,
+      pathProcInput  [0] PathProcInput OPTIONAL }
 
 Компонент `target` задает целевой сертификат, компонент `chain` – 
 аттестаты и результаты проверки, компонент `pathProcInput`– политики. 
@@ -496,15 +496,15 @@ CMS (см. СТБ 34.101.23) или передаваться по TLS-соеди
 повторяются в аттестате заверения. Тип определяется следующим образом: 
 
     DVCSRequestInformation ::= SEQUENCE {
-      version             INTEGER DEFAULT 1,
-      service             ServiceType,
-      nonce               INTEGER OPTIONAL,
-      requestTime         DVCSTime OPTIONAL,
-      requester           [0] GeneralNames OPTIONAL,
-      requestPolicy       [1] PolicyInformation OPTIONAL,
-      dvcs                [2] GeneralNames OPTIONAL,
-      dataLocations       [3] GeneralNames OPTIONAL,
-      extensions          [4] IMPLICIT Extensions OPTIONAL }
+      version        INTEGER DEFAULT 1,
+      service        ServiceType,
+      nonce          INTEGER OPTIONAL,
+      requestTime    DVCSTime OPTIONAL,
+      requester      [0] GeneralNames OPTIONAL,
+      requestPolicy  [1] PolicyInformation OPTIONAL,
+      dvcs           [2] GeneralNames OPTIONAL,
+      dataLocations  [3] GeneralNames OPTIONAL,
+      extensions     [4] IMPLICIT Extensions OPTIONAL }
     ServiceType ::= ENUMERATED {cpd(1), vsd(2), vpkc(3), ccpd(4)}
 
 Компонент `version` задает версию протоколов заверения. Для версии, 
@@ -558,9 +558,9 @@ requester с этими данными. Или СЗД переадресует �
 Тип `Data` описывает заверяемые факты. Тип определяется следующим образом:
 
     Data ::= CHOICE {
-      message          OCTET STRING,
-      messageImprint   DigestInfo,
-      certs            [0] SEQUENCE SIZE (1..MAX) OF TargetEtcChain }
+      message         OCTET STRING,
+      messageImprint  DigestInfo,
+      certs           [0] SEQUENCE SIZE (1..MAX) OF TargetEtcChain }
 
 Данные, владение которыми требуется заверить, задаются в компоненте
 `message`. ЭД, действительность которого требуется проверить, также
@@ -581,16 +581,16 @@ requester с этими данными. Или СЗД переадресует �
 определяется следующим образом: 
 
     DVCSCertInfo ::= SEQUENCE  {
-      version           INTEGER DEFAULT 1,
-      dvReqInfo         DVCSRequestInformation,
-      messageImprint    DigestInfo,
-      serialNumber      INTEGER,
-      responseTime      DVCSTime,
-      dvStatus          [0] PKIStatusInfo OPTIONAL,
-      policy            [1] PolicyInformation OPTIONAL,
-      reqSignature      [2] SignerInfos  OPTIONAL,
-      certs             [3] SEQUENCE SIZE (1..MAX) OF TargetEtcChain OPTIONAL,
-      extensions        Extensions OPTIONAL }
+      version         INTEGER DEFAULT 1,
+      dvReqInfo       DVCSRequestInformation,
+      messageImprint  DigestInfo,
+      serialNumber    INTEGER,
+      responseTime    DVCSTime,
+      dvStatus        [0] PKIStatusInfo OPTIONAL,
+      policy          [1] PolicyInformation OPTIONAL,
+      reqSignature    [2] SignerInfos  OPTIONAL,
+      certs           [3] SEQUENCE SIZE (1..MAX) OF TargetEtcChain OPTIONAL,
+      extensions      Extensions OPTIONAL }
 
 Компонент `version` задает версию протоколов заверения. Для версии, 
 определяемой настоящим стандартом, компонент либо отсутствует, либо 
@@ -606,16 +606,15 @@ requester с этими данными. Или СЗД переадресует �
 либо расширить. При расширении следует сдвигать разряды nonce влево и 
 добавлять данные в освободившиеся позиции. 
 
-Компонент `messageImprint` задает хэш-значение компонента  `data` 
-обработанного запроса.  ДОЛЖНЫ применяться следующие правила хэширования: 
+Компонент `messageImprint` задает хэш-значение компонента `data` 
+обработанного запроса. ДОЛЖНЫ применяться следующие правила хэширования: 
 
-- при выборе в `data` компонента `message` хэшируются все октеты 
-  компонента, кроме октетов тега и длины; 
+- при выборе в `data` компонента `message` хэшируются все октеты компонента, 
+кроме октетов тега и длины; 
 - при выборе в `data` компонента `messageImprint` используется 
-  хэш-значение, заданное в этом компоненте; 
-- при выборе в `data` компонента `certs` хэшируется его кодовое 
-  представление. Кодовое представление строится в соответствии с СТБ 
-  34.101.19 (приложение Б.1). 
+хэш-значение, заданное в этом компоненте; 
+- при выборе в `data` компонента `certs` хэшируется его кодовое представление. 
+Кодовое представление строится в соответствии с СТБ 34.101.19 (приложение Б.1). 
 
 Компонент `serialNumber` содержит уникальный номер запроса.
 
@@ -652,8 +651,8 @@ requester с этими данными. Или СЗД переадресует �
 Тип определяется следующим образом: 
 
     DVCSErrorNotice ::= SEQUENCE {
-     transactionStatus           PKIStatusInfo,
-     transactionIdentifier       GeneralName OPTIONAL }
+     transactionStatus      PKIStatusInfo,
+     transactionIdentifier  GeneralName OPTIONAL }
 
 Компонент `transactionStatus` определяет результат обработки запроса. В 
 случае ошибки вложенный в `transactionStatus` компонент `status` ДОЛЖЕН 
@@ -702,7 +701,7 @@ requester с этими данными. Или СЗД переадресует �
 
 Ответ СЗД представляет собой подписанные данные типа `SignedData`. Данные 
 инкапсулируются в контейнер `ContentInfo`. При инкапсуляции им назначается 
- идентификатор `id signedData`, описанный в СТБ 34.101.23. 
+ идентификатор `id-signedData`, описанный в СТБ 34.101.23. 
 
 Если СЗД НЕ МОЖЕТ выработать подпись (например, при компрометации личного 
 ключа службы), то сообщение об ошибке НЕ ДОЛЖНО содержать подпись, т. е. 
@@ -718,10 +717,12 @@ requester с этими данными. Или СЗД переадресует �
 
     id-ct-DVCSResponseData OBJECT IDENTIFIER ::= {iso(1) member-body(2)
       us(840) rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) ct(1) 8} 
-    Тип DVCSResponse определяется следующим образом:
+
+Тип `DVCSResponse` определяется следующим образом:
+
     DVCSResponse ::= CHOICE {
-      dvCertInfo       DVCSCertInfo,
-      dvErrorNote      [0] DVCSErrorNotice } 
+      dvCertInfo   DVCSCertInfo,
+      dvErrorNote  [0] DVCSErrorNotice } 
 
 Компонент `dvCertInfo` выбирается при успешной проверке запрошенного 
 факта, компонент `dvErrorNote` – при ошибке. При выборе компонента 
@@ -765,147 +766,138 @@ requester с этими данными. Или СЗД переадресует �
 
     PKIXDVCS {iso(1) identified-organization(3) dod(6) internet(1)
       security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-dvcs(15)}
-
     DEFINITIONS IMPLICIT TAGS ::=
-
     BEGIN
-
-    -- EXPORTS ALL --
-    
-
-     IMPORTS
-      Extension, Extensions, AlgorithmIdentifier
-      FROM PKIX1Explicit88 {iso(1) identified-organization(3) dod(6) internet(1)
-       security(5) mechanisms(5) pkix(7) id-mod(0) id-pkix1-explicit-88(1)}
-
-     GeneralName, PolicyInformation
-      FROM PKIX1Implicit88 {iso(1) identified-organization(3) dod(6) internet(1)
-       security(5) mechanisms(5) pkix(7) id-mod(0) id-pkix1-implicit-88(2)}
-
-      PKIStatusInfo, PKIStatusField 
-      FROM PKIXCMP {iso(1) identified-organization(3) dod(6) internet(1)
-        security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-cmp(9)}
-
+      -- EXPORTS ALL --
+      IMPORTS
+        Extension, Extensions, AlgorithmIdentifier
+        FROM PKIX1Explicit88 {iso(1) identified-organization(3) dod(6) internet(1)
+         security(5) mechanisms(5) pkix(7) id-mod(0) id-pkix1-explicit-88(1)}
+       GeneralName, PolicyInformation
+        FROM PKIX1Implicit88 {iso(1) identified-organization(3) dod(6) internet(1)
+          security(5) mechanisms(5) pkix(7) id-mod(0) id-pkix1-implicit-88(2)}
+       PKIStatusInfo, PKIStatusField 
+        FROM PKIXCMP {iso(1) identified-organization(3) dod(6) internet(1)
+          security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-cmp(9)}
+   
       ContentInfo
-      FROM CryptographicMessageSyntax {iso(1) member-body(2) us(840)
-        rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) modules(0) cms(1)}
-
+        FROM CryptographicMessageSyntax {iso(1) member-body(2) us(840)
+          rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) modules(0) cms(1)}
+   
       ESSCertIDv2
-      FROM ExtendedSecurityServices-2006 {iso(1) member-body(2) us(840)
-        rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) modules(0)
-        id-mod-ess-2006(30)}
-
+        FROM ExtendedSecurityServices-2006 {iso(1) member-body(2) us(840)
+          rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) modules(0)
+          id-mod-ess-2006(30)}
+   
       CertId, OCSPResponse, CertStatus
-      FROM OCSP {iso(1) identified-organization(3) dod(6) internet(1)
-        security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-ocsp(14)}
-
+        FROM OCSP {iso(1) identified-organization(3) dod(6) internet(1)
+          security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-ocsp(14)}
+   
       SMIMECapabilities
-      FROM SecureMimeMessageV3 {iso(1) member-body(2) us(840) rsadsi(113549)
-      pkcs(1) pkcs-9(9) smime(16) modules(0) smime(4)}
-
-      ;
-
-    id-ad-dvcs  OBJECT IDENTIFIER ::= {id-pkix id-ad(48) 4}
-
-    id-kp-dvcs  OBJECT IDENTIFIER ::= {id-pkix id-kp(3) 10}
-
-    id-ct-DVCSRequestData  OBJECT IDENTIFIER ::= {id-smime ct(1) 7}
-    id-ct-DVCSResponseData OBJECT IDENTIFIER ::= {id-smime ct(1) 8}
-
-    id-aa-dvcs-dvc OBJECT IDENTIFIER ::= { id-smime aa(2) 29 }
-
-    id-pkix OBJECT IDENTIFIER ::= {iso(1) identified-organization(3) dod(6)
-      internet(1) security(5) mechanisms(5) pkix(7)}
-
-    id-smime OBJECT IDENTIFIER ::= { iso(1) member-body(2) us(840)
-      rsadsi(113549) pkcs(1) pkcs-9(9) 16 }
-
-    DigestInfo ::= SEQUENCE {
-      digestAlgorithm   DigestAlgorithmIdentifier,
-      digest            Digest
-    }
-
-    Digest ::= OCTET STRING
-
-    DVCSTime ::= CHOICE  {
-      genTime             GeneralizedTime,
-      timeStampToken      ContentInfo
-    }
-
-    TargetEtcChain ::= SEQUENCE {
-      target              CertEtcToken,
-      chain               SEQUENCE SIZE (1..MAX) OF CertEtcToken OPTIONAL,
-      pathProcInput       [0] PathProcInput OPTIONAL
-    }
-
-    PathProcInput ::= SEQUENCE {
-      acceptablePolicySet          SEQUENCE SIZE (1..MAX) OF PolicyInformation,
-      inhibitPolicyMapping         BOOLEAN DEFAULT FALSE,
-      explicitPolicyReqd           BOOLEAN DEFAULT FALSE
-    }
-
-    CertEtcToken ::= CHOICE {
-      certificate                  [0] IMPLICIT Certificate,
-      esscertid                    [1] ESSCertIDv2,
-      pkistatus                    [2] IMPLICIT PKIStatusInfo,
-      assertion                    [3] ContentInfo,
-      crl                          [4] IMPLICIT CertificateList,
-      ocspcertstatus               [5] IMPLICIT CertStatus,
-      ocspcertid                   [6] IMPLICIT CertId,
-      ocspresponse                 [7] IMPLICIT OCSPResponse,
-      capabilities                 [8] SMIMECapabilities,
-      extension                    Extension
-    }
-
-    DVCSRequestInformation ::= SEQUENCE  {
-      version                      INTEGER DEFAULT 1,
-      service                      ServiceType,
-      nonce                        INTEGER OPTIONAL,
-      requestTime                  DVCSTime OPTIONAL,
-      requester                    [0] GeneralNames OPTIONAL,
-      requestPolicy                [1] PolicyInformation OPTIONAL,
-      dvcs                         [2] GeneralNames OPTIONAL,
-      dataLocations                [3] GeneralNames OPTIONAL,
-      extensions                   [4] IMPLICIT Extensions OPTIONAL
-    }
-
-    ServiceType ::= ENUMERATED {cpd(1), vsd(2), vpkc(3), ccpd(4)}
-
-    DVCSRequest ::= SEQUENCE  {
-      requestInformation         DVCSRequestInformation,
-      data                       Data,
-      transactionIdentifier      GeneralName OPTIONAL
-    }
-
-    Data ::= CHOICE {
-      message           OCTET STRING,
-      messageImprint    DigestInfo,
-      certs             SEQUENCE SIZE (1..MAX) OF TargetEtcChain
-    }
-
-    DVCSResponse ::= CHOICE {
-      dvCertInfo         DVCSCertInfo,
-      dvErrorNote        [0] DVCSErrorNotice
-    }
-
-    DVCSCertInfo::= SEQUENCE  {
-      version             INTEGER DEFAULT 1,
-      dvReqInfo           DVCSRequestInformation,
-      messageImprint      DigestInfo,
-      serialNumber        INTEGER,
-      responseTime        DVCSTime,
-      dvStatus            [0] PKIStatusInfo OPTIONAL,
-      policy              [1] PolicyInformation OPTIONAL,
-      reqSignature        [2] SignerInfos  OPTIONAL,
-      certs               [3] SEQUENCE SIZE (1..MAX) OF TargetEtcChain OPTIONAL,
-      extensions          Extensions OPTIONAL 
-    }
-
-    DVCSErrorNotice ::= SEQUENCE {
-      transactionStatus        PKIStatusInfo,
-      transactionIdentifier    GeneralName OPTIONAL
-    }
-
+        FROM SecureMimeMessageV3 {iso(1) member-body(2) us(840) rsadsi(113549)
+        pkcs(1) pkcs-9(9) smime(16) modules(0) smime(4)};
+   
+      id-ad-dvcs OBJECT IDENTIFIER ::= {id-pkix id-ad(48) 4}
+   
+      id-kp-dvcs OBJECT IDENTIFIER ::= {id-pkix id-kp(3) 10}
+   
+      id-ct-DVCSRequestData  OBJECT IDENTIFIER ::= {id-smime ct(1) 7}
+   
+      id-ct-DVCSResponseData OBJECT IDENTIFIER ::= {id-smime ct(1) 8}
+   
+      id-aa-dvcs-dvc OBJECT IDENTIFIER ::= { id-smime aa(2) 29 }
+   
+      id-pkix OBJECT IDENTIFIER ::= {iso(1) identified-organization(3) dod(6)
+        internet(1) security(5) mechanisms(5) pkix(7)}
+   
+      id-smime OBJECT IDENTIFIER ::= {iso(1) member-body(2) us(840)
+        rsadsi(113549) pkcs(1) pkcs-9(9) 16}
+   
+      DigestInfo ::= SEQUENCE {
+        digestAlgorithm  DigestAlgorithmIdentifier,
+        digest           Digest
+      }
+   
+      Digest ::= OCTET STRING
+   
+      DVCSTime ::= CHOICE {
+        genTime         GeneralizedTime,
+        timeStampToken  ContentInfo
+      }
+   
+      TargetEtcChain ::= SEQUENCE {
+        target         CertEtcToken,
+        chain          SEQUENCE SIZE (1..MAX) OF CertEtcToken OPTIONAL,
+        pathProcInput  [0] PathProcInput OPTIONAL
+      }
+   
+      PathProcInput ::= SEQUENCE {
+        acceptablePolicySet   SEQUENCE SIZE (1..MAX) OF PolicyInformation,
+        inhibitPolicyMapping  BOOLEAN DEFAULT FALSE,
+        explicitPolicyReqd    BOOLEAN DEFAULT FALSE
+      }
+   
+      CertEtcToken ::= CHOICE {
+        certificate     [0] IMPLICIT Certificate,
+        esscertid       [1] ESSCertIDv2,
+        pkistatus       [2] IMPLICIT PKIStatusInfo,
+        assertion       [3] ContentInfo,
+        crl             [4] IMPLICIT CertificateList,
+        ocspcertstatus  [5] IMPLICIT CertStatus,
+        ocspcertid      [6] IMPLICIT CertId,
+        ocspresponse    [7] IMPLICIT OCSPResponse,
+        capabilities    [8] SMIMECapabilities,
+        extension       Extension
+      }
+   
+      DVCSRequestInformation ::= SEQUENCE  {
+        version         INTEGER DEFAULT 1,
+        service         ServiceType,
+        nonce           INTEGER OPTIONAL,
+        requestTime     DVCSTime OPTIONAL,
+        requester       [0] GeneralNames OPTIONAL,
+        requestPolicy   [1] PolicyInformation OPTIONAL,
+        dvcs            [2] GeneralNames OPTIONAL,
+        dataLocations   [3] GeneralNames OPTIONAL,
+        extensions      [4] IMPLICIT Extensions OPTIONAL
+      }
+   
+      ServiceType ::= ENUMERATED {cpd(1), vsd(2), vpkc(3), ccpd(4)}
+   
+      DVCSRequest ::= SEQUENCE  {
+        requestInformation     DVCSRequestInformation,
+        data                   Data,
+        transactionIdentifier  GeneralName OPTIONAL
+      }
+   
+      Data ::= CHOICE {
+        message         OCTET STRING,
+        messageImprint  DigestInfo,
+        certs           SEQUENCE SIZE (1..MAX) OF TargetEtcChain
+      }
+   
+      DVCSResponse ::= CHOICE {
+        dvCertInfo   DVCSCertInfo,
+        dvErrorNote  [0] DVCSErrorNotice
+      }
+   
+      DVCSCertInfo::= SEQUENCE  {
+        version         INTEGER DEFAULT 1,
+        dvReqInfo       DVCSRequestInformation,
+        messageImprint  DigestInfo,
+        serialNumber    INTEGER,
+        responseTime    DVCSTime,
+        dvStatus        [0] PKIStatusInfo OPTIONAL,
+        policy          [1] PolicyInformation OPTIONAL,
+        reqSignature    [2] SignerInfos  OPTIONAL,
+        certs           [3] SEQUENCE SIZE (1..MAX) OF TargetEtcChain OPTIONAL,
+        extensions      Extensions OPTIONAL 
+      }
+   
+      DVCSErrorNotice ::= SEQUENCE {
+        transactionStatus      PKIStatusInfo,
+        transactionIdentifier  GeneralName OPTIONAL
+      }
     END
 
 # <a name="Biblio"></a>Библиография
