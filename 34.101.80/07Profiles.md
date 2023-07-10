@@ -66,8 +66,7 @@ CAdES и специфичным для формата XAdES. Требовани�
 `RefsOnlyTimeStamp`, `SigAndRefsTimeStamp`, `TimeStampValidationData`, 
 `ArchiveTimeStamp`. 
 
-В РЭЦП класса XAdES-B-B НЕ РЕКОМЕНДУЕТСЯ включать атрибут 
-`RenewedDigest`. 
+В РЭЦП класса XAdES-B-B НЕ РЕКОМЕНДУЕТСЯ включать атрибут `RenewedDigests`.
 
 ## 7.3 <a name="Profiles3"></a>Профиль B-T
 
