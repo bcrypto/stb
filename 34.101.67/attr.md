@@ -345,13 +345,13 @@ revocation list; CARL): Список отозванных сертификато
     AttCertVersion ::= INTEGER { v2(1) } 
 
     Holder ::= SEQUENCE { 
-      baseCertificateID     [0] IssuerSerial  OPTIONAL, 
+      baseCertificateID  [0] IssuerSerial  OPTIONAL, 
       -- серийный номер СОК держателя и имя эмитента этого СОК
-      entityName            [1] GeneralNames  OPTIONAL,  
+      entityName         [1] GeneralNames  OPTIONAL,  
       -- имя держателя или роль 
-      objectDigestInfo      [2] ObjectDigestInfo  OPTIONAL 
+      objectDigestInfo   [2] ObjectDigestInfo  OPTIONAL 
       -- используется для прямой аутентификации держателя.
-      -- по меньшей мере, один из компонентов baseCertificateID, entityName или 
+      -- по меньшей мере, один из компонентов baseCertificateID, entityName или
       -- objectDigestInfo должен присутствовать --} 
 
     ObjectDigestInfo ::= SEQUENCE { 
@@ -364,24 +364,24 @@ revocation list; CARL): Список отозванных сертификато
       objectDigest        BIT STRING } 
 
     AttCertIssuer ::= [0] SEQUENCE { 
-      issuerName          GeneralNames  OPTIONAL, 
-      baseCertificateID   [0] IssuerSerial  OPTIONAL, 
-      objectDigestInfo    [1] ObjectDigestInfo  OPTIONAL  
+      issuerName         GeneralNames  OPTIONAL, 
+      baseCertificateID  [0] IssuerSerial  OPTIONAL, 
+      objectDigestInfo   [1] ObjectDigestInfo  OPTIONAL  
       -- должен присутствовать, по меньшей мере, один из компонентов 
       -- issuerName, baseCertificateID или objectDigestInfo -- }
 
     IssuerSerial ::= SEQUENCE { 
-      issuer              GeneralNames, 
-      serial              CertificateSerialNumber, 
-      issuerUID           UniqueIdentifier  OPTIONAL } 
+      issuer     GeneralNames, 
+      serial     CertificateSerialNumber, 
+      issuerUID  UniqueIdentifier  OPTIONAL } 
 
     AttCertValidityPeriod ::= SEQUENCE { 
-      notBeforeTime       GeneralizedTime, 
-      notAfterTime        GeneralizedTime }
+      notBeforeTime  GeneralizedTime, 
+      notAfterTime   GeneralizedTime }
 
     Attribute ::= SEQUENCE {
-      type                 AttributeType,
-      values               SET OF AttributeValue }
+      type    AttributeType,
+      values  SET OF AttributeValue }
 
 Компонент `attrCertInfo` типа `AttributeCertificateInfo` содержит данные 
 АС, включающие информацию о держателе и ЦАС, серийный номер сертификата, 
@@ -525,19 +525,19 @@ a) если в компоненте `digestedObjectType` указано знач
 Тип `Attribute` является объектом следующего класса АСН.1:
 
     ATTRIBUTE ::= CLASS {
-      &derivation                ATTRIBUTE  OPTIONAL,
-      &Type                      OPTIONAL, 
+      &derivation            ATTRIBUTE  OPTIONAL,
+      &Type                  OPTIONAL, 
       - или &Type, или &derivation должны быть определены
-      &equality-match            MATCHING-RULE  OPTIONAL,
-      &ordering-match            MATCHING-RULE  OPTIONAL,
-      &substrings-match          MATCHING-RULE  OPTIONAL,
-      &single-valued             BOOLEAN  DEFAULT FALSE,
-      &collective                BOOLEAN  DEFAULT FALSE,
-      &dummy                     BOOLEAN  DEFAULT FALSE,
+      &equality-match        MATCHING-RULE  OPTIONAL,
+      &ordering-match        MATCHING-RULE  OPTIONAL,
+      &substrings-match      MATCHING-RULE  OPTIONAL,
+      &single-valued         BOOLEAN  DEFAULT FALSE,
+      &collective            BOOLEAN  DEFAULT FALSE,
+      &dummy                 BOOLEAN  DEFAULT FALSE,
       -- операции
-      &no-user-modification      BOOLEAN  DEFAULT FALSE,
-      &usage                     AttributeUsage  DEFAULT userApplications,
-      &id                        OBJECT IDENTIFIER  UNIQUE }
+      &no-user-modification  BOOLEAN  DEFAULT FALSE,
+      &usage                 AttributeUsage  DEFAULT userApplications,
+      &id                    OBJECT IDENTIFIER  UNIQUE }
     WITH SYNTAX {
       [SUBTYPE OF                &derivation]
       [WITH SYNTAX               &Type]
@@ -581,15 +581,15 @@ a) если в компоненте `digestedObjectType` указано знач
 Класс `MATCHING-RULE` определяется следующим образом:
 
     MATCHING-RULE ::= CLASS {
-      &ParentMatchingRules        MATCHIG-RULE  OPTIONAL,
-      &AssertionType              OPTIONAL,
-      &uniqueMatchIndicator       ATTRIBUTE  OPTIONAL,
-      &id                         OBJECT IDENTIFIER  UNIQUE }
+      &ParentMatchingRules   MATCHIG-RULE  OPTIONAL,
+      &AssertionType         OPTIONAL,
+      &uniqueMatchIndicator  ATTRIBUTE  OPTIONAL,
+      &id                    OBJECT IDENTIFIER  UNIQUE }
     WITH SYNTAX {
-      [PARENT                     &ParentMatchingRules]
-      [SYNTAX                     &AssertionType]
-      [UNIQUE-MATCH-INDICATOR     &uniqueMatchIndicator]
-      ID                          &id }
+      [PARENT                  &ParentMatchingRules]
+      [SYNTAX                  &AssertionType]
+      [UNIQUE-MATCH-INDICATOR  &uniqueMatchIndicator]
+      ID                       &id }
 
 Правила соответствия определяются своими ИО, заданными в компоненте `id`, 
 которые являются вершинами дерева идентификаторов АСН.1, подчиненными 
@@ -600,7 +600,7 @@ a) если в компоненте `digestedObjectType` указано знач
 Одним из важнейших правил соответствия является правило, которое проверяет 
 эквивалентность идентификаторов: 
 
-    id-mr-objectIdentifierMatch  OBJECT IDENTIFIER ::= {id-mr 0}
+    id-mr-objectIdentifierMatch OBJECT IDENTIFIER ::= {id-mr 0}
 
     objectIdentifierMatch MATCHING-RULE ::= {
       SYNTAX  OBJECT IDENTIFIER
@@ -1004,12 +1004,12 @@ a) если в компоненте `digestedObjectType` указано знач
 Атрибут `role` задается следующим типом ACH.1:
 
     role ATTRIBUTE ::= { 
-      WITH SYNTAX      RoleSyntax
-      ID               id-at-role } 
+      WITH SYNTAX  RoleSyntax
+      ID           id-at-role } 
     
     RoleSyntax ::= SEQUENCE { 
-      roleAuthority    [0] GeneralNames  OPTIONAL, 
-      roleName         [1] GeneralName }
+      roleAuthority  [0] GeneralNames  OPTIONAL, 
+      roleName       [1] GeneralName }
 
 Данный атрибут может использоваться для определения роли в компоненте 
 `attributes` сертификата назначения роли, или в компоненте `holder` 
@@ -1226,7 +1226,7 @@ a) если в компоненте `digestedObjectType` указано знач
 представлять информацию о привилегиях, описанных на языке XML. Данный 
 атрибут представляется следующим типом ACH.1: 
 
-    id-at-xMLPrivilegeInfo  OBJECT IDENTIFIER ::= {id-at 75}
+    id-at-xMLPrivilegeInfo OBJECT IDENTIFIER ::= {id-at 75}
 
     xmlPrivilegeInfo ATTRIBUTE ::= { 
       WITH SYNTAX  UTF8String 
@@ -1295,9 +1295,9 @@ a) если в компоненте `digestedObjectType` указано знач
     id-at-permission OBJECT IDENTIFIER ::= {id-at 82}
 
     permission ATTRIBUTE ::= {
-      WITH SYNTAX              DualStringSyntax
-      EQUALITY MATCHING RULE   dualStringMatch
-      ID                       id-at-permission }
+      WITH SYNTAX             DualStringSyntax
+      EQUALITY MATCHING RULE  dualStringMatch
+      ID                      id-at-permission }
 
     DualStringSyntax ::= SEQUENCE {
       operation  [0] UnboundedDirectoryString,
@@ -1366,11 +1366,11 @@ a) если в компоненте `digestedObjectType` указано знач
 класса АСН.1: 
 
     EXTENSION ::= CLASS {
-      &id                     OBJECT IDENTIFIER UNIQUE,
+      &id  OBJECT IDENTIFIER UNIQUE,
       &ExtnType }
     WITH SYNTAX {
-      SYNTAX                 &ExtnType
-      IDENTIFIED BY         &id }
+      SYNTAX         &ExtnType
+      IDENTIFIED BY  &id }
 
 ## 9.2 Основные расширения управления привилегиями
 
@@ -1419,7 +1419,7 @@ a) если в компоненте `digestedObjectType` указано знач
 
 Данное расширение определяется следующим образом: 
 
-    id-ce-timeSpecification  OBJECT IDENTIFIER ::= {id-ce 43}
+    id-ce-timeSpecification OBJECT IDENTIFIER ::= {id-ce 43}
 
     timeSpecification EXTENSION  ::=  { 
       SYNTAX          TimeSpecification 
@@ -1439,8 +1439,8 @@ a) если в компоненте `digestedObjectType` указано знач
       days         [1] CHOICE {
         intDay     SET OF INTEGER,
         bitDay     BIT STRING { sunday (0), monday (1), tuesday (2), 
-                                wednesday (3), thursday (4), friday (5), 
-                                saturday (6) },
+                               wednesday (3), thursday (4), friday (5), 
+                               saturday (6) },
         dayOf      XDayOf } OPTIONAL,
       weeks        [2] CHOICE {
         allWeeks   NULL,
@@ -1481,9 +1481,9 @@ a) если в компоненте `digestedObjectType` указано знач
       endDayTime    [1] DayTime DEFAULT { hour 23, minute 59, second 59 }}
       
     DayTime ::= SEQUENCE {
-      hour     [0] INTEGER (0..23),
-      minute   [1] INTEGER (0..59) DEFAULT 0,
-      second   [2] INTEGER (0..59) DEFAULT 0 }
+      hour    [0] INTEGER (0..23),
+      minute  [1] INTEGER (0..59) DEFAULT 0,
+      second  [2] INTEGER (0..59) DEFAULT 0 }
       
     TimeZone ::= INTEGER (-12..12)
 
@@ -1642,7 +1642,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 предмет эквивалентности представленное значение и сохраненное значение 
 атрибута типа `AttributeCertificate`. 
 
-    id-mr-timeSpecMatch  OBJECT IDENTIFIER ::= {id-mr 57}
+    id-mr-timeSpecMatch OBJECT IDENTIFIER ::= {id-mr 57}
 
     timeSpecificationMatch MATCHING-RULE  ::= { 
       SYNTAX  TimeSpecification 
@@ -1660,20 +1660,20 @@ a) Время действия с 9.00 до 17.00 может быть задан
 системах и сервисах, не указанных в расширении `TargetingInformation`. 
 Данное расширение определяется следующим образом: 
 
-    id-ce-targetInformation  OBJECT IDENTIFIER ::= {id-ce 55}
+    id-ce-targetInformation OBJECT IDENTIFIER ::= {id-ce 55}
 
-    targetingInformation  EXTENSION ::= { 
+    targetingInformation EXTENSION ::= { 
       SYNTAX         SEQUENCE SIZE (1..MAX) OF Targets 
       IDENTIFIED BY  id-ce-targetInformation } 
 
-    Targets ::=  SEQUENCE SIZE (1..MAX) OF Target 
+    Targets ::= SEQUENCE SIZE (1..MAX) OF Target 
 
     Target ::= CHOICE { 
       targetName   [0] GeneralName, 
       targetGroup  [1] GeneralName, 
       targetCert   [2] TargetCert } 
 
-    TargetCert  ::= SEQUENCE { 
+    TargetCert ::= SEQUENCE { 
       targetCertificate  IssuerSerial, 
       targetName         GeneralName  OPTIONAL, 
       certDigestInfo     ObjectDigestInfo  OPTIONAL }
@@ -1712,9 +1712,9 @@ a) Время действия с 9.00 до 17.00 может быть задан
 привилегии и/или инспектору привилегии при проверке данного сертификата. 
 Данное расширение определяется следующим образом: 
  
-    id-ce-userNotice  OBJECT IDENTIFIER ::= {id-ce 49}
+    id-ce-userNotice OBJECT IDENTIFIER ::= {id-ce 49}
 
-    userNotice  EXTENSION  ::= { 
+    userNotice EXTENSION  ::= { 
       SYNTAX         SEQUENCE SIZE (1..MAX) OF UserNotice 
       IDENTIFIED BY  id-ce-userNotice }
 
@@ -1750,7 +1750,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 политик применения привилегии. Данное расширение определяется следующим 
 образом: 
 
-    id-ce-acceptablePrivilegePolicies  OBJECT IDENTIFIER ::= {id-ce 57}
+    id-ce-acceptablePrivilegePolicies OBJECT IDENTIFIER ::= {id-ce 57}
     
     acceptablePrivilegePolicies EXTENSION ::= { 
       SYNTAX         AcceptablePrivilegePoliciesSyntax 
@@ -1779,7 +1779,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 используется расширение `SingleUse`, которое определяется следующим 
 образом: 
 
-    id-ce-singleUse  OBJECT IDENTIFIER ::= {id-ce 65}
+    id-ce-singleUse OBJECT IDENTIFIER ::= {id-ce 65}
 
     singleUse EXTENSION ::= {
       SYNTAX         NULL
@@ -1806,7 +1806,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 вэб-серверов. Каждый групповой АС может быть отмечен путем добавления 
 расширения `GroupAC` в АС, которое определяется следующим образом: 
 
-    id-ce-groupAC  OBJECT IDENTIFIER ::= {id-ce 66}
+    id-ce-groupAC OBJECT IDENTIFIER ::= {id-ce 66}
 
     groupAC EXTENSION ::= {
       SYNTAX         NULL
@@ -1908,7 +1908,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 
 Расширение `SOAIdentifier` определяется следующим образом: 
  
-    id-ce-sOAIdentifier  OBJECT IDENTIFIER ::= {id-ce 50}
+    id-ce-sOAIdentifier OBJECT IDENTIFIER ::= {id-ce 50}
 
     sOAIdentifier EXTENSION ::= { 
       SYNTAX         NULL 
@@ -1936,7 +1936,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 Правило соответствия для расширения `SOAIdentifier` сравнивает представленное
 для анализа значение с сохраненным значением атрибута типа `Certificate`.
 
-    id-mr-sOAIdentifierMatch  OBJECT IDENTIFIER ::= {id-mr 66}
+    id-mr-sOAIdentifierMatch OBJECT IDENTIFIER ::= {id-mr 66}
 
     sOAIdentifierMatch MATCHING-RULE ::= { 
       SYNTAX  NULL 
@@ -1968,18 +1968,18 @@ a) Время действия с 9.00 до 17.00 может быть задан
 
 Расширение `AttributeDescriptor` определяется следующим образом: 
 
-    id-ce-attributeDescriptor  OBJECT IDENTIFIER ::= {id-ce 48}
+    id-ce-attributeDescriptor OBJECT IDENTIFIER ::= {id-ce 48}
 
     attributeDescriptor EXTENSION ::= { 
       SYNTAX         AttributeDescriptorSyntax 
       IDENTIFIED BY  id-ce-attributeDescriptor } 
 
     AttributeDescriptorSyntax ::= SEQUENCE { 
-      identifier        AttributeIdentifier, 
-      attributeSyntax   OCTET STRING (SIZE(1..MAX)), 
-      name              [0] AttributeName  OPTIONAL, 
-      description       [1] AttributeDescription  OPTIONAL, 
-      dominationRule    PrivilegePolicyIdentifier } 
+      identifier       AttributeIdentifier, 
+      attributeSyntax  OCTET STRING (SIZE(1..MAX)), 
+      name             [0] AttributeName  OPTIONAL, 
+      description      [1] AttributeDescription  OPTIONAL, 
+      dominationRule   PrivilegePolicyIdentifier } 
     
     AttributeIdentifier ::= ATTRIBUTE.&id 
     
@@ -2049,7 +2049,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 эквивалентности представленное значение и сохраненное значение атрибута 
 типа `AttributeCertificate`. 
 
-    id-mr-attDescriptorMatch  OBJECT IDENTIFIER ::= {id-mr 58}
+    id-mr-attDescriptorMatch OBJECT IDENTIFIER ::= {id-mr 58}
 
     attDescriptor MATCHING-RULE ::= { 
       SYNTAX  AttributeDescriptorSyntax
@@ -2085,11 +2085,11 @@ a) Время действия с 9.00 до 17.00 может быть задан
 
 Расширение `RoleSpecCertIdentifier` определяется следующим образом: 
 
-    id-ce-roleSpecCertIdentifier  OBJECT IDENTIFIER ::= {id-ce 39}
+    id-ce-roleSpecCertIdentifier OBJECT IDENTIFIER ::= {id-ce 39}
 
     roleSpecCertIdentifier EXTENSION ::= { 
-      SYNTAX          RoleSpecCertIdentifierSyntax 
-      IDENTIFIED BY   id-ce-roleSpecCertIdentifier }
+      SYNTAX         RoleSpecCertIdentifierSyntax 
+      IDENTIFIED BY  id-ce-roleSpecCertIdentifier }
 
     RoleSpecCertIdentifierSyntax ::= SEQUENCE SIZE (1..MAX) OF RoleSpecCertIdentifier 
 
@@ -2146,7 +2146,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 предмет эквивалентности представленное значение и сохраненное значение 
 атрибута типа `AttributeCertificate`. 
 
-    id-mr-roleSpecCertIdMatch  OBJECT IDENTIFIER ::= {id-mr 54}
+    id-mr-roleSpecCertIdMatch OBJECT IDENTIFIER ::= {id-mr 54}
 
     roleSpecCertIdMatch MATCHING-RULE ::= { 
       SYNTAX  RoleSpecCertIdentifierSyntax 
@@ -2203,7 +2203,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 
 Расширение `BasicAttConstraints` определяется следующим образом: 
 
-    id-ce-basicAttConstraints  OBJECT IDENTIFIER ::= {id-ce 41}
+    id-ce-basicAttConstraints OBJECT IDENTIFIER ::= {id-ce 41}
 
     basicAttConstraints EXTENSION ::= { 
       SYNTAX         BasicAttConstraintsSyntax 
@@ -2288,7 +2288,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 эквивалентности представленное значение и сохраненное значение атрибута 
 типа `AttributeCertificate`. 
 
-    id-mr-basicAttConstraintsMatch  OBJECT IDENTIFIER ::= {id-mr 55}
+    id-mr-basicAttConstraintsMatch OBJECT IDENTIFIER ::= {id-mr 55}
 
     basicAttConstraintsMatch MATCHING-RULE ::= { 
       SYNTAX  BasicAttConstraintsSyntax 
@@ -2306,11 +2306,11 @@ a) Время действия с 9.00 до 17.00 может быть задан
 котором должны содержаться имена субъектов сертификатов в маршруте 
 делегирования. Данное расширение определяется следующим образом: 
 
-    id-ce-delegatedNameConstraints  OBJECT IDENTIFIER ::= {id-ce 42}
+    id-ce-delegatedNameConstraints OBJECT IDENTIFIER ::= {id-ce 42}
 
     delegatedNameConstraints EXTENSION ::= { 
-      SYNTAX          NameConstraintsSyntax 
-      IDENTIFIED BY   id-ce-delegatedNameConstraints } 
+      SYNTAX         NameConstraintsSyntax 
+      IDENTIFIED BY  id-ce-delegatedNameConstraints } 
 
     NameConstraintsSyntax ::= SEQUENCE {
       permittedSubtrees  [0] GeneralSubtrees OPTIONAL,
@@ -2353,7 +2353,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 предмет эквивалентности представленное значение и сохраненное значение 
 атрибута типа `AttributeCertificate`. 
 
-    id-mr-delegatedNameConstraintsMatch  OBJECT IDENTIFIER ::= {id-mr 56}
+    id-mr-delegatedNameConstraintsMatch OBJECT IDENTIFIER ::= {id-mr 56}
 
     delegatedNameConstraintsMatch MATCHING-RULE ::= { 
       SYNTAX  NameConstraintsSyntax 
@@ -2379,7 +2379,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 
 Расширение `AcceptableCertPolicies` определяется следующим образом: 
 
-    id-ce-acceptableCertPolicies  OBJECT IDENTIFIER ::= {id-ce 52}
+    id-ce-acceptableCertPolicies OBJECT IDENTIFIER ::= {id-ce 52}
 
     acceptableCertPolicies EXTENSION ::= { 
       SYNTAX         AcceptableCertPoliciesSyntax 
@@ -2411,7 +2411,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 предмет эквивалентности представленное значение и сохраненное значение 
 атрибута типа `AttributeCertificate`. 
 
-    id-mr-acceptableCertPoliciesMatch  OBJECT IDENTIFIER ::= {id-mr 59}
+    id-mr-acceptableCertPoliciesMatch OBJECT IDENTIFIER ::= {id-mr 59}
 
     acceptableCertPoliciesMatch MATCHING-RULE ::= { 
       SYNTAX  AcceptableCertPoliciesSyntax 
@@ -2436,7 +2436,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 
 Расширение `AuthorityAttributeIdentifier` определяется следующим образом: 
 
-    id-ce-authorityAttributeIdentifier  OBJECT IDENTIFIER ::= {id-ce 38}
+    id-ce-authorityAttributeIdentifier OBJECT IDENTIFIER ::= {id-ce 38}
 
     authorityAttributeIdentifier EXTENSION ::= { 
       SYNTAX         AuthorityAttributeIdentifierSyntax 
@@ -2466,7 +2466,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 предмет эквивалентности представленное значение и сохраненное значение 
 атрибута типа `AttributeCertificate`. 
 
-    id-mr-authAttIdMatch  OBJECT IDENTIFIER ::= {id-mr 53}
+    id-mr-authAttIdMatch OBJECT IDENTIFIER ::= {id-mr 53}
 
     authAttIdMatch MATCHING-RULE ::= { 
       SYNTAX  AuthorityAttirbuteIdentifierSyntax 
@@ -2489,7 +2489,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 привилегии от имени других сторон. Данное расширение определяется 
 следующим образом: 
 
-    id-ce-indirectIssuer  OBJECT IDENTIFIER ::= {id-ce 61}
+    id-ce-indirectIssuer OBJECT IDENTIFIER ::= {id-ce 61}
 
     indirectIssuer EXTENSION ::= { 
       SYNTAX         NULL 
@@ -2507,13 +2507,13 @@ a) Время действия с 9.00 до 17.00 может быть задан
 привилегии, и позволяет строить и проверять цепочки делегирования. 
 Расширение `IssuedOnBehalfOf` определяется следующим образом: 
 
-    id-ce-issuedOnBehalfOf  OBJECT IDENTIFIER ::= {id-ce 64}
+    id-ce-issuedOnBehalfOf OBJECT IDENTIFIER ::= {id-ce 64}
 
     issuedOnBehalfOf EXTENSION ::= { 
       SYNTAX  GeneralName 
       ID      id-ce-issuedOnBehalfOf }
 
-Компонент SYNTAX содержит имя ЦАС, от лица которого СД делегирует 
+Компонент `SYNTAX` содержит имя ЦАС, от лица которого СД делегирует 
 привилегии. 
 
 Эмитент, выпустивший данный AC, должен быть уполномочен источником 
@@ -2533,7 +2533,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 Расширение `NoAssertion` является критическим и определяется следующим 
 образом:
  
-    id-ce-noAssertion  OBJECT IDENTIFIER ::= {id-ce 62}
+    id-ce-noAssertion OBJECT IDENTIFIER ::= {id-ce 62}
 
     noAssertion EXTENSION ::= {
       SYNTAX         NULL
@@ -2567,7 +2567,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 ИП удаленного домена может удостоверять. Данное расширение определяется 
 следующим образом: 
 
-    id-ce-allowedAttAss  OBJECT IDENTIFIER ::= {id-ce 67}
+    id-ce-allowedAttAss OBJECT IDENTIFIER ::= {id-ce 67}
 
     allowedAttributeAssignments EXTENSION ::= {
       SYNTAX         AllowedAttributeAssignments
@@ -2578,7 +2578,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
         attributeType           [0] AttributeType,
         attributeTypeandValues  [1] Attribute },
 
-      holderDomain  [1] GeneralName }
+      holderDomain              [1] GeneralName }
 
 Расширение `AllowedAttributeAssignments` содержит набор типов атрибутов 
 и/или значений атрибутов, а также пространство имен, которое определяет 
@@ -2606,7 +2606,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 атрибутами, определенными в удаленном домене, и атрибутами локального 
 домена. Данное расширение определяется следующим образом: 
 
-    id-ce-attributeMappings  OBJECT IDENTIFIER ::= {id-ce 68}
+    id-ce-attributeMappings OBJECT IDENTIFIER ::= {id-ce 68}
 
     attributeMappings EXTENSION ::= {
       SYNTAX         AttributeMappings
@@ -2661,7 +2661,7 @@ a) Время действия с 9.00 до 17.00 может быть задан
 
 Расширение `HolderNameConstraints` определяется следующим образом:
  
-    id-ce-holderNameConstraints  OBJECT IDENTIFIER ::= {id-ce 69}
+    id-ce-holderNameConstraints OBJECT IDENTIFIER ::= {id-ce 69}
 
     holderNameConstraints EXTENSION ::= {
       SYNTAX         HolderNameConstraintsSyntax
@@ -2983,7 +2983,7 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
 подразделе, являются вершинами дерева идентификаторов АСН.1, подчиненными 
 вершине `id-ос`: 
 
-    id-oc  OBJECT IDENTIFIER ::= {joint-iso-itu-t(2) ds(5) 6}
+    id-oc OBJECT IDENTIFIER ::= {joint-iso-itu-t(2) ds(5) 6}
 
 Все классы объектов настоящего подраздела являются наследниками класса 
 `top`, определяемого следующим образом: 
@@ -2997,11 +2997,11 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
       &OptionalAttributes   ATTRIBUTE  OPTIONAL,
       &id                   OBJECT IDENTIFIER  UNIQUE }
     WITH SYNTAX {
-      [SUBCLASS OF    &Superclasses]
-      [KIND           &kind]
-      [MUST CONTAIN   &MandatoryAttributes]
-      [MAY CONTAIN    &OptionalAttributes]
-      ID              &id }
+      [SUBCLASS OF   &Superclasses]
+      [KIND          &kind]
+      [MUST CONTAIN  &MandatoryAttributes]
+      [MAY CONTAIN   &OptionalAttributes]
+      ID             &id }
 
     ObjectClassKind ::= ENUMERATED {
       abstract    (0),
@@ -3009,9 +3009,9 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
       auxiliary   (2) }
 
     top OBJECT-CLASS ::= {
-      KIND           abstract
-      MUST CONTAIN   {objectClass}
-      ID             id-oc-top }
+      KIND          abstract
+      MUST CONTAIN  {objectClass}
+      ID            id-oc-top }
 
     id-at-objectClass OBJECT IDENTIFIER ::= {id-at 0}
 
@@ -3025,28 +3025,27 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
 Класс пользовательских объектов ИУП используется для определения записей 
 субъектов, которые могут быть держателями атрибутных сертификатов. 
 
-    id-oc-pmiUser  OBJECT IDENTIFIER ::= {id-oc 24}
+    id-oc-pmiUser OBJECT IDENTIFIER ::= {id-oc 24}
 
     pmiUser OBJECT-CLASS ::= { 
-      SUBCLASS OF   {top} 
-      KIND          auxiliary 
-      MAY CONTAIN   {attributeCertificateAttribute} 
-      ID            id-oc-pmiUser }
+      SUBCLASS OF  {top} 
+      KIND         auxiliary 
+      MAY CONTAIN  {attributeCertificateAttribute} 
+      ID           id-oc-pmiUser }
 
 ### 11.1.2 Класс объектов ЦАС
 
 Класс объектов ЦАС ИУП используется для определения записей ЦАС в 
 директории
 
-    id-oc-pmiAA  OBJECT IDENTIFIER ::= {id-oc 25}
+    id-oc-pmiAA OBJECT IDENTIFIER ::= {id-oc 25}
 
     pmiAA OBJECT-CLASS ::= { -- ЦАС ИУП 
-      SUBCLASS OF  {top} 
-      KIND         auxiliary 
-      MAY CONTAIN  {aACertificate | 
-                     attributeCertificateRevocationList | 
-                     attributeAuthorityRevocationList} 
-      ID           id-oc-pmiAA }
+      SUBCLASS OF {top} 
+      KIND        auxiliary 
+      MAY CONTAIN {aACertificate | attributeCertificateRevocationList |
+                   attributeAuthorityRevocationList} 
+      ID          id-oc-pmiAA }
 
 ### 11.1.3 Класс объектов ИП
 
@@ -3057,15 +3056,15 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
 также должна содержать класс `pkiCA` [[1]](#bib1), который относится к инфраструктуре 
 СОК и в настоящем стандарте не определяется.
 
-    id-oc-pmiSOA  OBJECT IDENTIFIER ::= {id-oc 26}
+    id-oc-pmiSOA OBJECT IDENTIFIER ::= {id-oc 26}
 
     pmiSOA OBJECT-CLASS ::= {  -- ИП ИУП
-      SUBCLASS OF   {top} 
-      KIND          auxiliary 
-      MAY CONTAIN   {attributeCertificateRevocationList | 
-                      attributeAuthorityRevocationList | 
-                      attributeDescriptorCertificate} 
-      ID            id-oc-pmiSOA } 
+      SUBCLASS OF  {top} 
+      KIND         auxiliary 
+      MAY CONTAIN  {attributeCertificateRevocationList | 
+                    attributeAuthorityRevocationList | 
+                    attributeDescriptorCertificate} 
+      ID           id-oc-pmiSOA } 
 
 ### 11.1.4 Класс объектов точки распределения СОС атрибутного сертификата
 
@@ -3080,14 +3079,14 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
 только список отозванных ЦАС, или записи, содержащие списки отозванных 
 сертификатов различных типов, в зависимости от требований. 
 
-    id-oc-attCertCRLDistributionPts  OBJECT IDENTIFIER ::= {id-oc 27}
+    id-oc-attCertCRLDistributionPts OBJECT IDENTIFIER ::= {id-oc 27}
 
     attCertCRLDistributionPt  OBJECT-CLASS ::= { 
-      SUBCLASS OF    {top} 
-      KIND           auxiliary 
-      MAY CONTAIN    {attributeCertificateRevocationList | 
-                      attributeAuthorityRevocationList} 
-      ID             id-oc-attCertCRLDistributionPts }
+      SUBCLASS OF  {top} 
+      KIND         auxiliary 
+      MAY CONTAIN  {attributeCertificateRevocationList | 
+                    attributeAuthorityRevocationList} 
+      ID           id-oc-attCertCRLDistributionPts }
 
 ### 11.1.5 Маршрут делегирования
 
@@ -3095,26 +3094,26 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
 записей объектов, которые могут содержать маршруты делегирования. В общем 
 случае он будет использоваться в сочетании с записями класса `pmiAA`. 
 
-    id-oc-pmiDelegationPath  OBJECT IDENTIFIER ::= {id-oc 33}
+    id-oc-pmiDelegationPath OBJECT IDENTIFIER ::= {id-oc 33}
 
     pmiDelegationPath  OBJECT-CLASS ::= { 
-      SUBCLASS OF      {top} 
-      KIND             auxiliary 
-      MAY CONTAIN      {delegationPath} 
-      ID               id-oc-pmiDelegationPath }
+      SUBCLASS OF  {top} 
+      KIND         auxiliary 
+      MAY CONTAIN  {delegationPath} 
+      ID           id-oc-pmiDelegationPath }
  
 ### 11.1.6 Класс объектов политики применения привилегии
 
 Класс объектов политики применения привилегии используется для определения 
 записей объектов, которые содержат политики применения привилегий. 
 
-    id-oc-privilegePolicy  OBJECT IDENTIFIER ::= {id-oc 32}
+    id-oc-privilegePolicy OBJECT IDENTIFIER ::= {id-oc 32}
 
     privilegePolicy  OBJECT-CLASS ::= { 
-      SUBCLASS OF    {top} 
-      KIND           auxiliary 
-      MAY CONTAIN    {privPolicy} 
-      ID             id-oc-privilegePolicy }
+      SUBCLASS OF  {top} 
+      KIND         auxiliary 
+      MAY CONTAIN  {privPolicy} 
+      ID           id-oc-privilegePolicy }
 
 ### 11.1.7 Класс объектов защищенной политики применения привилегии
 
@@ -3122,7 +3121,7 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
 определения записей объектов, которые содержат политики применения 
 привилегий, представленные в виде атрибутных сертификатов.
 
-    id-oc-protectedPrivilegePolicy  OBJECT IDENTIFIER ::= {id-oc 34}
+    id-oc-protectedPrivilegePolicy OBJECT IDENTIFIER ::= {id-oc 34}
 
     protectedPrivilegePolicy  OBJECT-CLASS ::= { 
       SUBCLASS OF   {top} 
@@ -3140,7 +3139,7 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
 Данный атрибут содержит атрибутные сертификаты, выданные определенному 
 держателю, и хранится в записи этого держателя. 
 
-    id-at-attributeCertificate  OBJECT IDENTIFIER ::= {id-at 58}
+    id-at-attributeCertificate OBJECT IDENTIFIER ::= {id-at 58}
 
     attributeCertificateAttribute ATTRIBUTE  ::= { 
       WITH SYNTAX             AttributeCertificate 
@@ -3152,7 +3151,7 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
 Данный атрибут содержит атрибутные сертификаты, выданные центру атрибутных 
 сертификатов, и хранится в записи этого ЦАС. 
 
-    id-at-aACertificate  OBJECT IDENTIFIER ::= {id-at 61}
+    id-at-aACertificate OBJECT IDENTIFIER ::= {id-at 61}
 
     aACertificate   ATTRIBUTE ::= { 
       WITH SYNTAX             AttributeCertificate 
@@ -3166,9 +3165,9 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
 сертификаты являются сертификатами дескриптора атрибута (см. 9.4.4) и 
 хранятся в записи их эмитента. 
 
-    id-at-attributeDescriptorCertificate  OBJECT IDENTIFIER ::= {id-at 62}
+    id-at-attributeDescriptorCertificate OBJECT IDENTIFIER ::= {id-at 62}
 
-    attributeDescriptorCertificate  ATTRIBUTE  ::= { 
+    attributeDescriptorCertificate ATTRIBUTE  ::= { 
       WITH SYNTAX             AttributeCertificate 
       EQUALITY MATCHING RULE  attributeCertificateExactMatch 
       ID                      id-at-attributeDescriptorCertificate }
@@ -3179,7 +3178,7 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
 могут храниться в записи эмитента сертификатов или в другой записи 
 директории (например, в точке распределения). 
 
-    id-at-attributeCertificateRevocationList  OBJECT IDENTIFIER ::= {id-at 59}
+    id-at-attributeCertificateRevocationList OBJECT IDENTIFIER ::= {id-at 59}
 
     attributeCertificateRevocationList  ATTRIBUTE ::= { 
       WITH SYNTAX             CertificateList 
@@ -3193,7 +3192,7 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
 выдающего органа или другой записи каталога (например, в точке 
 распределения).
 
-    id-at-attributeAuthorityRevocationList  OBJECT IDENTIFIER ::= {id-at 63}
+    id-at-attributeAuthorityRevocationList OBJECT IDENTIFIER ::= {id-at 63}
 
     attributeAuthorityRevocationList   ATTRIBUTE ::= { 
       WITH SYNTAX             CertificateList 
@@ -3205,7 +3204,7 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
 Атрибут маршрута делегирования содержит маршруты делегирования, каждый из 
 которых состоит из последовательности атрибутных сертификатов. 
 
-    id-at-delegationPath  OBJECT IDENTIFIER ::= {id-at 73}
+    id-at-delegationPath OBJECT IDENTIFIER ::= {id-at 73}
     
     delegationPath   ATTRIBUTE ::= { 
       WITH SYNTAX  AttCertPath 
@@ -3225,7 +3224,7 @@ O=XYZ и C=GB, O=ABC запрещены, то компонент `permittedSubtr
 Атрибут политики применения привилегии содержит информацию о политиках 
 применения привилегий.
 
-    id-at-privPolicy  OBJECT IDENTIFIER ::= {id-at 71}
+    id-at-privPolicy OBJECT IDENTIFIER ::= {id-at 71}
 
     privPolicy ATTRIBUTE ::= { 
       WITH SYNTAX  PolicySyntax 
@@ -3254,7 +3253,7 @@ DER-кодированного содержимого политики прим�
 Атрибут защищенной политики применения привилегии содержит политики 
 применения привилегий, представленные в виде атрибутных сертификатов. 
 
-    id-at-protPrivPolicy  OBJECT IDENTIFIER ::= {id-at 74}
+    id-at-protPrivPolicy OBJECT IDENTIFIER ::= {id-at 74}
 
     protPrivPolicy  ATTRIBUTE  ::= { 
       WITH SYNTAX             AttributeCertificate 
@@ -3272,7 +3271,7 @@ SYNTAX` может содержать только АС с атрибутами 
 Атрибут защищенной с помощью XML политики применения привилегии содержит 
 закодированную на языке XML информацию о политике применения привилегии. 
 
-    id-at-xmlPrivPolicy  OBJECT IDENTIFIER ::= {id-at 76}
+    id-at-xmlPrivPolicy OBJECT IDENTIFIER ::= {id-at 76}
 
     xmlPrivPolicy  ATTRIBUTE  ::= { 
       WITH SYNTAX   UTF8String 
@@ -3290,7 +3289,7 @@ SYNTAX` может содержать только АС с атрибутами 
 эквивалентности представленное значение и сохраненное в записи директории 
 значение атрибута типа `Attribute-Certificate`. 
 
-    id-mr-attributeCertificateExactMatch  OBJECT IDENTIFIER ::= {id-mr 45}
+    id-mr-attributeCertificateExactMatch OBJECT IDENTIFIER ::= {id-mr 45}
 
     attributeCertificateExactMatch MATCHING-RULE  ::= { 
       SYNTAX  AttributeCertificateExactAssertion 
@@ -3317,12 +3316,12 @@ SYNTAX` может содержать только АС с атрибутами 
       ID      id-mr-attributeCertificateMatch } 
 
     AttributeCertificateAssertion  ::=  SEQUENCE  { 
-      holder                [0] CHOICE { 
+      holder           [0] CHOICE { 
          baseCertificateID  [0] IssuerSerial, 
          holderName         [1] GeneralNames} OPTIONAL, 
-      issuer                [1] GeneralNames OPTIONAL, 
-      attCertValidity       [2] GeneralizedTime OPTIONAL, 
-      attType               [3] SET OF AttributeType OPTIONAL}
+      issuer           [1] GeneralNames OPTIONAL, 
+      attCertValidity  [2] GeneralizedTime OPTIONAL, 
+      attType          [3] SET OF AttributeType OPTIONAL}
 
 -- *Должен присутствовать по меньшей мере один из компонентов последовательности*.
 
@@ -3351,15 +3350,15 @@ SYNTAX` может содержать только АС с атрибутами 
 представленного значения и сохраненное в записи директории значение 
 атрибута типа `AttributeCertificate`. 
 
-    id-mr-holderIssuerMatch  OBJECT IDENTIFIER ::= {id-mr 46}
+    id-mr-holderIssuerMatch OBJECT IDENTIFIER ::= {id-mr 46}
 
     holderIssuerMatch MATCHING-RULE  ::= { 
       SYNTAX  HolderIssuerAssertion 
       ID      id-mr-holderIssuerMatch } 
 
     HolderIssuerAssertion ::= SEQUENCE { 
-      holder  [0]  Holder  OPTIONAL, 
-      issuer  [1]  AttCertIssuer  OPTIONAL }
+      holder  [0] Holder OPTIONAL, 
+      issuer  [1] AttCertIssuer OPTIONAL }
 
 Данное правило соответствия возвращает TRUE, если все компоненты, 
 присутствующие в представленном значении, соответствуют компонентам 
@@ -3470,17 +3469,17 @@ SYNTAX` может содержать только АС с атрибутами 
 
     ObjectDigestInfo ::= SEQUENCE {
       digestedObjectType ENUMERATED {
-        publicKey        (0), 
-        publicKeyCert    (1), 
-        otherObjectTypes (2)},
-      otherObjectTypeID   OBJECT IDENTIFIER OPTIONAL,
-      digestAlgorithm     AlgorithmIdentifier,
-      objectDigest        BIT STRING }
+        publicKey         (0), 
+        publicKeyCert     (1), 
+        otherObjectTypes  (2)},
+      otherObjectTypeID  OBJECT IDENTIFIER OPTIONAL,
+      digestAlgorithm    AlgorithmIdentifier,
+      objectDigest       BIT STRING }
 
     AttCertIssuer ::= [0] SEQUENCE {
-      issuerName              GeneralNames OPTIONAL,
-      baseCertificateID  [0]  IssuerSerial OPTIONAL,
-      objectDigestInfo   [1]  ObjectDigestInfo OPTIONAL
+      issuerName             GeneralNames OPTIONAL,
+      baseCertificateID  [0] IssuerSerial OPTIONAL,
+      objectDigestInfo   [1] ObjectDigestInfo OPTIONAL
       -- по меньшей мере один из компонентов issuerName, baseCertificateUD или 
       -- objectDigestInfo должен присутствовать -- }
 
@@ -3508,18 +3507,20 @@ SYNTAX` может содержать только АС с атрибутами 
     PrivilegePolicy ::= OBJECT IDENTIFIER
 
     -- классы и их производные
+
     OBJECT-CLASS ::= CLASS {
-      &Superclasses          OBJECT-CLASS  OPTIONAL,
-      &kind                  ObjectClassKind  DEFAULT  structural,
-      &MandatoryAttributes   ATTRIBUTE  OPTIONAL,
-      &OptionalAttributes    ATTRIBUTE  OPTIONAL,
-      &id                    OBJECT IDENTIFIER  UNIQUE }
+      &Superclasses         OBJECT-CLASS  OPTIONAL,
+      &kind                 ObjectClassKind  DEFAULT  structural,
+      &MandatoryAttributes  ATTRIBUTE  OPTIONAL,
+      &OptionalAttributes   ATTRIBUTE  OPTIONAL,
+      &id                   OBJECT IDENTIFIER  UNIQUE }
     WITH SYNTAX {
       [SUBCLASS OF   &Superclasses]
       [KIND          &kind]
       [MUST CONTAIN  &MandatoryAttributes]
       [MAY CONTAIN   &OptionalAttributes]
       ID             &id }
+
     ObjectClassKind ::= ENUMERATED {
       abstract    (0),
       structural  (1),
@@ -3544,11 +3545,11 @@ SYNTAX` может содержать только АС с атрибутами 
       &substrings-match      MATCHING-RULE  OPTIONAL,
       &single-valued         BOOLEAN  DEFAULT FALSE,
       &collective            BOOLEAN  DEFAULT FALSE,
-      &dummy                 BOOLEAN  DEFAULT FALSE,
+      &dummy                 BOOLEAN DEFAULT FALSE,
       -- операции
-      &no-user-modification  BOOLEAN  DEFAULT FALSE,
-      &usage                 AttributeUsage  DEFAULT userApplications,
-      &id                    OBJECT IDENTIFIER  UNIQUE }
+      &no-user-modification  BOOLEAN DEFAULT FALSE,
+      &usage                 AttributeUsage DEFAULT userApplications,
+      &id                    OBJECT IDENTIFIER UNIQUE }
     WITH SYNTAX {
       [SUBTYPE OF                &derivation]
       [WITH SYNTAX               &Type]
@@ -3602,12 +3603,12 @@ SYNTAX` может содержать только АС с атрибутами 
     WITH SYNTAX  UTF8String  
     --содержит информацию о привилегии,
     -- закодированную в формате XML -  -
-    ID          id-at-xMLPrivilegeInfo }
+    ID  id-at-xMLPrivilegeInfo }
 
     permission ATTRIBUTE ::= {
-      WITH SYNTAX               DualStringSyntax
-      EQUALITY MATCHING RULE    dualStringMatch
-      ID                        id-at-permission }
+      WITH SYNTAX             DualStringSyntax
+      EQUALITY MATCHING RULE  dualStringMatch
+      ID                      id-at-permission }
 
     DualStringSyntax ::= SEQUENCE {
       operation  [0] UnboundedDirectoryString,
@@ -3629,7 +3630,7 @@ SYNTAX` может содержать только АС с атрибутами 
       IDENTIFIED BY   id-ce-timeSpecification }
 
     TimeSpecification ::= SEQUENCE {
-      time       CHOICE {
+      time         CHOICE {
         absolute   SEQUENCE {
           startTime  [0] GeneralizedTime OPTIONAL,
           endTime    [1] GeneralizedTime OPTIONAL },
@@ -3642,23 +3643,23 @@ SYNTAX` может содержать только АС с атрибутами 
       days        [1] CHOICE {
         intDay  SET OF INTEGER,
         bitDay  BIT STRING { sunday (0), monday (1), tuesday (2), 
-             wednesday (3), thursday (4), friday (5),
-             saturday (6) },
+                             wednesday (3), thursday (4), friday (5),
+                             saturday (6) },
         dayOf   XDayOf } OPTIONAL,
-      weeks   [2] CHOICE {
-        allWeeks    NULL,
-        intWeek     SET OF INTEGER,
-        bitWeek     BIT STRING { week1 (0), week2 (1), week3 (2), 
-                                week4 (3), week5 (4) } } OPTIONAL,
-      months  [3] CHOICE {
-        allMonths   NULL,
-        intMonth    SET OF INTEGER,
-        bitMonth    BIT STRING { january (0), february (1), march (2), 
-                                 april (3), may (4), june (5), july (6), 
-                                 august (7), september (8), october (9), 
-                                 november (10), december (11) }
+      weeks       [2] CHOICE {
+        allWeeks  NULL,
+        intWeek   SET OF INTEGER,
+        bitWeek   BIT STRING { week1 (0), week2 (1), week3 (2), 
+                               week4 (3), week5 (4) } } OPTIONAL,
+      months      [3] CHOICE {
+        allMonths  NULL,
+        intMonth   SET OF INTEGER,
+        bitMonth   BIT STRING { january (0), february (1), march (2), 
+                                april (3), may (4), june (5), july (6), 
+                                august (7), september (8), october (9), 
+                                november (10), december (11) }
       } OPTIONAL,
-      years  [4] SET OF INTEGER (1000 .. MAX) OPTIONAL }
+      years       [4] SET OF INTEGER (1000 .. MAX) OPTIONAL }
 
     XDayOf ::= CHOICE {
       first   [1] NamedDay,
@@ -3808,11 +3809,11 @@ SYNTAX` может содержать только АС с атрибутами 
       IDENTIFIED BY   id-ce-delegatedNameConstraints }
 
     delegatedNameConstraintsMatch MATCHING-RULE ::= {
-      SYNTAX      NameConstraintsSyntax
-      ID          id-mr-delegatedNameConstraintsMatch }
+      SYNTAX  NameConstraintsSyntax
+      ID      id-mr-delegatedNameConstraintsMatch }
     NameConstraintsSyntax ::= SEQUENCE {
-      permittedSubtrees    [0]  GeneralSubtrees OPTIONAL,
-      excludedSubtrees     [1]  GeneralSubtrees OPTIONAL
+      permittedSubtrees  [0] GeneralSubtrees OPTIONAL,
+      excludedSubtrees   [1] GeneralSubtrees OPTIONAL
       -- как минимум один из компонентов должен присутствовать -- }
 
     acceptableCertPolicies EXTENSION ::= {
@@ -3838,20 +3839,20 @@ SYNTAX` может содержать только АС с атрибутами 
       ID      id-mr-authAttIdMatch }
 
     indirectIssuer EXTENSION ::= {
-      SYNTAX          NULL
-      IDENTIFIED BY   id-ce-indirectIssuer }
+      SYNTAX         NULL
+      IDENTIFIED BY  id-ce-indirectIssuer }
 
     issuedOnBehalfOf EXTENSION ::= {
-      SYNTAX          GeneralName
-      IDENTIFIED BY   id-ce-issuedOnBehalfOf }
+      SYNTAX         GeneralName
+      IDENTIFIED BY  id-ce-issuedOnBehalfOf }
 
     noAssertion EXTENSION ::= {
-      SYNTAX          NULL
-      IDENTIFIED BY   id-ce-noAssertion }
+      SYNTAX         NULL
+      IDENTIFIED BY  id-ce-noAssertion }
 
     allowedAttributeAssignments EXTENSION ::= {
-      SYNTAX          AllowedAttributeAssignments
-      IDENTIFIED BY   id-ce-allowedAttAss }
+      SYNTAX         AllowedAttributeAssignments
+      IDENTIFIED BY  id-ce-allowedAttAss }
 
     AllowedAttributeAssignments ::= SET OF SEQUENCE {
       attributes      [0] SET OF CHOICE {
@@ -3864,13 +3865,12 @@ SYNTAX` может содержать только АС с атрибутами 
       IDENTIFIED BY  id-ce-attributeMappings }
 
     AttributeMappings ::= SET OF CHOICE {
-      typeMappings  [0] SEQUENCE {
+      typeMappings      [0] SEQUENCE {
         local   [0] AttributeType,
         remote  [1] AttributeType},
-
       typeValueMappings [1] SEQUENCE {
-        local    [0] AttributeTypeAndValue,
-        remote   [1] AttributeTypeAndValue }}
+        local   [0] AttributeTypeAndValue,
+        remote  [1] AttributeTypeAndValue }}
 
     holderNameConstraints EXTENSION ::= {
       SYNTAX         HolderNameConstraintsSyntax
@@ -3878,15 +3878,14 @@ SYNTAX` может содержать только АС с атрибутами 
 
     HolderNameConstraintsSyntax ::= SEQUENCE {
       permittedSubtrees  [0] GeneralSubtrees,
-      excludedSubtrees   [1] GeneralSubtrees OPTIONAL
-    }
+      excludedSubtrees   [1] GeneralSubtrees OPTIONAL }
 
     -- типы ИУП 
     pmiUser OBJECT-CLASS ::= {
-      SUBCLASS OF   {top}
-      KIND          auxiliary
-      MAY CONTAIN   {attributeCertificateAttribute}
-      ID            id-oc-pmiUser }
+      SUBCLASS OF  {top}
+      KIND         auxiliary
+      MAY CONTAIN  {attributeCertificateAttribute}
+      ID           id-oc-pmiUser }
 
     pmiAA OBJECT-CLASS ::= { -- ЦАС для ИУП
       SUBCLASS OF  {top}
@@ -3896,19 +3895,19 @@ SYNTAX` может содержать только АС с атрибутами 
       ID           id-oc-pmiAA }
 
     pmiSOA OBJECT-CLASS ::= { -- источник привилегий
-      SUBCLASS OF   {top}
-      KIND          auxiliary
-      MAY CONTAIN   {attributeCertificateRevocationList |
-                     attributeAuthorityRevocationList |
-                     attributeDescriptorCertificate}
-      ID            id-oc-pmiSOA }
+      SUBCLASS OF  {top}
+      KIND         auxiliary
+      MAY CONTAIN  {attributeCertificateRevocationList |
+                    attributeAuthorityRevocationList |
+                    attributeDescriptorCertificate}
+      ID           id-oc-pmiSOA }
 
     attCertCRLDistributionPt OBJECT-CLASS ::= {
-      SUBCLASS OF   {top}
-      KIND          auxiliary
-      MAY CONTAIN   {attributeCertificateRevocationList |
-                     attributeAuthorityRevocationList}
-      ID             id-oc-attCertCRLDistributionPts }
+      SUBCLASS OF  {top}
+      KIND         auxiliary
+      MAY CONTAIN  {attributeCertificateRevocationList |
+                    attributeAuthorityRevocationList}
+      ID            id-oc-attCertCRLDistributionPts }
 
     pmiDelegationPath OBJECT-CLASS ::= {
       SUBCLASS OF  {top}
@@ -3927,7 +3926,9 @@ SYNTAX` может содержать только АС с атрибутами 
       KIND         auxiliary
       MAY CONTAIN  {protPrivPolicy}
       ID           id-oc-protectedPrivilegePolicy }
+
     -- атрибуты справочника ИУП 
+
     attributeCertificateAttribute ATTRIBUTE ::= {
       WITH SYNTAX             AttributeCertificate
       EQUALITY MATCHING RULE  attributeCertificateExactMatch
@@ -3976,8 +3977,8 @@ SYNTAX` может содержать только АС с атрибутами 
     }
 
     xmlPrivPolicy ATTRIBUTE ::= {
-      WITH SYNTAX      UTF8String -- содержит информацию о политике
-                 -- применения привилегии в формате XML -    -
+      WITH SYNTAX      UTF8String 
+      -- содержит информацию о политике применения привилегии в формате XML
       ID               id-at-xmlPrivPolicy }
 
     -- правила соответствия 
@@ -3985,6 +3986,7 @@ SYNTAX` может содержать только АС с атрибутами 
     certificateListExactMatch MATCHING-RULE ::= {
       SYNTAX   CertificateListExactAssertion
       ID       id-mr-certificateListExactMatch }
+   
     CertificateListExactAssertion ::= SEQUENCE {
       issuer             Name,
       thisUpdate         Time,
@@ -4003,7 +4005,7 @@ SYNTAX` может содержать только АС с атрибутами 
       ID      id-mr-attributeCertificateMatch }
 
     AttributeCertificateAssertion ::= SEQUENCE {
-      holder  [0]  CHOICE {
+      holder           [0]  CHOICE {
         baseCertificateID  [0] IssuerSerial,
         holderName         [1] GeneralNames} OPTIONAL,
       issuer           [1]  GeneralNames OPTIONAL,
@@ -4017,8 +4019,8 @@ SYNTAX` может содержать только АС с атрибутами 
       ID      id-mr-holderIssuerMatch }
 
     HolderIssuerAssertion ::= SEQUENCE {
-      holder  [0]  Holder OPTIONAL,
-      issuer  [1]  AttCertIssuer OPTIONAL }
+      holder  [0] Holder OPTIONAL,
+      issuer  [1] AttCertIssuer OPTIONAL }
 
     delegationPathMatch MATCHING-RULE ::= {
       SYNTAX  DelMatchSyntax
@@ -4034,75 +4036,77 @@ SYNTAX` может содержать только АС с атрибутами 
 
     -- идентификаторы 
 
-    id-mr  OBJECT IDENTIFIER ::= {joint-iso-itu-t(2) ds(5) 13}
-    id-oc  OBJECT IDENTIFIER ::= {joint-iso-itu-t(2) ds(5) 6}
+    id-mr OBJECT IDENTIFIER ::= {joint-iso-itu-t(2) ds(5) 13}
+    id-oc OBJECT IDENTIFIER ::= {joint-iso-itu-t(2) ds(5) 6}
 
     -- классы объектов
 
     id-oc-top OBJECT IDENTIFIER ::= {id-oc 0}
     id-oc-pmiUser OBJECT IDENTIFIER ::= {id-oc 24}
-    id-oc-pmiAA  OBJECT IDENTIFIER ::= {id-oc 25}
-    id-oc-pmiSOA  OBJECT IDENTIFIER ::= {id-oc 26}
+    id-oc-pmiAA OBJECT IDENTIFIER ::= {id-oc 25}
+    id-oc-pmiSOA OBJECT IDENTIFIER ::= {id-oc 26}
     id-oc-attCertCRLDistributionPts OBJECT IDENTIFIER ::= {id-oc 27}
     id-oc-privilegePolicy OBJECT IDENTIFIER ::= {id-oc 32}
     id-oc-pmiDelegationPath OBJECT IDENTIFIER ::= {id-oc 33}
-    id-oc-protectedPrivilegePolicy           OBJECT IDENTIFIER ::= {id-oc 34}
+    id-oc-protectedPrivilegePolicy OBJECT IDENTIFIER ::= {id-oc 34}
 
     -- атрибуты 
-    id-at-objectClass  OBJECT IDENTIFIER ::= {id-at 0}
-    id-at-attributeCertificate  OBJECT IDENTIFIER ::= {id-at 58}
+
+    id-at-objectClass OBJECT IDENTIFIER ::= {id-at 0}
+    id-at-attributeCertificate OBJECT IDENTIFIER ::= {id-at 58}
     id-at-attributeCertificateRevocationList OBJECT IDENTIFIER ::= {id-at 59}
-    id-at-aACertificate  OBJECT IDENTIFIER ::= {id-at 61}
-    id-at-attributeDescriptorCertificate  OBJECT IDENTIFIER ::= {id-at 62}
-    id-at-attributeAuthorityRevocationList  OBJECT IDENTIFIER ::= {id-at 63}
-    id-at-privPolicy  OBJECT IDENTIFIER ::= {id-at 71}
-    id-at-role  OBJECT IDENTIFIER ::= {id-at 72}
-    id-at-delegationPath  OBJECT IDENTIFIER ::= {id-at 73}
-    id-at-protPrivPolicy  OBJECT IDENTIFIER ::= {id-at 74}
-    id-at-xMLPrivilegeInfo  OBJECT IDENTIFIER ::= {id-at 75}
-    id-at-xmlPrivPolicy  OBJECT IDENTIFIER ::= {id-at 76}
-    id-at-permission  OBJECT IDENTIFIER ::= {id-at 82}
+    id-at-aACertificate OBJECT IDENTIFIER ::= {id-at 61}
+    id-at-attributeDescriptorCertificate OBJECT IDENTIFIER ::= {id-at 62}
+    id-at-attributeAuthorityRevocationList OBJECT IDENTIFIER ::= {id-at 63}
+    id-at-privPolicy OBJECT IDENTIFIER ::= {id-at 71}
+    id-at-role OBJECT IDENTIFIER ::= {id-at 72}
+    id-at-delegationPath OBJECT IDENTIFIER ::= {id-at 73}
+    id-at-protPrivPolicy OBJECT IDENTIFIER ::= {id-at 74}
+    id-at-xMLPrivilegeInfo OBJECT IDENTIFIER ::= {id-at 75}
+    id-at-xmlPrivPolicy OBJECT IDENTIFIER ::= {id-at 76}
+    id-at-permission OBJECT IDENTIFIER ::= {id-at 82}
 
     -- расширения атрибутных сертификатов 
-    id-ce-authorityAttributeIdentifier  OBJECT IDENTIFIER ::= {id-ce 38}
-    id-ce-roleSpecCertIdentifier  OBJECT IDENTIFIER ::= {id-ce 39}
-    id-ce-basicAttConstraints  OBJECT IDENTIFIER ::= {id-ce 41}
-    id-ce-delegatedNameConstraints  OBJECT IDENTIFIER ::= {id-ce 42}
-    id-ce-timeSpecification  OBJECT IDENTIFIER ::= {id-ce 43}
-    id-ce-attributeDescriptor  OBJECT IDENTIFIER ::= {id-ce 48}
-    id-ce-userNotice  OBJECT IDENTIFIER ::= {id-ce 49}
-    id-ce-sOAIdentifier  OBJECT IDENTIFIER ::= {id-ce 50}
-    id-ce-acceptableCertPolicies  OBJECT IDENTIFIER ::= {id-ce 52}
-    id-ce-targetInformation  OBJECT IDENTIFIER ::= {id-ce 55}
-    id-ce-noRevAvail  OBJECT IDENTIFIER ::= {id-ce 56}
+
+    id-ce-authorityAttributeIdentifier OBJECT IDENTIFIER ::= {id-ce 38}
+    id-ce-roleSpecCertIdentifier OBJECT IDENTIFIER ::= {id-ce 39}
+    id-ce-basicAttConstraints OBJECT IDENTIFIER ::= {id-ce 41}
+    id-ce-delegatedNameConstraints OBJECT IDENTIFIER ::= {id-ce 42}
+    id-ce-timeSpecification OBJECT IDENTIFIER ::= {id-ce 43}
+    id-ce-attributeDescriptor OBJECT IDENTIFIER ::= {id-ce 48}
+    id-ce-userNotice OBJECT IDENTIFIER ::= {id-ce 49}
+    id-ce-sOAIdentifier OBJECT IDENTIFIER ::= {id-ce 50}
+    id-ce-acceptableCertPolicies OBJECT IDENTIFIER ::= {id-ce 52}
+    id-ce-targetInformation OBJECT IDENTIFIER ::= {id-ce 55}
+    id-ce-noRevAvail OBJECT IDENTIFIER ::= {id-ce 56}
     id-ce-acceptablePrivilegePolicies OBJECT IDENTIFIER ::= {id-ce 57}
-    id-ce-indirectIssuer  OBJECT IDENTIFIER ::= {id-ce 61}
-    id-ce-noAssertion  OBJECT IDENTIFIER ::= {id-ce 62}
-    id-ce-issuedOnBehalfOf  OBJECT IDENTIFIER ::= {id-ce 64}
-    id-ce-singleUse  OBJECT IDENTIFIER ::= {id-ce 65}
-    id-ce-groupAC  OBJECT IDENTIFIER ::= {id-ce 66}
-    id-ce-allowedAttAss  OBJECT IDENTIFIER ::= {id-ce 67}
-    id-ce-attributeMappings  OBJECT IDENTIFIER ::= {id-ce 68}
-    id-ce-holderNameConstraints  OBJECT IDENTIFIER ::= {id-ce 69}
+    id-ce-indirectIssuer OBJECT IDENTIFIER ::= {id-ce 61}
+    id-ce-noAssertion OBJECT IDENTIFIER ::= {id-ce 62}
+    id-ce-issuedOnBehalfOf OBJECT IDENTIFIER ::= {id-ce 64}
+    id-ce-singleUse OBJECT IDENTIFIER ::= {id-ce 65}
+    id-ce-groupAC OBJECT IDENTIFIER ::= {id-ce 66}
+    id-ce-allowedAttAss OBJECT IDENTIFIER ::= {id-ce 67}
+    id-ce-attributeMappings OBJECT IDENTIFIER ::= {id-ce 68}
+    id-ce-holderNameConstraints OBJECT IDENTIFIER ::= {id-ce 69}
 
     -- правила соответствия
 
-    id-mr-objectIdentifierMatch  OBJECT IDENTIFIER ::= {id-mr 0}
-    id-mr-certificateListExactMatch  OBJECT IDENTIFIER ::= {id-mr 38}
-    id-mr-attributeCertificateMatch  OBJECT IDENTIFIER ::= {id-mr 42}
-    id-mr-attributeCertificateExactMatch  OBJECT IDENTIFIER ::= {id-mr 45}
-    id-mr-holderIssuerMatch  OBJECT IDENTIFIER ::= {id-mr 46}
-    id-mr-authAttIdMatch  OBJECT IDENTIFIER ::= {id-mr 53}
-    id-mr-roleSpecCertIdMatch  OBJECT IDENTIFIER ::= {id-mr 54}
-    id-mr-basicAttConstraintsMatch  OBJECT IDENTIFIER ::= {id-mr 55}
-    id-mr-delegatedNameConstraintsMatch  OBJECT IDENTIFIER ::= {id-mr 56}
+    id-mr-objectIdentifierMatch OBJECT IDENTIFIER ::= {id-mr 0}
+    id-mr-certificateListExactMatch OBJECT IDENTIFIER ::= {id-mr 38}
+    id-mr-attributeCertificateMatch OBJECT IDENTIFIER ::= {id-mr 42}
+    id-mr-attributeCertificateExactMatch OBJECT IDENTIFIER ::= {id-mr 45}
+    id-mr-holderIssuerMatch OBJECT IDENTIFIER ::= {id-mr 46}
+    id-mr-authAttIdMatch OBJECT IDENTIFIER ::= {id-mr 53}
+    id-mr-roleSpecCertIdMatch OBJECT IDENTIFIER ::= {id-mr 54}
+    id-mr-basicAttConstraintsMatch OBJECT IDENTIFIER ::= {id-mr 55}
+    id-mr-delegatedNameConstraintsMatch OBJECT IDENTIFIER ::= {id-mr 56}
     id-mr-timeSpecMatch OBJECT IDENTIFIER ::= {id-mr 57}
-    id-mr-attDescriptorMatch  OBJECT IDENTIFIER ::= {id-mr 58}
-    id-mr-acceptableCertPoliciesMatch  OBJECT IDENTIFIER ::= {id-mr 59}
-    id-mr-delegationPathMatch  OBJECT IDENTIFIER ::= {id-mr 61}
-    id-mr-sOAIdentifierMatch  OBJECT IDENTIFIER ::= {id-mr 66}
-    id-mr-extensionPresenceMatch  OBJECT IDENTIFIER ::= {id-mr 67}
-    id-mr-dualStringMatch  OBJECT IDENTIFIER ::= {id-mr 69}
+    id-mr-attDescriptorMatch OBJECT IDENTIFIER ::= {id-mr 58}
+    id-mr-acceptableCertPoliciesMatch OBJECT IDENTIFIER ::= {id-mr 59}
+    id-mr-delegationPathMatch OBJECT IDENTIFIER ::= {id-mr 61}
+    id-mr-sOAIdentifierMatch OBJECT IDENTIFIER ::= {id-mr 66}
+    id-mr-extensionPresenceMatch OBJECT IDENTIFIER ::= {id-mr 67}
+    id-mr-dualStringMatch OBJECT IDENTIFIER ::= {id-mr 69}
 
     END 
 
@@ -4304,11 +4308,11 @@ SYNTAX` может содержать только АС с атрибутами 
       VARIABLE-TYPE-VALUE-SET-FIELD    { "d" | "e" | "f" }
     }
     ObjectSet EXAMPLE-CLASS ::= { objectA | objectB |
-    {
-      TYPE-FIELD                     INTEGER
-      FIXED-TYPE-VALUE-FIELD         789
-      VARIABLE-TYPE-VALUE-SET-FIELD     { 4 | 5 | 6 }
-    }
+      {
+        TYPE-FIELD                     INTEGER
+        FIXED-TYPE-VALUE-FIELD         789
+        VARIABLE-TYPE-VALUE-SET-FIELD  { 4 | 5 | 6 }
+      }
     }
     integerValue INTEGER ::= objectA.&fixedTypeValueField
     stringValue IA5String ::= objectB.&variableTypeValueField
