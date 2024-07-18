@@ -15,7 +15,6 @@
 
 -------------------------------------------------------------
 
-
 # Содержание
 
 [1 Область применения](#logo)
@@ -51,7 +50,7 @@
 # 2 <a name="refs"></a>Нормативные ссылки
 
 В настоящем стандарте использованы ссылки на следующие технические нормативные
-правовые акты в области технического нормирования и стандартизации (далее -
+правовые акты в области технического нормирования и стандартизации (далее –
 ТНПА):
 
 СТБ 34.101.17-2012 Информационные технологии и безопасность. Синтаксис запроса
@@ -305,7 +304,7 @@ OCSP – онлайновый протокол проверки статуса �
 указан идентификатор
 
     id-kp-dvcs OBJECT IDENTIFIER ::= {iso(1) identified-organization(3)
-       dod(6) internet(1) security(5) mechanisms(5) pkix(7) kp(3) 10}`
+       dod(6) internet(1) security(5) mechanisms(5) pkix(7) kp(3) 10}
 
 6.10 СОК СЗД МОЖЕТ включать расширение `AuthorityInfoAccessSyntax` (см. СТБ 
 34.101.19 (пункт 6.2.11.2)), с помощью которого можно получить информацию о 
@@ -313,7 +312,7 @@ OCSP – онлайновый протокол проверки статуса �
 значение 
   
     id-mod-dvcs OBJECT IDENTIFIER ::= {iso(1) identified-organization(3)
-       dod(6) internet(1) security(5) mechanisms(5) pkix(7) id-mod(0) 15}`
+      dod(6) internet(1) security(5) mechanisms(5) pkix(7) id-mod(0) 15}
 
 6.11 Перед выпуском аттестата СЗД ДОЛЖНА проверять действительность 
 собственного СОК. В случае ошибки выпуск аттестата ДОЛЖЕН быть отменен. 
@@ -651,7 +650,7 @@ certs может вообще не возвращаться.
 запросе, отличается от службы, давшей ответ), `incorrectData` (данные клиента 
 некорректны). Комбинация задается строкой битов (`BIT STRING`), в которой 
 единичные биты могут устанавливаться в позициях с номерами 2 (`badRequest`), 
-3 (`badTime`), 5(`badDataFormat`) 6 (`wrongAuthority`) и 7(`incorrectData`).
+3 (`badTime`), 5 (`badDataFormat`) 6 (`wrongAuthority`) и 7 (`incorrectData`).
 
 Компонент `transactionIdentifier` может быть использован для связывания
 сообщения об ошибке с запросом. Тип `GeneralName` определен в СТБ 34.101.19.
@@ -680,7 +679,7 @@ certs может вообще не возвращаться.
 `DVCSRequest` и идентификатор
 
     id-ct-DVCSRequestData OBJECT IDENTIFIER ::= {iso(1) member-body(2)
-         us(840) rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) ct(1) 7}
+      us(840) rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) ct(1) 7}
 
 Запрос может быть подписан несколько раз. Например, запрос обрабатывается
 несколькими службами по цепочке и каждая из них добавляет в запрос свою подпись.
@@ -751,141 +750,143 @@ certs может вообще не возвращаться.
 
 ## Модуль АСН.1
 
-    PKIXDVCS {iso(1) identified-organization(3) dod(6) internet(1)
-      security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-dvcs(15)}
-    DEFINITIONS IMPLICIT TAGS ::=
-    BEGIN
-      -- EXPORTS ALL --
-      IMPORTS
-        Extension, Extensions, AlgorithmIdentifier
-        FROM PKIX1Explicit88 {iso(1) identified-organization(3) dod(6) internet(1)
-         security(5) mechanisms(5) pkix(7) id-mod(0) id-pkix1-explicit-88(1)}
-       GeneralName, PolicyInformation
-        FROM PKIX1Implicit88 {iso(1) identified-organization(3) dod(6) internet(1)
-          security(5) mechanisms(5) pkix(7) id-mod(0) id-pkix1-implicit-88(2)}
-       PKIStatusInfo, PKIStatusField 
-        FROM PKIXCMP {iso(1) identified-organization(3) dod(6) internet(1)
-          security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-cmp(9)}
-   
-      ContentInfo
-        FROM CryptographicMessageSyntax {iso(1) member-body(2) us(840)
-          rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) modules(0) cms(1)}
-   
-      ESSCertIDv2
-        FROM ExtendedSecurityServices-2006 {iso(1) member-body(2) us(840)
-          rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) modules(0)
-          id-mod-ess-2006(30)}
-   
-      CertId, OCSPResponse, CertStatus
-        FROM OCSP {iso(1) identified-organization(3) dod(6) internet(1)
-          security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-ocsp(14)}
-   
-      SMIMECapabilities
-        FROM SecureMimeMessageV3 {iso(1) member-body(2) us(840) rsadsi(113549)
-        pkcs(1) pkcs-9(9) smime(16) modules(0) smime(4)};
-   
-      id-ad-dvcs OBJECT IDENTIFIER ::= {id-pkix id-ad(48) 4}
-   
-      id-kp-dvcs OBJECT IDENTIFIER ::= {id-pkix id-kp(3) 10}
-   
-      id-ct-DVCSRequestData OBJECT IDENTIFIER ::= {id-smime ct(1) 7}
-   
-      id-ct-DVCSResponseData OBJECT IDENTIFIER ::= {id-smime ct(1) 8}
-   
-      id-aa-dvcs-dvc OBJECT IDENTIFIER ::= { id-smime aa(2) 29 }
-   
-      id-pkix OBJECT IDENTIFIER ::= {iso(1) identified-organization(3) dod(6)
-        internet(1) security(5) mechanisms(5) pkix(7)}
-   
-      id-smime OBJECT IDENTIFIER ::= {iso(1) member-body(2) us(840)
-        rsadsi(113549) pkcs(1) pkcs-9(9) 16}
-   
-      DigestInfo ::= SEQUENCE {
-        digestAlgorithm  DigestAlgorithmIdentifier,
-        digest           Digest
-      }
-   
-      Digest ::= OCTET STRING
-   
-      DVCSTime ::= CHOICE {
-        genTime         GeneralizedTime,
-        timeStampToken  ContentInfo
-      }
-   
-      TargetEtcChain ::= SEQUENCE {
-        target         CertEtcToken,
-        chain          SEQUENCE SIZE (1..MAX) OF CertEtcToken OPTIONAL,
-        pathProcInput  [0] PathProcInput OPTIONAL
-      }
-   
-      PathProcInput ::= SEQUENCE {
-        acceptablePolicySet   SEQUENCE SIZE (1..MAX) OF PolicyInformation,
-        inhibitPolicyMapping  BOOLEAN DEFAULT FALSE,
-        explicitPolicyReqd    BOOLEAN DEFAULT FALSE
-      }
-   
-      CertEtcToken ::= CHOICE {
-        certificate     [0] IMPLICIT Certificate,
-        esscertid       [1] ESSCertIDv2,
-        pkistatus       [2] IMPLICIT PKIStatusInfo,
-        assertion       [3] ContentInfo,
-        crl             [4] IMPLICIT CertificateList,
-        ocspcertstatus  [5] IMPLICIT CertStatus,
-        ocspcertid      [6] IMPLICIT CertId,
-        ocspresponse    [7] IMPLICIT OCSPResponse,
-        capabilities    [8] SMIMECapabilities,
-        extension       Extension
-      }
-   
-      DVCSRequestInformation ::= SEQUENCE  {
-        version         INTEGER DEFAULT 1,
-        service         ServiceType,
-        nonce           INTEGER OPTIONAL,
-        requestTime     DVCSTime OPTIONAL,
-        requester       [0] GeneralNames OPTIONAL,
-        requestPolicy   [1] PolicyInformation OPTIONAL,
-        dvcs            [2] GeneralNames OPTIONAL,
-        dataLocations   [3] GeneralNames OPTIONAL,
-        extensions      [4] IMPLICIT Extensions OPTIONAL
-      }
-   
-      ServiceType ::= ENUMERATED {cpd(1), vsd(2), vpkc(3), ccpd(4)}
-   
-      DVCSRequest ::= SEQUENCE  {
-        requestInformation     DVCSRequestInformation,
-        data                   Data,
-        transactionIdentifier  GeneralName OPTIONAL
-      }
-   
-      Data ::= CHOICE {
-        message         OCTET STRING,
-        messageImprint  DigestInfo,
-        certs           SEQUENCE SIZE (1..MAX) OF TargetEtcChain
-      }
-   
-      DVCSResponse ::= CHOICE {
-        dvCertInfo   DVCSCertInfo,
-        dvErrorNote  [0] DVCSErrorNotice
-      }
-   
-      DVCSCertInfo ::= SEQUENCE  {
-        version         INTEGER DEFAULT 1,
-        dvReqInfo       DVCSRequestInformation,
-        messageImprint  DigestInfo,
-        serialNumber    INTEGER,
-        responseTime    DVCSTime,
-        dvStatus        [0] PKIStatusInfo OPTIONAL,
-        policy          [1] PolicyInformation OPTIONAL,
-        reqSignature    [2] SignerInfos  OPTIONAL,
-        certs           [3] SEQUENCE SIZE (1..MAX) OF TargetEtcChain OPTIONAL,
-        extensions      Extensions OPTIONAL 
-      }
-   
-      DVCSErrorNotice ::= SEQUENCE {
-        transactionStatus      PKIStatusInfo,
-        transactionIdentifier  GeneralName OPTIONAL
-      }
-    END
+```
+PKIXDVCS {iso(1) identified-organization(3) dod(6) internet(1)
+  security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-dvcs(15)}
+DEFINITIONS IMPLICIT TAGS ::=
+BEGIN
+  -- EXPORTS ALL --
+  IMPORTS
+    Extension, Extensions, AlgorithmIdentifier
+    FROM PKIX1Explicit88 {iso(1) identified-organization(3) dod(6) internet(1) 
+      security(5) mechanisms(5) pkix(7) id-mod(0) id-pkix1-explicit-88(1)}
+   GeneralName, PolicyInformation
+    FROM PKIX1Implicit88 {iso(1) identified-organization(3) dod(6) internet(1) 
+      security(5) mechanisms(5) pkix(7) id-mod(0) id-pkix1-implicit-88(2)}
+   PKIStatusInfo, PKIStatusField 
+    FROM PKIXCMP {iso(1) identified-organization(3) dod(6) internet(1)
+      security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-cmp(9)}
+
+  ContentInfo
+    FROM CryptographicMessageSyntax {iso(1) member-body(2) us(840)
+      rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) modules(0) cms(1)}
+
+  ESSCertIDv2
+    FROM ExtendedSecurityServices-2006 {iso(1) member-body(2) us(840)
+      rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) modules(0)
+      id-mod-ess-2006(30)}
+
+  CertId, OCSPResponse, CertStatus
+    FROM OCSP {iso(1) identified-organization(3) dod(6) internet(1)
+      security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-ocsp(14)}
+
+  SMIMECapabilities
+    FROM SecureMimeMessageV3 {iso(1) member-body(2) us(840) rsadsi(113549)
+    pkcs(1) pkcs-9(9) smime(16) modules(0) smime(4)};
+
+  id-ad-dvcs OBJECT IDENTIFIER ::= {id-pkix id-ad(48) 4}
+
+  id-kp-dvcs OBJECT IDENTIFIER ::= {id-pkix id-kp(3) 10}
+
+  id-ct-DVCSRequestData OBJECT IDENTIFIER ::= {id-smime ct(1) 7}
+
+  id-ct-DVCSResponseData OBJECT IDENTIFIER ::= {id-smime ct(1) 8}
+
+  id-aa-dvcs-dvc OBJECT IDENTIFIER ::= { id-smime aa(2) 29 }
+
+  id-pkix OBJECT IDENTIFIER ::= {iso(1) identified-organization(3) dod(6)
+    internet(1) security(5) mechanisms(5) pkix(7)}
+
+  id-smime OBJECT IDENTIFIER ::= {iso(1) member-body(2) us(840)
+    rsadsi(113549) pkcs(1) pkcs-9(9) 16}
+
+  DigestInfo ::= SEQUENCE {
+    digestAlgorithm  DigestAlgorithmIdentifier,
+    digest           Digest
+  }
+
+  Digest ::= OCTET STRING
+
+  DVCSTime ::= CHOICE {
+    genTime         GeneralizedTime,
+    timeStampToken  ContentInfo
+  }
+
+  TargetEtcChain ::= SEQUENCE {
+    target         CertEtcToken,
+    chain          SEQUENCE SIZE (1..MAX) OF CertEtcToken OPTIONAL,
+    pathProcInput  [0] PathProcInput OPTIONAL
+  }
+
+  PathProcInput ::= SEQUENCE {
+    acceptablePolicySet   SEQUENCE SIZE (1..MAX) OF PolicyInformation,
+    inhibitPolicyMapping  BOOLEAN DEFAULT FALSE,
+    explicitPolicyReqd    BOOLEAN DEFAULT FALSE
+  }
+
+  CertEtcToken ::= CHOICE {
+    certificate     [0] IMPLICIT Certificate,
+    esscertid       [1] ESSCertIDv2,
+    pkistatus       [2] IMPLICIT PKIStatusInfo,
+    assertion       [3] ContentInfo,
+    crl             [4] IMPLICIT CertificateList,
+    ocspcertstatus  [5] IMPLICIT CertStatus,
+    ocspcertid      [6] IMPLICIT CertId,
+    ocspresponse    [7] IMPLICIT OCSPResponse,
+    capabilities    [8] SMIMECapabilities,
+    extension       Extension
+  }
+
+  DVCSRequestInformation ::= SEQUENCE  {
+    version         INTEGER DEFAULT 1,
+    service         ServiceType,
+    nonce           INTEGER OPTIONAL,
+    requestTime     DVCSTime OPTIONAL,
+    requester       [0] GeneralNames OPTIONAL,
+    requestPolicy   [1] PolicyInformation OPTIONAL,
+    dvcs            [2] GeneralNames OPTIONAL,
+    dataLocations   [3] GeneralNames OPTIONAL,
+    extensions      [4] IMPLICIT Extensions OPTIONAL
+  }
+
+  ServiceType ::= ENUMERATED {cpd(1), vsd(2), vpkc(3), ccpd(4)}
+
+  DVCSRequest ::= SEQUENCE  {
+    requestInformation     DVCSRequestInformation,
+    data                   Data,
+    transactionIdentifier  GeneralName OPTIONAL
+  }
+
+  Data ::= CHOICE {
+    message         OCTET STRING,
+    messageImprint  DigestInfo,
+    certs           SEQUENCE SIZE (1..MAX) OF TargetEtcChain
+  }
+
+  DVCSResponse ::= CHOICE {
+    dvCertInfo   DVCSCertInfo,
+    dvErrorNote  [0] DVCSErrorNotice
+  }
+
+  DVCSCertInfo ::= SEQUENCE  {
+    version         INTEGER DEFAULT 1,
+    dvReqInfo       DVCSRequestInformation,
+    messageImprint  DigestInfo,
+    serialNumber    INTEGER,
+    responseTime    DVCSTime,
+    dvStatus        [0] PKIStatusInfo OPTIONAL,
+    policy          [1] PolicyInformation OPTIONAL,
+    reqSignature    [2] SignerInfos  OPTIONAL,
+    certs           [3] SEQUENCE SIZE (1..MAX) OF TargetEtcChain OPTIONAL,
+    extensions      Extensions OPTIONAL 
+  }
+
+  DVCSErrorNotice ::= SEQUENCE {
+    transactionStatus      PKIStatusInfo,
+    transactionIdentifier  GeneralName OPTIONAL
+  }
+END
+```
 
 # <a name="bib"></a>Библиография
 
