@@ -1,4 +1,4 @@
---------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 **СТБ 34.101.17-2012**
 
 **Информационные технологии и безопасность**
@@ -13,19 +13,27 @@
 
 **Certification request syntax**
 
---------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
-# <a name="toc"></a> Содержание
+# Содержание
 
-### [1 Область применения](#logo)
-### [2 Нормативные ссылки](#refs)
-### [3 Термины и определения, обозначения](#terms)
-### [4 Общие положения](#common)
-### [5 Синтаксис запроса на получение сертификата](#syntax)
-### [Приложение А (обязательное) Модуль АСН.1](#app1)
-### [Приложение Б (обязательное) Отличительные правила кодирования](#app2)
-### [Приложение В (рекомендуемое) Запрос на получение сертификата открытого ключа электронной цифровой подписи согласно СТБ 1176.2](#app3)
-### [Библиография](#bib)
+[1 Область применения](#logo)
+
+[2 Нормативные ссылки](#refs)
+
+[3 Термины и определения, обозначения](#terms)
+
+[4 Общие положения](#common)
+
+[5 Синтаксис запроса на получение сертификата](#syntax)
+
+[Приложение А (обязательное) Модуль АСН.1](#app1)
+
+[Приложение Б (обязательное) Отличительные правила кодирования](#app2)
+
+[Приложение В (рекомендуемое) Запрос на получение сертификата открытого ключа электронной цифровой подписи согласно СТБ 1176.2](#app3)
+
+[Библиография](#bib)
 
 # 1 <a name="logo"></a>Область применения
 Настоящий стандарт устанавливает синтаксис запроса на получение 
@@ -167,13 +175,13 @@
 что это действительно так. 
 
 Синтаксис запроса на получение сертификата задается типами АСН.1. Модуль 
-АСН.1 запроса – в соответствии с приложением А. 
+АСН.1 запроса – в соответствии с приложением [А](#app1). 
 
 Для формирования электронной формы запроса или некоторых его компонентов 
 значения типов АСН.1 кодируются. В результате кодирования формируется 
 последовательность октетов. 
 
-В ГОСТ 34.974 определены базовые правила кодирования. В приложении Б 
+В ГОСТ 34.974 определены базовые правила кодирования. В приложении [Б](#app2) 
 установлены отличительные правила кодирования, которые уточняют базовые 
 правила и обеспечивают однозначность кодового представления. Отличительные 
 правила должны использоваться при кодировании значений типа 
@@ -262,49 +270,51 @@
 
 >Примечание – Способы формирования компонента `signature` для запроса на 
 получение сертификата открытого ключа СТБ 1176.2 – в соответствии с 
-приложением В. 
+приложением [В](#app3). 
 
 # <a name="app1"></a>Приложение А (обязательное)
-## Модуль АСН.1
+# Модуль АСН.1
 
 В настоящем приложении приведен модуль АСН.1 запроса на получение сертификата.
-     
-    PKCS-10 {iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs-10(10)   modules(1) pkcs-10(1)}
-    DEFINITIONS IMPLICIT TAGS ::=
-    BEGIN
-    IMPORTS
-    AlgorithmIdentifier, Name
-    FROM PKIX1Explicit88 {iso(1) identified-organization(3) dod(6)internet(1)   security(5) mechanisms(5) pkix(7) id-mod(0)id-pkix1-explicit(18)};
-    
-    CertificationRequestInfo ::= SEQUENCE {
-      version INTEGER,
-      subject Name,
-      subjectPKInfo SubjectPublicKeyInfo,
-      attributes [0]Attributes
-    }
-    
-    SubjectPublicKeyInfo ::= SEQUENCE {
-      algorithm AlgorithmIdentifier,
-      subjectPublicKey BIT STRING
-    }
-    
-    Attributes ::= SET OF Attribute
-    
-    Attribute ::= SEQUENCE {
-      type OBJECT IDENTIFIER,
-      values   ANY DEFINED BY type
-    }
-    
-    CertificationRequest ::= SEQUENCE {
-      certificationRequestInfo CertificationRequestInfo,
-      signatureAlgorithm AlgorithmIdentifier,
-      signature BIT STRING
-    }
-    END
-    
 
+```     
+PKCS-10 {iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs-10(10) 
+   modules(1) pkcs-10(1)}
+DEFINITIONS IMPLICIT TAGS ::=
+BEGIN
+  IMPORTS
+  AlgorithmIdentifier, Name
+    FROM PKIX1Explicit88 {iso(1) identified-organization(3) dod(6)internet(1)
+      security(5) mechanisms(5) pkix(7) id-mod(0)id-pkix1-explicit(18)};
+ 
+  CertificationRequestInfo ::= SEQUENCE {
+    version INTEGER,
+    subject Name,
+    subjectPKInfo SubjectPublicKeyInfo,
+    attributes [0]Attributes
+  }
+  
+  SubjectPublicKeyInfo ::= SEQUENCE {
+    algorithm AlgorithmIdentifier,
+    subjectPublicKey BIT STRING
+  }
+  
+  Attributes ::= SET OF Attribute
+  
+  Attribute ::= SEQUENCE {
+    type OBJECT IDENTIFIER,
+    values   ANY DEFINED BY type
+  }
+  
+  CertificationRequest ::= SEQUENCE {
+    certificationRequestInfo CertificationRequestInfo,
+    signatureAlgorithm AlgorithmIdentifier,
+    signature BIT STRING
+  }
+END
+```
 # <a name="app2"></a>Приложение Б (обязательное)
-## Отличительные правила кодирования
+# Отличительные правила кодирования
 
 Кодирование значений типов АСН.1 по отличительным правилам является 
 базовым, определенным в ГОСТ 34.974, с ограничениями, установленными в 
@@ -542,4 +552,3 @@ RSA Laboratories, 2000
 Проект руководящего документа Республики Беларусь «Банковские технологии. 
 Протоколы формирования общего ключа» Мн.: Национальный банк Республики 
 Беларусь, 1997
-

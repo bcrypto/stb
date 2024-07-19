@@ -1,4 +1,4 @@
---------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 **СТБ 34.101.26-2012**
 
 **Информационные технологии и безопасность**
@@ -13,20 +13,27 @@
 
 **Online certificate status protocol (OCSP)**
 
---------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
-# <a name="con"></a> Содержание
+# Содержание
 
-### [1 Область применения](#logo)
-### [2 Нормативные ссылки](#refs)
-### [3 Термины и определения, обозначения](#terms)
-### [4 Сокращения](#defs)
-### [5 Общие положения](#common)
-### [6 Онлайновый протокол проверки статуса сертификата](#status)
-### [Приложение А (справочное) Ключевые слова](#app1)
-### [Приложение Б (обязательное) Модуль AСН.1](#app2)
-### [Приложение В (обязательное) Отличительные правила кодирования](#app3)
+[1 Область применения](#logo)
 
+[2 Нормативные ссылки](#refs)
+
+[3 Термины и определения, обозначения](#terms)
+
+[4 Сокращения](#defs)
+
+[5 Общие положения](#common)
+
+[6 Онлайновый протокол проверки статуса сертификата](#status)
+
+[Приложение А (справочное) Ключевые слова](#app1)
+
+[Приложение Б (обязательное) Модуль AСН.1](#app2)
+
+[Приложение В (обязательное) Отличительные правила кодирования](#app3)
 
 # 1 <a name="logo"></a>Область применения
 
@@ -785,22 +792,18 @@ ServiceLocator ::= SEQUENCE {
 ```
 OCSP {iso(1) identified-organization(3) dod(6) internet(1)
   security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-ocsp(14)}
-
 DEFINITIONS EXPLICIT TAGS ::=
-
 BEGIN
   IMPORTS
-  
-  AuthorityInfoAccessSyntax, CRLReason, GeneralName
-  FROM PKIX1Implicit88 {iso(1) identified-organization(3)
-    dod(6) internet(1) security(5) mechanisms(5) pkix(7) id-mod(0) 
-    id-pkix1-implicit(19)}
-
-  Name, CertificateSerialNumber, Extensions, id-kp, id-ad-ocsp, Certificate, 
-  AlgorithmIdentifier 
-  FROM PKIX1Explicit88 {iso(1) identified-organization(3)
-    dod(6) internet(1) security(5) mechanisms(5) pkix(7) id-mod(0) 
-    id-pkix1-explicit(18)}; 
+    AuthorityInfoAccessSyntax, CRLReason, GeneralName
+      FROM PKIX1Implicit88 {iso(1) identified-organization(3)
+        dod(6) internet(1) security(5) mechanisms(5) pkix(7) id-mod(0) 
+        id-pkix1-implicit(19)}
+    Name, CertificateSerialNumber, Extensions, id-kp, id-ad-ocsp, Certificate, 
+      AlgorithmIdentifier 
+      FROM PKIX1Explicit88 {iso(1) identified-organization(3)
+        dod(6) internet(1) security(5) mechanisms(5) pkix(7) id-mod(0) 
+        id-pkix1-explicit(18)}; 
   
   OCSPRequest ::= SEQUENCE {
     tbsRequest                     TBSRequest,

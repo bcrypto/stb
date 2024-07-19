@@ -1,4 +1,4 @@
--------------------------------------------------------------
+-------------------------------------------------------------------------------
 **CТБ 34.101.82-2019**
 
 **Информационные технологии и безопасность**
@@ -13,7 +13,7 @@
 
 **Time-Stamp Protocol**
 
--------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 # Содержание
 
@@ -620,7 +620,7 @@
 сообщений, а также описание используемых для них флагов и данных приведено в
 таблице [1](#table1).
 
-<a name="table1"></a>Таблица 1 – Сообщения и их значения
+**<a name="table1"></a>Таблица 1 – Сообщения и их значения**
 
 | Наименование сообщения  | Флаг  | Данные | Примечание|
 |:--|:-:| ------------------------------|------------------------------|
@@ -749,100 +749,102 @@ MIME могут быть отправлены и получены с помощ�
 выполнить повторный запрос.
 
 # <a name="appendix"></a>Приложение А (обязательное)
-## Модуль АСН.1
+# Модуль АСН.1
 
-    PKIXTSP {iso(1) identified-organization(3) dod(6) internet(1)
-      security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-tsp(13)}
-    DEFINITIONS IMPLICIT TAGS ::=
-    BEGIN
-      -- EXPORTS ALL --
-      IMPORTS
-        Extensions, AlgorithmIdentifier 
-          FROM PKIX1Explicit88 {iso(1) identified-organization(3) dod(6) 
-            internet(1) security(5) mechanisms(5) pkix(7) id-mod(0) 
-            id-pkix1-explicit-88(1)}
-        GeneralName 
-          FROM PKIX1Implicit88 {iso(1) identified-organization(3) dod(6) 
-            internet(1) security(5) mechanisms(5) pkix(7) id-mod(0) 
-            id-pkix1-implicit-88(2)}
-        ContentInfo 
-          FROM CryptographicMessageSyntax {iso(1) member-body(2) us(840) 
-            rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) modules(0) cms(1)}
-        PKIFreeText 
-          FROM PKIXCMP {iso(1) identified-organization(3) dod(6) internet(1) 
-           security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-cmp(9)};
-  
-      id-ct-TSTInfo OBJECT IDENTIFIER ::= {iso(1) member-body(2)
-        us(840) rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) ct(1) 4}
-  
-      TimeStampReq ::= SEQUENCE {
-        version         INTEGER { v1(1) },
-        messageImprint  MessageImprint,
-        reqPolicy       TSAPolicyId OPTIONAL,
-        nonce           INTEGER OPTIONAL,
-        certReq         BOOLEAN DEFAULT FALSE,
-        extensions      [0] IMPLICIT Extensions OPTIONAL
-      }
-  
-      MessageImprint ::= SEQUENCE {
-        hashAlgorithm  AlgorithmIdentifier,
-        hashedMessage  OCTET STRING
-      }
-  
-      TSAPolicyId ::= OBJECT IDENTIFIER
-  
-      TimeStampResp ::= SEQUENCE {
-        status          PKIStatusInfo,
-        timeStampToken  TimeStampToken OPTIONAL
-      }
-  
-      PKIStatusInfo ::= SEQUENCE {
-        status        PKIStatus,
-        statusString  PKIFreeText OPTIONAL,
-        failInfo      PKIFailureInfo OPTIONAL
-      }
-  
-      PKIStatus ::= INTEGER {
-        granted (0),
-        grantedWithMods (1),
-        rejection (2),
-        waiting (3),
-        revocationWarning (4),
-        revocationNotification (5)
-      }
-  
-      PKIFailureInfo ::= BIT STRING {
-        badAlg (0),
-        badRequest (2),
-        badDataFormat (5),
-        timeNotAvailable (14),
-        unacceptedPolicy (15),
-        unacceptedExtension (16),
-        addInfoNotAvailable (17),
-        systemFailure (25)
-      }
-  
-      TimeStampToken ::= ContentInfo
-  
-      TSTInfo ::= SEQUENCE {
-        version         INTEGER {v1(1)},
-        policy          TSAPolicyId,
-        messageImprint  MessageImprint,
-        serialNumber    INTEGER,
-        genTime         GeneralizedTime,
-        accuracy        Accuracy OPTIONAL,
-        ordering        BOOLEAN DEFAULT FALSE,
-        nonce           INTEGER OPTIONAL,
-        tsa             [0] GeneralName OPTIONAL,
-        extensions      [1] IMPLICIT Extensions OPTIONAL
-      }
-  
-      Accuracy ::= SEQUENCE {
-        seconds  INTEGER OPTIONAL,
-        millis   [0] INTEGER (1..999) OPTIONAL,
-        micros   [1] INTEGER (1..999) OPTIONAL
-      }
-    END
+```
+PKIXTSP {iso(1) identified-organization(3) dod(6) internet(1)
+  security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-tsp(13)}
+DEFINITIONS IMPLICIT TAGS ::=
+BEGIN
+  -- EXPORTS ALL --
+  IMPORTS
+    Extensions, AlgorithmIdentifier 
+      FROM PKIX1Explicit88 {iso(1) identified-organization(3) dod(6) 
+        internet(1) security(5) mechanisms(5) pkix(7) id-mod(0) 
+        id-pkix1-explicit-88(1)}
+    GeneralName 
+      FROM PKIX1Implicit88 {iso(1) identified-organization(3) dod(6) 
+        internet(1) security(5) mechanisms(5) pkix(7) id-mod(0) 
+        id-pkix1-implicit-88(2)}
+    ContentInfo 
+      FROM CryptographicMessageSyntax {iso(1) member-body(2) us(840) 
+        rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) modules(0) cms(1)}
+    PKIFreeText 
+      FROM PKIXCMP {iso(1) identified-organization(3) dod(6) internet(1) 
+       security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-cmp(9)};
+
+  id-ct-TSTInfo OBJECT IDENTIFIER ::= {iso(1) member-body(2)
+    us(840) rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) ct(1) 4}
+
+  TimeStampReq ::= SEQUENCE {
+    version         INTEGER { v1(1) },
+    messageImprint  MessageImprint,
+    reqPolicy       TSAPolicyId OPTIONAL,
+    nonce           INTEGER OPTIONAL,
+    certReq         BOOLEAN DEFAULT FALSE,
+    extensions      [0] IMPLICIT Extensions OPTIONAL
+  }
+
+  MessageImprint ::= SEQUENCE {
+    hashAlgorithm  AlgorithmIdentifier,
+    hashedMessage  OCTET STRING
+  }
+
+  TSAPolicyId ::= OBJECT IDENTIFIER
+
+  TimeStampResp ::= SEQUENCE {
+    status          PKIStatusInfo,
+    timeStampToken  TimeStampToken OPTIONAL
+  }
+
+  PKIStatusInfo ::= SEQUENCE {
+    status        PKIStatus,
+    statusString  PKIFreeText OPTIONAL,
+    failInfo      PKIFailureInfo OPTIONAL
+  }
+
+  PKIStatus ::= INTEGER {
+    granted (0),
+    grantedWithMods (1),
+    rejection (2),
+    waiting (3),
+    revocationWarning (4),
+    revocationNotification (5)
+  }
+
+  PKIFailureInfo ::= BIT STRING {
+    badAlg (0),
+    badRequest (2),
+    badDataFormat (5),
+    timeNotAvailable (14),
+    unacceptedPolicy (15),
+    unacceptedExtension (16),
+    addInfoNotAvailable (17),
+    systemFailure (25)
+  }
+
+  TimeStampToken ::= ContentInfo
+
+  TSTInfo ::= SEQUENCE {
+    version         INTEGER {v1(1)},
+    policy          TSAPolicyId,
+    messageImprint  MessageImprint,
+    serialNumber    INTEGER,
+    genTime         GeneralizedTime,
+    accuracy        Accuracy OPTIONAL,
+    ordering        BOOLEAN DEFAULT FALSE,
+    nonce           INTEGER OPTIONAL,
+    tsa             [0] GeneralName OPTIONAL,
+    extensions      [1] IMPLICIT Extensions OPTIONAL
+  }
+
+  Accuracy ::= SEQUENCE {
+    seconds  INTEGER OPTIONAL,
+    millis   [0] INTEGER (1..999) OPTIONAL,
+    micros   [1] INTEGER (1..999) OPTIONAL
+  }
+END
+```
 
 # <a name="bib"></a>Библиография
 

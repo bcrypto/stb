@@ -1,4 +1,4 @@
--------------------------------------------------------------
+-------------------------------------------------------------------------------
 **СТБ 34.101.81-2019**
 
 **Информационные технологии и безопасность**
@@ -13,7 +13,7 @@
 
 **Data validation and certification server protocols**
 
--------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 # Содержание
 
@@ -744,11 +744,10 @@ certs может вообще не возвращаться.
 атрибуту назначается следующий идентификатор:
 
     id-aa-dvcs-dvc OBJECT IDENTIFIER ::= {iso(1) member-body(2)
-                us(840) rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) aa(2) 29} 
+      us(840) rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) aa(2) 29} 
 
 # <a name="appendix"></a>Приложение А
-
-## Модуль АСН.1
+# Модуль АСН.1
 
 ```
 PKIXDVCS {iso(1) identified-organization(3) dod(6) internet(1)
@@ -758,14 +757,16 @@ BEGIN
   -- EXPORTS ALL --
   IMPORTS
     Extension, Extensions, AlgorithmIdentifier
-    FROM PKIX1Explicit88 {iso(1) identified-organization(3) dod(6) internet(1) 
-      security(5) mechanisms(5) pkix(7) id-mod(0) id-pkix1-explicit-88(1)}
-   GeneralName, PolicyInformation
-    FROM PKIX1Implicit88 {iso(1) identified-organization(3) dod(6) internet(1) 
-      security(5) mechanisms(5) pkix(7) id-mod(0) id-pkix1-implicit-88(2)}
-   PKIStatusInfo, PKIStatusField 
-    FROM PKIXCMP {iso(1) identified-organization(3) dod(6) internet(1)
-      security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-cmp(9)}
+      FROM PKIX1Explicit88 {iso(1) identified-organization(3) dod(6) 
+        internet(1) security(5) mechanisms(5) pkix(7) id-mod(0) 
+        id-pkix1-explicit-88(1)}
+    GeneralName, PolicyInformation
+      FROM PKIX1Implicit88 {iso(1) identified-organization(3) dod(6) 
+        internet(1) security(5) mechanisms(5) pkix(7) id-mod(0) 
+        id-pkix1-implicit-88(2)}
+    PKIStatusInfo, PKIStatusField 
+      FROM PKIXCMP {iso(1) identified-organization(3) dod(6) internet(1)
+        security(5) mechanisms(5) pkix(7) id-mod(0) id-mod-cmp(9)}
 
   ContentInfo
     FROM CryptographicMessageSyntax {iso(1) member-body(2) us(840)
