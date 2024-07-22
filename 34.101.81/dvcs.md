@@ -31,7 +31,7 @@
 
 [7 Форматы](#formats)
 
-[Приложение А Модуль АСН.1](#appendix)
+[Приложение А Модуль АСН.1](#app1)
 
 [Библиография](#bib)
 
@@ -746,7 +746,7 @@ certs может вообще не возвращаться.
     id-aa-dvcs-dvc OBJECT IDENTIFIER ::= {iso(1) member-body(2)
       us(840) rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) aa(2) 29} 
 
-# <a name="appendix"></a>Приложение А
+# <a name="app1"></a>Приложение А
 # Модуль АСН.1
 
 ```
