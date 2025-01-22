@@ -1512,7 +1512,7 @@ XML-Enc (от англ. XML Encryption).
 Беларусь Банковские технологии. Протоколы формирования общего ключа. – 
 Мн.: Национальный банк Республики Беларусь, 1997 
 
-[2] <a name="bib2"></a>  Bray T., Paoli J., Sperberg-McQueen C.M., 
+[2] <a name="bib2"></a> Bray T., Paoli J., Sperberg-McQueen C.M., 
 Maler E., Yergeau F., Cowan J. Extensible Markup Language (XML) 1.1 (Second 
 Edition). W3C Recommendation (2006). Avail. at: http://www.w3.org/TR/xml11
 (Расширяемый язык разметки (XML) 1.1 (второе издание))
@@ -1529,7 +1529,7 @@ http://www.w3.org/TR/xmldsig-core1/.
 (Синтаксис и обработка подписи XML Version 1.1)
 
 [5] <a name="bib5"></a>  Eastlake D., Reagle J., Imamura T., Dillaway 
-B., Simon E. XML Encryption Syntax and Pro-cessing. W3C Recommendation 
+B., Simon E. XML Encryption Syntax and Processing. W3C Recommendation 
 (2002). Avail. at: http://www.w3.org/TR/xmlenc-core/. 
 (Синтаксис и обработка XML-шифрования.)
 

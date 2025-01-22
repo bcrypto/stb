@@ -4602,7 +4602,7 @@ SYNTAX` может содержать только АС с атрибутами 
 
 [1] <a name="bib1"></a>
 ITU-T X.509 (2008) | ISO/IEC 9594-8:2008 Information technology – 
-Open Systems Interconnec-tion – The Directory: Public-key and attribute 
+Open Systems Interconnection – The Directory: Public-key and attribute 
 certificate frameworks 
 (Информационные технологии. Взаимосвязь открытых систем. Директория: 
 инфраструктуры открытых ключей и атрибутных сертификатов) 
@@ -4614,7 +4614,7 @@ Abstract Syntax Notation One
 
 [3] <a name="bib3"></a>
 ITU-T X.501 (2008) | ISO/IEC 9594-2:2008 Information Technology – Open 
-Systems Interconnec-tion – The Directory: Models 
+Systems Interconnection – The Directory: Models 
 (Информационные технологии. Взаимосвязь открытых систем. Директория: 
 Модели) 
 
@@ -4626,7 +4626,7 @@ and Transport (EDIFACT) – Application level syntax rules
 
 [5] <a name="bib5"></a>
 ITU-T X.520 (2008) | ISO/IEC 9594-6:2008 Information Technology – 
-Open Systems Interconnec-tion – The Directory: Selected Attribute Types 
+Open Systems Interconnection – The Directory: Selected Attribute Types 
 (Информационные технологии. Взаимосвязь открытых систем. Директория: 
 Избранные типы атрибутов) 
 
