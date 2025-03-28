@@ -16,4 +16,6 @@
 | Приложение A, тип `CertEtcToken` | `osсpcertid [6] IMPLICIT CertId,` | `ocspcertid [6] IMPLICIT CertId,` |
 | Приложение A, тип `CertEtcToken` | `oscpresponce [7] IMPLICIT OCSPResponse,` | `ocspresponce [7] IMPLICIT OCSPResponse,` |
 | Приложение A, тип `ServiceType` | `ServiceType ::= ENUMERATED {cpd(1), vsd(2), cpkc(3), ccpd(4)}` | `ServiceType ::= ENUMERATED {cpd(1), vsd(2), vpkc(3), ccpd(4)}` |
+| Приложение A, инструкция `IMPORTS` | `GeneralName, PolicyInformation FROM PKIX1Implicit88` | `GeneralName, GeneralNames, PolicyInformation FROM PKIX1Implicit88` |
+| Приложение A, инструкция `IMPORTS` | `ContentInfo FROM CryptographicMessageSyntax` | `ContentInfo, DigestAlgorithmIdentifier FROM CryptographicMessageSyntax` |
 
