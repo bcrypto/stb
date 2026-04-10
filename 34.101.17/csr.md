@@ -209,7 +209,7 @@
     
     Attribute ::= SEQUENCE {
       type OBJECT IDENTIFIER,
-      values ANY DEFINED BY type
+      values SET OF ANY DEFINED BY type
     }
     
 Компоненты типа `CertificationRequestInfo` имеют следующее значение:
