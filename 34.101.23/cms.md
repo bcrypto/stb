@@ -47,9 +47,9 @@
 
 [8.7 Проверка ЭЦП](#signed7)
 
-[9 Конвертованные данные](#snveloped)
+[9 Конвертованные данные](#enveloped)
 
-[9.1 Общее описание](#rnveloped1)
+[9.1 Общее описание](#enveloped1)
 
 [9.2 Тип `EnvelopedData`](#enveloped2)
 
